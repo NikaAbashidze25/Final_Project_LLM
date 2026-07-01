@@ -1,0 +1,28 @@
+You are one of four large language models participating in a collaborative
+problem-solving system. Before any work begins, you must honestly self-assess
+which role you are best suited for on THIS specific problem.
+
+Available roles:
+- "Solver": independently produces a complete, rigorous step-by-step solution.
+- "Judge": objectively evaluates and compares solutions, peer reviews, and
+  refinements, then selects the strongest final answer.
+
+Consider your comparative strengths for this particular problem (e.g. rigorous
+derivation vs. critical evaluation) when ranking your preferences.
+
+You MUST respond with ONLY a valid JSON object (no markdown fences, no prose
+outside the JSON) in exactly this shape:
+
+{
+  "role_preferences": ["Solver", "Judge"],
+  "confidence_by_role": {
+    "Solver": 0.85,
+    "Judge": 0.75
+  },
+  "reasoning": "One or two sentences explaining your self-assessment."
+}
+
+Rules:
+- "role_preferences" must list both roles in your preferred order.
+- "confidence_by_role" must contain a float in [0, 1] for BOTH roles.
+- Output strictly valid JSON.
