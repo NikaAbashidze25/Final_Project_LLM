@@ -1,0 +1,202 @@
+[
+  {
+    "id": "prob_001",
+    "category": "mathematical_reasoning",
+    "problem": "In how many ways can you tile a 3x8 rectangle completely with 2x1 dominoes (dominoes may be placed horizontally or vertically)?",
+    "correct_answer": "153",
+    "difficulty": "hard",
+    "source_notes": "Classic combinatorics tiling problem; transfer-matrix / recurrence f(n)=4f(n-2)-f(n-4)."
+  },
+  {
+    "id": "prob_002",
+    "category": "mathematical_reasoning",
+    "problem": "How many trailing zeros are there at the end of 100! (100 factorial)?",
+    "correct_answer": "24",
+    "difficulty": "medium",
+    "source_notes": "floor(100/5)+floor(100/25)=20+4=24."
+  },
+  {
+    "id": "prob_003",
+    "category": "mathematical_reasoning",
+    "problem": "How many positive integers from 1 to 1000 inclusive are divisible by none of 2, 3, or 5?",
+    "correct_answer": "266",
+    "difficulty": "hard",
+    "source_notes": "Inclusion-exclusion: 1000 - 734 = 266."
+  },
+  {
+    "id": "prob_004",
+    "category": "mathematical_reasoning",
+    "problem": "What is the sum of all positive divisors of 360 (including 1 and 360)?",
+    "correct_answer": "1170",
+    "difficulty": "medium",
+    "source_notes": "360=2^3*3^2*5; sigma=(15)(13)(6)=1170."
+  },
+  {
+    "id": "prob_005",
+    "category": "mathematical_reasoning",
+    "problem": "Two distinct integers are chosen at random from the set {1,2,...,50}. What is the probability that their sum is even? Give the answer as a reduced fraction.",
+    "correct_answer": "24/49",
+    "difficulty": "hard",
+    "source_notes": "(C(25,2)+C(25,2))/C(50,2)=600/1225=24/49."
+  },
+  {
+    "id": "prob_006",
+    "category": "mathematical_reasoning",
+    "problem": "How many 5-digit positive integers have strictly increasing digits (each digit greater than the one before it)?",
+    "correct_answer": "126",
+    "difficulty": "hard",
+    "source_notes": "Choose 5 distinct digits from 1-9 (0 cannot appear): C(9,5)=126."
+  },
+  {
+    "id": "prob_007",
+    "category": "mathematical_reasoning",
+    "problem": "What are the last two digits of 7^2025?",
+    "correct_answer": "07",
+    "difficulty": "hard",
+    "source_notes": "7 mod 100 has period 4: 07,49,43,01; 2025 mod 4 = 1 -> 07."
+  },
+  {
+    "id": "prob_008",
+    "category": "physics_reasoning",
+    "problem": "A uniform ladder leans against a frictionless vertical wall, making a 60-degree angle with the horizontal floor. What is the minimum coefficient of static friction between the ladder and the floor needed to keep it from slipping? Give a numeric value to 3 decimals.",
+    "correct_answer": "0.289",
+    "difficulty": "very_hard",
+    "source_notes": "mu_min = 1/(2 tan(theta)) = 1/(2 tan60) = 0.2887."
+  },
+  {
+    "id": "prob_009",
+    "category": "physics_reasoning",
+    "problem": "A ball is dropped from rest from a height of 20 m. Using g = 9.8 m/s^2 and ignoring air resistance, how long (in seconds) does it take to reach the ground? Give the answer to 2 decimals.",
+    "correct_answer": "2.02",
+    "difficulty": "medium",
+    "source_notes": "t = sqrt(2h/g) = sqrt(40/9.8) = 2.02 s."
+  },
+  {
+    "id": "prob_010",
+    "category": "physics_reasoning",
+    "problem": "A projectile is launched from the ground at 20 m/s at an angle of 30 degrees above the horizontal. Using g = 9.8 m/s^2, what is its horizontal range in meters (to 1 decimal)?",
+    "correct_answer": "35.3",
+    "difficulty": "hard",
+    "source_notes": "R = v^2 sin(2θ)/g = 400*sin60/9.8 = 35.35 m."
+  },
+  {
+    "id": "prob_011",
+    "category": "physics_reasoning",
+    "problem": "A 6-ohm resistor and a 3-ohm resistor are connected in parallel, and that combination is in series with a 4-ohm resistor across a 12 V ideal battery. What is the total current (in amperes) drawn from the battery?",
+    "correct_answer": "2",
+    "difficulty": "medium",
+    "source_notes": "Parallel 6||3 = 2 ohm; +4 = 6 ohm; I = 12/6 = 2 A."
+  },
+  {
+    "id": "prob_012",
+    "category": "physics_reasoning",
+    "problem": "A block slides down a frictionless incline angled at 30 degrees to the horizontal. Using g = 9.8 m/s^2, what is the magnitude of its acceleration along the incline (in m/s^2, to 1 decimal)?",
+    "correct_answer": "4.9",
+    "difficulty": "medium",
+    "source_notes": "a = g sin(30) = 9.8*0.5 = 4.9 m/s^2."
+  },
+  {
+    "id": "prob_013",
+    "category": "physics_reasoning",
+    "problem": "What is the energy of a single photon of light with a wavelength of 500 nm? Use h = 6.626e-34 J·s and c = 3.0e8 m/s. Give the answer in joules in scientific notation to 2 significant figures.",
+    "correct_answer": "3.98e-19",
+    "difficulty": "hard",
+    "source_notes": "E = hc/lambda = (6.626e-34*3e8)/500e-9 = 3.98e-19 J (~2.48 eV)."
+  },
+  {
+    "id": "prob_014",
+    "category": "physics_reasoning",
+    "problem": "A 1 kg mass attached to an ideal spring of stiffness k = 100 N/m oscillates in simple harmonic motion. What is the period of oscillation in seconds (to 3 decimals)?",
+    "correct_answer": "0.628",
+    "difficulty": "hard",
+    "source_notes": "T = 2*pi*sqrt(m/k) = 2*pi*0.1 = 0.628 s."
+  },
+  {
+    "id": "prob_015",
+    "category": "logic_puzzle",
+    "problem": "In the classic Einstein riddle (five houses of different colors, five owners of different nationalities, each drinking a different beverage, smoking a different brand, and keeping a different pet, constrained by the standard 15 clues), which nationality owns the fish?",
+    "correct_answer": "German",
+    "difficulty": "very_hard",
+    "source_notes": "The famous 'zebra puzzle'; the German owns the fish."
+  },
+  {
+    "id": "prob_016",
+    "category": "logic_puzzle",
+    "problem": "On an island of knights (who always tell the truth) and knaves (who always lie), person A says: 'We are both knaves' (referring to A and B). What are A and B?",
+    "correct_answer": "A is a knave and B is a knight",
+    "difficulty": "hard",
+    "source_notes": "If A were a knight the statement would be false (contradiction); so A is a knave, making the statement false, so they are NOT both knaves, hence B is a knight."
+  },
+  {
+    "id": "prob_017",
+    "category": "logic_puzzle",
+    "problem": "A farmer must take a fox, a chicken, and a sack of grain across a river. The boat holds the farmer plus only one item. The fox cannot be left alone with the chicken, and the chicken cannot be left alone with the grain. What is the minimum number of one-way river crossings needed to get everything across safely?",
+    "correct_answer": "7",
+    "difficulty": "hard",
+    "source_notes": "Classic puzzle; minimum 7 crossings."
+  },
+  {
+    "id": "prob_018",
+    "category": "logic_puzzle",
+    "problem": "What is the minimum number of people that must be in a room so that the probability that at least two share a birthday exceeds 50%? (Assume 365 equally likely birthdays.)",
+    "correct_answer": "23",
+    "difficulty": "hard",
+    "source_notes": "Birthday paradox: 23 people give ~50.7%."
+  },
+  {
+    "id": "prob_019",
+    "category": "logic_puzzle",
+    "problem": "You have 12 visually identical balls; exactly one is counterfeit and differs in weight (you do not know whether it is heavier or lighter). Using only a balance scale, what is the minimum number of weighings that guarantees you can identify the counterfeit ball AND determine whether it is heavier or lighter?",
+    "correct_answer": "3",
+    "difficulty": "very_hard",
+    "source_notes": "Classic 12-ball problem; 3 weighings suffice and are necessary."
+  },
+  {
+    "id": "prob_020",
+    "category": "logic_puzzle",
+    "problem": "In the Cheryl's Birthday logic puzzle, Cheryl gives Albert the month and Bernard the day of her birthday, with possible dates: May 15, May 16, May 19, June 17, June 18, July 14, July 16, August 14, August 15, August 17. Albert: 'I don't know, but I know Bernard doesn't know either.' Bernard: 'Now I know.' Albert: 'Now I know too.' What is Cheryl's birthday?",
+    "correct_answer": "July 16",
+    "difficulty": "very_hard",
+    "source_notes": "Famous 2015 SASMO problem; answer is July 16."
+  },
+  {
+    "id": "prob_021",
+    "category": "game_theory",
+    "problem": "In a sealed-bid second-price (Vickrey) auction for a single item, where the highest bidder wins but pays the second-highest bid, what is each bidder's optimal (dominant) bidding strategy?",
+    "correct_answer": "Bid your true valuation",
+    "difficulty": "hard",
+    "source_notes": "Truthful bidding is the dominant strategy in a second-price auction."
+  },
+  {
+    "id": "prob_022",
+    "category": "game_theory",
+    "problem": "In a one-shot Prisoner's Dilemma where mutual cooperation pays each player 3, mutual defection pays each 1, and unilateral defection pays the defector 5 and the cooperator 0, what is the Nash equilibrium strategy profile?",
+    "correct_answer": "Both players defect",
+    "difficulty": "medium",
+    "source_notes": "Defect is strictly dominant for both; (Defect, Defect) is the unique Nash equilibrium."
+  },
+  {
+    "id": "prob_023",
+    "category": "game_theory",
+    "problem": "Two players alternate removing 1, 2, or 3 stones from a single pile of 21 stones. The player who removes the last stone wins. With optimal play, does the first or the second player win, and what is the winning first move?",
+    "correct_answer": "First player wins by taking 1 stone",
+    "difficulty": "hard",
+    "source_notes": "Losing positions are multiples of 4; 21 mod 4 = 1, so first player takes 1 to leave 20."
+  },
+  {
+    "id": "prob_024",
+    "category": "game_theory",
+    "problem": "Two identical firms compete in a Cournot duopoly facing inverse demand P = 100 - Q (where Q is total quantity) with constant marginal cost 10 and no fixed costs. In the Nash equilibrium, how many units does each firm produce?",
+    "correct_answer": "30",
+    "difficulty": "very_hard",
+    "source_notes": "Cournot symmetric quantity q = (a-c)/3 = 90/3 = 30 each; price = 40."
+  },
+  {
+    "id": "prob_025",
+    "category": "game_theory",
+    "problem": "In the game of Nim with three heaps containing 3, 4, and 5 stones (players alternate removing any positive number of stones from a single heap; the player taking the last stone wins), does the first player have a winning strategy?",
+    "correct_answer": "Yes",
+    "difficulty": "hard",
+    "source_notes": "Nim-sum 3 XOR 4 XOR 5 = 2 != 0, so the first player wins."
+  }
+]
