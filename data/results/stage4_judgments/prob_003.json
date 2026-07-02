@@ -1,0 +1,8 @@
+{
+  "judge_model": "gpt-4",
+  "winner": "solver_3",
+  "confidence": 0.92,
+  "reasoning": "All three solvers give the correct final answer, 266, using valid inclusion-exclusion with correct counts: 500, 333, 200 for multiples of 2, 3, 5; 166, 100, 66 for pairwise overlaps; 33 for the triple overlap; union count 734; complement 1000 - 734 = 266. Solver_1 and solver_2 are fully correct and well justified, and their refinements appropriately preserve the answer while adding minor clarification. Solver_3 is equally correct and, in the refined solution, adds a correct independent modulo-30 residue verification, giving slightly stronger justification without changing the answer unnecessarily. Thus solver_3 is the strongest overall, though the margin is small because all solutions are correct.",
+  "correct_answer": "266",
+  "_fallback": false
+}
