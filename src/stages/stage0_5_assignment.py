@@ -1,62 +1,52 @@
-"""Stage 0.5: Algorithmic Role Assignment.
+"""Stage 0.5: Algorithmic (deterministic) Role Assignment.
 
-A deterministic algorithm (no LLM call) turns the four Stage 0 self-assessments
-into a final role mapping: exactly one Judge and three Solvers. Reproducible
-given the same inputs, per the README's requirements.
+A pure, reproducible algorithm -- no LLM -- assigns exactly one Judge and three
+Solvers from the four models, based on their Stage 0 self-assessments.
+
+Rules:
+  * Exactly 1 Judge, exactly 3 Solvers.
+  * The Judge seat goes to the model that listed "Judge" in its preferences and
+    has the highest Judge confidence. Models that did not list Judge are
+    considered only after those that did.
+  * Ties are broken by a fixed model priority order (config.MODEL_PRIORITY).
+  * Same inputs always produce the same output.
 """
 from __future__ import annotations
 
-from typing import Optional
+import logging
+from typing import Any
 
-from .. import config, utils
+from .. import config
 
 
-def assign_roles(
-    assessments: dict[str, Optional[utils.RoleAssessment]],
-) -> dict[str, str]:
-    """Deterministically map the 4 canonical models to {Solver_1..3, Judge}.
+def assign_roles(assessments: dict[str, dict], logger: logging.Logger) -> dict[str, str]:
+    """Return {"Solver_1": model, "Solver_2": model, "Solver_3": model, "Judge": model}."""
+    priority_index = {m: i for i, m in enumerate(config.MODEL_PRIORITY)}
 
-    Rules (see README Stage 0.5):
-      - Exactly 1 model becomes Judge, the other 3 become Solvers.
-      - Prefer models that ranked "Judge" first with the highest
-        confidence_by_role["Judge"] for the Judge seat.
-      - Ties (including missing/failed assessments, treated as lowest
-        priority) are broken using `config.MODEL_PRIORITY`.
-    """
-    candidates = list(config.ALL_MODELS)
-    priority_index = {identity: i for i, identity in enumerate(config.MODEL_PRIORITY)}
+    def judge_sort_key(model_id: str):
+        a = assessments[model_id]
+        listed_judge = "Judge" in a.get("role_preferences", [])
+        judge_conf = float(a.get("confidence_by_role", {}).get("Judge", 0.0))
+        # Sort so the best Judge candidate is first:
+        #  1) prefer those who listed Judge (listed first -> sort key False < True),
+        #  2) then higher judge confidence,
+        #  3) then fixed priority order (lower index first).
+        return (not listed_judge, -judge_conf, priority_index.get(model_id, 99))
 
-    def judge_rank_key(identity: str) -> tuple:
-        assessment = assessments.get(identity)
-        if assessment is None:
-            # No valid self-assessment: least eligible for Judge, but still a
-            # valid tie-break target via priority order.
-            prefers_judge = False
-            judge_confidence = -1.0
-        else:
-            prefers_judge = (
-                bool(assessment.role_preferences)
-                and assessment.role_preferences[0] == "Judge"
-            )
-            judge_confidence = assessment.confidence_by_role.get("Judge", 0.0)
-        # Sort descending on (prefers_judge, judge_confidence), ascending on
-        # priority index for deterministic tie-breaking.
-        return (not prefers_judge, -judge_confidence, priority_index.get(identity, len(priority_index)))
+    ranked = sorted(config.ALL_MODELS, key=judge_sort_key)
+    judge = ranked[0]
 
-    ordered = sorted(candidates, key=judge_rank_key)
-    judge = ordered[0]
-    solvers = [identity for identity in config.ALL_MODELS if identity != judge]
-    # Keep solver ordering deterministic via MODEL_PRIORITY rather than
-    # assessment order.
-    solvers.sort(key=lambda identity: priority_index.get(identity, len(priority_index)))
+    # Remaining three become solvers, ordered deterministically by priority.
+    solvers = sorted(
+        [m for m in config.ALL_MODELS if m != judge],
+        key=lambda m: priority_index.get(m, 99),
+    )
 
-    return {
+    assignment = {
         "Solver_1": solvers[0],
         "Solver_2": solvers[1],
         "Solver_3": solvers[2],
         "Judge": judge,
     }
-
-
-def save_assignment(problem_id: str, assignment: dict[str, str]) -> None:
-    utils.save_json(assignment, config.STAGE_DIRS["stage0"] / f"{problem_id}_role_assignment.json")
+    logger.info("stage0.5 | role assignment: %s", assignment)
+    return assignment

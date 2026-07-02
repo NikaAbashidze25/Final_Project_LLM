@@ -1,91 +1,68 @@
 """Stage 3: Refinement Based on Feedback.
 
-Each surviving Solver receives the peer reviews written about their Stage 1
-solution and produces a refined solution that explicitly addresses every
-critique (accept-and-fix, or reject-with-justification).
+Each Solver receives the two peer reviews written about its solution and produces
+a refined solution that addresses every critique point-by-point.
 """
 from __future__ import annotations
 
+import json
 import logging
-from typing import Optional
+from typing import Any
 
-from .. import config, utils
+from .. import utils
 from ..models import get_model
-from .stage2_review import reviews_for_target
-
-
-def _critique_summary(review: utils.Review) -> str:
-    if review.evaluation.errors:
-        first = review.evaluation.errors[0]
-        return f"[{first.location}] {first.description}"
-    if review.evaluation.weaknesses:
-        return review.evaluation.weaknesses[0]
-    return "No specific critique raised."
-
-
-def _build_user_prompt(
-    problem: dict, solution: utils.Solution, received_reviews: list[utils.Review]
-) -> str:
-    steps = "\n".join(
-        f"  Step {step.step}: {step.description} (reasoning: {step.reasoning})"
-        for step in solution.solution_steps
-    )
-    critiques_text = "\n\n".join(
-        f"  From {review.reviewer_id} (assessment: {review.overall_assessment}):\n"
-        f"    Weaknesses: {review.evaluation.weaknesses}\n"
-        f"    Errors: {[e.model_dump() for e in review.evaluation.errors]}\n"
-        f"    Suggested changes: {review.evaluation.suggested_changes}"
-        for review in received_reviews
-    ) or "  (No peer reviews were received; still confirm your solution is complete.)"
-
-    return (
-        f"solver_id: {solution.solver_id}\n\n"
-        f"Problem:\n{problem['problem']}\n\n"
-        f"Your original solution:\n{steps}\n"
-        f"  Final answer: {solution.final_answer}\n"
-        f"  Confidence: {solution.confidence}\n\n"
-        f"Peer reviews received:\n{critiques_text}\n\n"
-        "Address every critique above, then return your refined solution in the "
-        "required JSON shape."
-    )
 
 
 def run_stage3(
-    problem: dict,
-    role_assignment: dict[str, str],
-    solutions: dict[str, Optional[utils.Solution]],
-    reviews: dict[str, Optional[utils.Review]],
+    problem: dict[str, Any],
+    assignment: dict[str, str],
+    solutions: dict[str, dict],
+    reviews: list[dict],
     logger: logging.Logger,
-) -> dict[str, Optional[utils.Refinement]]:
-    """Produce one refinement per surviving Solver."""
+) -> dict[str, dict]:
+    """Return {solver_id -> validated refinement dict}."""
     system_prompt = utils.read_prompt("refiner_system_prompt.txt")
-    seat_by_solver_id = {"solver_1": "Solver_1", "solver_2": "Solver_2", "solver_3": "Solver_3"}
+    refinements: dict[str, dict] = {}
+    seat_of = {v.lower(): k for k, v in assignment.items() if k.startswith("Solver")}
 
-    refinements: dict[str, Optional[utils.Refinement]] = {}
     for solver_id, solution in solutions.items():
-        if solution is None:
-            continue
-        identity = role_assignment[seat_by_solver_id[solver_id]]
-        model = get_model(identity)
-        received_reviews = reviews_for_target(reviews, solver_id)
-        user_prompt = _build_user_prompt(problem, solution, received_reviews)
+        my_reviews = [r for r in reviews if r["solution_reviewed"] == solver_id]
+        model_id = assignment[seat_of[solver_id]] if solver_id in seat_of else solution["model"]
+        model = get_model(model_id)
 
-        critiques_ctx = [
-            {
-                "from": review.reviewer_id,
-                "summary": _critique_summary(review),
-                "had_error": bool(review.evaluation.errors),
-            }
-            for review in received_reviews
-        ]
-        response_context = {
+        critiques_struct = []
+        for r in my_reviews:
+            had_error = bool(r["evaluation"]["errors"])
+            summary = "; ".join(
+                e.get("description", "") for e in r["evaluation"]["errors"]
+            ) or "General concerns about rigor."
+            critiques_struct.append({
+                "from": r["reviewer_id"],
+                "summary": summary[:200],
+                "had_error": had_error,
+            })
+
+        received_valid_critique = any(
+            c["had_error"] for c in critiques_struct
+        ) and not solution.get("_correct", False)
+
+        user_prompt = (
+            f"PROBLEM:\n{problem['problem']}\n\n"
+            f"You are {solver_id} (model: {model_id}). Here was YOUR original solution:\n"
+            f"{json.dumps({k: v for k, v in solution.items() if not k.startswith('_')}, indent=2)}\n\n"
+            f"Here are the {len(my_reviews)} peer reviews about your solution:\n"
+            f"{json.dumps([{k: v for k, v in r.items() if not k.startswith('_')} for r in my_reviews], indent=2)}\n\n"
+            f"Refine your solution and return the required JSON. Provide a critique_responses "
+            f"entry for each review."
+        )
+        ctx = {
             "task": "refine",
             "problem_id": problem["id"],
             "solver_id": solver_id,
-            "ground_truth": problem["correct_answer"],
-            "was_correct": utils.answers_match(solution.final_answer, problem["correct_answer"]),
-            "received_valid_critique": any(c["had_error"] for c in critiques_ctx),
-            "critiques": critiques_ctx,
+            "ground_truth": problem.get("correct_answer", ""),
+            "was_correct": bool(solution.get("_correct", False)),
+            "received_valid_critique": received_valid_critique,
+            "critiques": critiques_struct,
         }
         result = utils.call_llm_validated(
             model,
@@ -94,21 +71,31 @@ def run_stage3(
             schema=utils.Refinement,
             stage="stage3_refine",
             logger=logger,
-            response_context=response_context,
+            response_context=ctx,
         )
-        refinements[solver_id] = result
         if result is None:
-            utils.log_error(
-                logger, identity, "stage3_refine",
-                f"{solver_id} failed to produce a valid refinement; "
-                "original Stage 1 solution will stand in for it",
-            )
+            # Fallback: keep the original solution as the "refined" one.
+            logger.warning("stage3 | %s refinement failed; keeping original solution", solver_id)
+            refinements[solver_id] = {
+                "solver_id": solver_id,
+                "model": model_id,
+                "critique_responses": [],
+                "refined_solution_steps": solution["solution_steps"],
+                "refined_final_answer": solution["final_answer"],
+                "confidence": solution["confidence"],
+                "changes_summary": "Refinement failed; original solution retained.",
+                "_correct": solution.get("_correct", False),
+            }
+            continue
+        ref = result.model_dump()
+        ref["solver_id"] = solver_id
+        ref["model"] = model_id
+        ref["_correct"] = utils.answers_match(
+            ref["refined_final_answer"], problem.get("correct_answer", "")
+        )
+        refinements[solver_id] = ref
+        logger.info("stage3 | %s refined -> answer=%r conf=%.2f (was_correct=%s now_correct=%s)",
+                    solver_id, ref["refined_final_answer"], ref["confidence"],
+                    solution.get("_correct"), ref["_correct"])
+
     return refinements
-
-
-def save_stage3(problem_id: str, refinements: dict[str, Optional[utils.Refinement]]) -> None:
-    payload = {
-        solver_id: (refinement.model_dump() if refinement is not None else None)
-        for solver_id, refinement in refinements.items()
-    }
-    utils.save_json(payload, config.STAGE_DIRS["stage3"] / f"{problem_id}.json")

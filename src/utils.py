@@ -180,10 +180,8 @@ class Judgment(BaseModel):
     judge_model: str
     winner: str
     confidence: float = Field(ge=0.0, le=1.0)
-    ranking: dict[str, int]
     reasoning: str = ""
     correct_answer: str = ""
-    notes: str = ""
 
 
 T = TypeVar("T", bound=BaseModel)

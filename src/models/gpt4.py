@@ -28,15 +28,20 @@ class GPT4LLM(BaseLLM):
         last_err: Optional[Exception] = None
         for _ in range(5):
             try:
-                resp = self._client.chat.completions.create(
-                    model=self.model_name,
-                    temperature=temperature,
-                    response_format={"type": "json_object"},
-                    messages=[
+                # Some models (e.g. gpt-5.5) only support temperature=1 (the default)
+                # and reject any other value with a 400 error.
+                NO_TEMP_MODELS = {"gpt-5.5"}
+                kwargs: dict[str, Any] = {
+                    "model": self.model_name,
+                    "response_format": {"type": "json_object"},
+                    "messages": [
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_prompt},
                     ],
-                )
+                }
+                if self.model_name not in NO_TEMP_MODELS:
+                    kwargs["temperature"] = temperature
+                resp = self._client.chat.completions.create(**kwargs)
                 return resp.choices[0].message.content or ""
             except Exception as err:  # broad: handle rate limits + transient errors
                 last_err = err

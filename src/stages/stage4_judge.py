@@ -1,128 +1,57 @@
 """Stage 4: Final Judgment.
 
-The assigned Judge receives the full debate record -- all original solutions,
-all peer reviews, and all refined solutions -- and selects the strongest
-final answer. If the Judge fails after retries, the README requires falling
-back to the refined solution with the highest self-reported confidence.
+The Judge LLM receives the full debate record (original solutions, all peer
+reviews, all refined solutions) and selects the winning solution. If the Judge
+fails, the system falls back to the refined solution with the highest confidence.
 """
 from __future__ import annotations
 
+import json
 import logging
-from typing import Optional
+from typing import Any
 
-from .. import config, utils
-from ..models import get_model
-
-
-def _effective_answer(solver_id: str, solutions, refinements) -> tuple[str, float]:
-    """Return (answer, confidence) for a solver, preferring the refinement."""
-    refinement = refinements.get(solver_id)
-    if refinement is not None:
-        return refinement.refined_final_answer, refinement.confidence
-    solution = solutions.get(solver_id)
-    if solution is not None:
-        return solution.final_answer, solution.confidence
-    return "", 0.0
-
-
-def _build_user_prompt(
-    problem: dict,
-    solutions: dict[str, Optional[utils.Solution]],
-    reviews: dict[str, Optional[utils.Review]],
-    refinements: dict[str, Optional[utils.Refinement]],
-) -> str:
-    parts = [f"Problem:\n{problem['problem']}\n"]
-
-    parts.append("Original solutions:")
-    for solver_id, solution in solutions.items():
-        if solution is None:
-            parts.append(f"  {solver_id}: (failed to produce a solution)")
-            continue
-        parts.append(
-            f"  {solver_id} (model={solution.model}): final_answer={solution.final_answer!r} "
-            f"confidence={solution.confidence}"
-        )
-
-    parts.append("\nPeer reviews:")
-    for key, review in reviews.items():
-        if review is None:
-            continue
-        parts.append(
-            f"  {key}: overall_assessment={review.overall_assessment!r} "
-            f"errors={[e.error_type for e in review.evaluation.errors]}"
-        )
-
-    parts.append("\nRefined solutions:")
-    for solver_id, refinement in refinements.items():
-        if refinement is None:
-            parts.append(f"  {solver_id}: (no refinement; original solution stands)")
-            continue
-        parts.append(
-            f"  {solver_id}: refined_final_answer={refinement.refined_final_answer!r} "
-            f"confidence={refinement.confidence} changes_summary={refinement.changes_summary!r}"
-        )
-
-    parts.append(
-        "\nSelect the strongest final answer and return your judgment in the required JSON shape."
-    )
-    return "\n".join(parts)
-
-
-def _fallback_judgment(
-    judge_identity: str,
-    solutions: dict[str, Optional[utils.Solution]],
-    refinements: dict[str, Optional[utils.Refinement]],
-) -> utils.Judgment:
-    """Highest-confidence refined solution wins, per the README's error handling."""
-    candidates = [sid for sid, sol in solutions.items() if sol is not None]
-    scored = [
-        (sid, *_effective_answer(sid, solutions, refinements))
-        for sid in candidates
-    ]
-    winner_id, winner_answer, _ = max(scored, key=lambda item: item[2], default=(None, "", 0.0))
-    ordered = sorted(scored, key=lambda item: -item[2])
-    ranking = {sid: i + 1 for i, (sid, _, _) in enumerate(ordered)}
-    return utils.Judgment(
-        judge_model=judge_identity,
-        winner=winner_id or "",
-        confidence=next((conf for sid, _, conf in scored if sid == winner_id), 0.0),
-        ranking=ranking,
-        reasoning="Judge failed to produce a valid response after retries; fell back to the "
-                  "refined solution with the highest self-reported confidence.",
-        correct_answer=winner_answer,
-        notes="Fallback judgment (see README Error Handling Requirements).",
-    )
+from .. import utils
+from ..models import get_judge_model
 
 
 def run_stage4(
-    problem: dict,
-    role_assignment: dict[str, str],
-    solutions: dict[str, Optional[utils.Solution]],
-    reviews: dict[str, Optional[utils.Review]],
-    refinements: dict[str, Optional[utils.Refinement]],
+    problem: dict[str, Any],
+    assignment: dict[str, str],
+    solutions: dict[str, dict],
+    reviews: list[dict],
+    refinements: dict[str, dict],
     logger: logging.Logger,
-) -> utils.Judgment:
-    judge_identity = role_assignment["Judge"]
-    model = get_model(judge_identity)
+) -> dict[str, Any]:
+    """Return a validated judgment dict (with a fallback flag if needed)."""
     system_prompt = utils.read_prompt("judge_system_prompt.txt")
-    user_prompt = _build_user_prompt(problem, solutions, reviews, refinements)
+    judge_model_id = assignment["Judge"]
+    model = get_judge_model(judge_model_id)
 
-    candidates_ctx = []
-    for solver_id, solution in solutions.items():
-        if solution is None:
-            continue
-        answer, confidence = _effective_answer(solver_id, solutions, refinements)
-        candidates_ctx.append({
-            "solver_id": solver_id,
-            "answer": answer,
-            "confidence": confidence,
-            "correct": utils.answers_match(answer, problem["correct_answer"]),
-        })
+    def strip(d: dict) -> dict:
+        return {k: v for k, v in d.items() if not k.startswith("_")}
 
-    response_context = {
+    user_prompt = (
+        f"PROBLEM:\n{problem['problem']}\n\n"
+        f"ORIGINAL SOLUTIONS:\n{json.dumps([strip(s) for s in solutions.values()], indent=2)}\n\n"
+        f"PEER REVIEWS:\n{json.dumps([strip(r) for r in reviews], indent=2)}\n\n"
+        f"REFINED SOLUTIONS:\n{json.dumps([strip(r) for r in refinements.values()], indent=2)}\n\n"
+        f"You are the Judge (model: {judge_model_id}). Evaluate everything and return "
+        f"the required JSON. Rank every solver present and pick a winner."
+    )
+
+    candidates = [
+        {
+            "solver_id": sid,
+            "answer": ref["refined_final_answer"],
+            "correct": bool(ref.get("_correct", False)),
+            "confidence": ref.get("confidence", 0.0),
+        }
+        for sid, ref in refinements.items()
+    ]
+    ctx = {
         "task": "judge",
         "problem_id": problem["id"],
-        "candidates": candidates_ctx,
+        "candidates": candidates,
     }
     result = utils.call_llm_validated(
         model,
@@ -131,16 +60,27 @@ def run_stage4(
         schema=utils.Judgment,
         stage="stage4_judge",
         logger=logger,
-        response_context=response_context,
+        response_context=ctx,
     )
-    if result is None:
-        utils.log_error(
-            logger, judge_identity, "stage4_judge",
-            "Judge failed to produce a valid judgment; using confidence-based fallback",
-        )
-        result = _fallback_judgment(judge_identity, solutions, refinements)
-    return result
 
+    if result is None or result.winner not in refinements:
+        # Fallback: highest-confidence refined solution.
+        logger.warning("stage4 | judge failed/invalid; falling back to highest-confidence solver")
+        winner = max(refinements.values(), key=lambda r: r.get("confidence", 0))["solver_id"]
+        judgment = {
+            "judge_model": judge_model_id,
+            "winner": winner,
+            "confidence": refinements[winner].get("confidence", 0.0),
+            "reasoning": "Fallback: Judge unavailable; selected the highest-confidence "
+                         "refined solution.",
+            "correct_answer": refinements[winner]["refined_final_answer"],
+            "_fallback": True,
+        }
+    else:
+        judgment = result.model_dump()
+        judgment["judge_model"] = judge_model_id
+        judgment["_fallback"] = False
 
-def save_stage4(problem_id: str, judgment: utils.Judgment) -> None:
-    utils.save_json(judgment.model_dump(), config.STAGE_DIRS["stage4"] / f"{problem_id}.json")
+    logger.info("stage4 | judge=%s winner=%s conf=%.2f",
+                judge_model_id, judgment["winner"], judgment["confidence"])
+    return judgment
