@@ -250,22 +250,14 @@ class OfflineLLM(BaseLLM):
             # Fall back to the highest-confidence candidate.
             winner = max(candidates, key=lambda c: c.get("confidence", 0))["solver_id"] \
                 if candidates else None
-        # Build a full ranking: winner first, then by confidence.
-        ordered = sorted(
-            candidates,
-            key=lambda c: (c["solver_id"] != winner, -c.get("confidence", 0)),
-        )
-        ranking = {c["solver_id"]: i + 1 for i, c in enumerate(ordered)}
         winner_answer = next((c["answer"] for c in candidates if c["solver_id"] == winner), "")
         return {
             "judge_model": self.identity,
             "winner": winner,
             "confidence": round(0.7 + self._rand(ctx.get("problem_id"), "jconf") * 0.28, 2),
-            "ranking": ranking,
             "reasoning": (
                 f"After weighing correctness, refinement quality, and justification, "
                 f"{winner} presents the most defensible final answer."
             ),
             "correct_answer": winner_answer,
-            "notes": "Judgment based on the full debate record (solutions, reviews, refinements).",
         }

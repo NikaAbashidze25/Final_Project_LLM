@@ -78,6 +78,10 @@ MODEL_NAMES = {
     "grok": os.getenv("GROK_MODEL", "grok-2-latest"),
 }
 
+# In split-role mode, solvers and judge can use different models.
+SOLVER_MODEL = os.getenv("SOLVER_MODEL", MODEL_NAMES["openai"])
+JUDGE_MODEL = os.getenv("JUDGE_MODEL", MODEL_NAMES["openai"])
+
 # The four canonical model identities used throughout the system.
 ALL_MODELS = ["gpt-4", "claude", "gemini", "grok"]
 

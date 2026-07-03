@@ -88,38 +88,36 @@ def run_single_baseline(problem: dict[str, Any], logger) -> dict[str, Any]:
 
 
 def process_problem(problem: dict[str, Any], output_dir: Path, logger) -> dict[str, Any]:
-    """Run the full debate pipeline for a single problem and return its consolidated record."""
+    """Run the full pipeline for a single problem and return its consolidated record."""
     pid = problem["id"]
     logger.info("=" * 70)
     logger.info("PROBLEM %s [%s / %s]", pid, problem["category"], problem["difficulty"])
 
-    # Stage 0: each model self-assesses solver vs judge preference.
+    # Stage 0 + 0.5
     assessments = run_stage0(problem, logger)
     utils.save_json(assessments, config.STAGE_DIRS["stage0"] / f"{pid}.json")
-
-    # Stage 0.5: deterministic role assignment — 1 judge, 3 solvers.
     assignment = assign_roles(assessments, logger)
 
-    # Stage 1: three independent solutions.
+    # Stage 1
     solutions = run_stage1(problem, assignment, logger)
     utils.save_json(list(solutions.values()), config.STAGE_DIRS["stage1"] / f"{pid}.json")
     if len(solutions) < 2:
         logger.error("stage1 | fewer than 2 valid solutions for %s; aborting problem", pid)
         return _abort_record(problem, assignment, solutions)
 
-    # Stage 2: each solver reviews the other two (6 reviews total).
+    # Stage 2
     reviews = run_stage2(problem, assignment, solutions, logger)
     utils.save_json(reviews, config.STAGE_DIRS["stage2"] / f"{pid}.json")
 
-    # Stage 3: each solver refines based on peer critiques.
+    # Stage 3
     refinements = run_stage3(problem, assignment, solutions, reviews, logger)
     utils.save_json(list(refinements.values()), config.STAGE_DIRS["stage3"] / f"{pid}.json")
 
-    # Stage 4: judge selects the winning refined answer.
+    # Stage 4
     judgment = run_stage4(problem, assignment, solutions, reviews, refinements, logger)
     utils.save_json(judgment, config.STAGE_DIRS["stage4"] / f"{pid}.json")
 
-    # ── Baselines ───────────────────────────────────────────────
+    # Baselines (derived without extra debate)
     single = run_single_baseline(problem, logger)
     original_answers = [s["final_answer"] for s in solutions.values()]
     refined_answers = [r["refined_final_answer"] for r in refinements.values()]
@@ -130,19 +128,13 @@ def process_problem(problem: dict[str, Any], output_dir: Path, logger) -> dict[s
         "had_majority": vote_answer is not None,
     }
 
-    # ── Full-system result ───────────────────────────────────────
-    # Final answer = the winner's refined solution.
+    # Full-system final answer = winner's refined answer.
     winner = judgment["winner"]
     final_answer = refinements[winner]["refined_final_answer"]
     is_correct = utils.answers_match(final_answer, problem.get("correct_answer", ""))
 
-    # ── Derived metric flags ─────────────────────────────────────
-    # Consensus: all 3 solvers converged on the same refined answer.
-    consensus = (
-        len({utils.normalize_answer(a) for a in refined_answers}) == 1
-        and len(refined_answers) == 3
-    )
-    # Improvement: at least one solver was wrong before refinement but correct after.
+    # Derived metric flags.
+    consensus = len({utils.normalize_answer(a) for a in refined_answers}) == 1 and len(refined_answers) == 3
     improvement_occurred = any(
         (not solutions[sid].get("_correct", False)) and refinements[sid].get("_correct", False)
         for sid in refinements
@@ -189,7 +181,7 @@ def process_problem(problem: dict[str, Any], output_dir: Path, logger) -> dict[s
         ],
     }
 
-    # Persist a full per-problem record so the evaluator can load stage details.
+    # Save a full per-problem record for the evaluator.
     by_problem_dir = output_dir / "by_problem"
     utils.save_json(
         {
@@ -205,15 +197,12 @@ def process_problem(problem: dict[str, Any], output_dir: Path, logger) -> dict[s
         by_problem_dir / f"{pid}.json",
     )
 
-    logger.info(
-        "DONE %s | final=%r correct=%s | single=%s voting=%s",
-        pid, final_answer, is_correct, single["is_correct"], voting["is_correct"],
-    )
+    logger.info("DONE %s | final=%r correct=%s | single=%s voting=%s",
+                pid, final_answer, is_correct, single["is_correct"], voting["is_correct"])
     return record
 
 
-def _abort_record(problem: dict[str, Any], assignment: dict, solutions: dict) -> dict[str, Any]:
-    """Minimal failure record when the pipeline cannot complete a problem."""
+def _abort_record(problem, assignment, solutions) -> dict[str, Any]:
     return {
         "problem_id": problem["id"],
         "category": problem["category"],
@@ -238,28 +227,20 @@ def _abort_record(problem: dict[str, Any], assignment: dict, solutions: dict) ->
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the Multi-LLM Debate pipeline.")
-    parser.add_argument(
-        "--problems", default=str(config.PROBLEMS_PATH),
-        help="Path to problems.json",
-    )
-    parser.add_argument(
-        "--output", default=str(config.RESULTS_DIR),
-        help="Directory for result outputs",
-    )
-    parser.add_argument(
-        "--problem-id", default=None,
-        help="Run only this problem id (e.g. prob_001)",
-    )
+    parser.add_argument("--problems", default=str(config.PROBLEMS_PATH),
+                        help="Path to problems.json")
+    parser.add_argument("--output", default=str(config.RESULTS_DIR),
+                        help="Directory for result outputs")
+    parser.add_argument("--problem-id", default=None,
+                        help="Run only this problem id (e.g. prob_001)")
     args = parser.parse_args()
 
     config.ensure_directories()
     run_tag = datetime.now().strftime("%Y%m%d_%H%M%S")
     logger = utils.setup_logger(run_tag)
-    logger.info(
-        "Backend=%s | free_mode=%s | provider=%s | seed=%d",
-        config.LLM_BACKEND, config.FREE_MODEL_MODE,
-        config.FREE_MODEL_PROVIDER, config.RANDOM_SEED,
-    )
+    logger.info("Backend=%s | free_mode=%s | provider=%s | seed=%d",
+                config.LLM_BACKEND, config.FREE_MODEL_MODE,
+                config.FREE_MODEL_PROVIDER, config.RANDOM_SEED)
 
     problems = utils.load_json(Path(args.problems))
     if args.problem_id:
@@ -269,25 +250,20 @@ def main() -> None:
             sys.exit(1)
 
     output_dir = Path(args.output)
-    records: list[dict[str, Any]] = []
+    records = []
     for problem in problems:
         try:
             records.append(process_problem(problem, output_dir, logger))
-        except Exception as err:
-            # A single problem failure must not abort the full run.
-            utils.log_error(
-                logger, "pipeline", "process_problem",
-                f"unhandled error on {problem['id']}: {err}",
-            )
+        except Exception as err:  # never let one problem kill the whole run
+            utils.log_error(logger, "pipeline", "process_problem",
+                            f"unhandled error on {problem['id']}: {err}")
 
     utils.save_json(records, output_dir / "final_answers.json")
     n_correct = sum(1 for r in records if r["is_correct"])
     logger.info("=" * 70)
-    logger.info(
-        "RUN COMPLETE | %d problems | full-system accuracy = %d/%d = %.1f%%",
-        len(records), n_correct, len(records),
-        100.0 * n_correct / max(1, len(records)),
-    )
+    logger.info("RUN COMPLETE | %d problems | full-system accuracy = %d/%d = %.1f%%",
+                len(records), n_correct, len(records),
+                100.0 * n_correct / max(1, len(records)))
     logger.info("Results written to %s", output_dir / "final_answers.json")
 
 
