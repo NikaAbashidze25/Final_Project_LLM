@@ -102,23 +102,6 @@ MAX_RETRIES = _get_int("MAX_RETRIES", 3)
 TEMPERATURE = _get_float("TEMPERATURE", 0.7)
 RANDOM_SEED = _get_int("RANDOM_SEED", 42)
 
-# Allowed enum values (validated against LLM output).
-OVERALL_ASSESSMENT_VALUES = {
-    "correct",
-    "promising_but_flawed",
-    "fundamentally_wrong",
-    "unclear",
-}
-ERROR_TYPE_VALUES = {
-    "logical_error",
-    "arithmetic_error",
-    "missing_case",
-    "wrong_formula",
-    "unjustified_assumption",
-    "other",
-}
-SEVERITY_VALUES = {"critical", "major", "minor"}
-
 
 def ensure_directories() -> None:
     """Create all output directories if they do not already exist."""

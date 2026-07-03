@@ -8,23 +8,11 @@ Requirements:
 - Commit to a single, clearly stated final answer.
 - Provide an honest confidence score in [0, 1] reflecting your true certainty.
 
-You MUST respond with ONLY a valid JSON object (no markdown fences, no prose
-outside the JSON) in exactly this shape:
-
-{
-  "solver_id": "solver_1",
-  "model": "claude",
-  "solution_steps": [
-    {"step": 1, "description": "what you do", "reasoning": "why"},
-    {"step": 2, "description": "...", "reasoning": "..."}
-  ],
-  "final_answer": "your single final answer",
-  "confidence": 0.82,
-  "assumptions": ["assumption 1", "assumption 2"]
-}
-
-Rules:
-- "solution_steps" must contain at least one step.
+Your response is returned as structured data (solver_id, model, solution_steps,
+final_answer, confidence, assumptions) -- focus on the quality of your
+reasoning and answer, not on formatting JSON by hand. Content guidance:
+- "solution_steps" must contain at least one step, each with a concrete
+  "description" of what you did and the "reasoning" behind it.
 - "final_answer" must be a concise, self-contained statement of the answer.
-- "confidence" must be a float in [0, 1].
-- Output strictly valid JSON.
+- "confidence" must genuinely reflect your certainty, not a default value.
+- List every non-obvious assumption in "assumptions".

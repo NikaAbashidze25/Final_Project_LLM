@@ -4,7 +4,13 @@ from __future__ import annotations
 import time
 from typing import Any, Optional
 
-from .base_llm import BaseLLM
+from pydantic import BaseModel
+
+from .base_llm import BaseLLM, strict_json_schema, supports_strict_mode
+
+# Some models (e.g. gpt-5.5) only support temperature=1 (the default) and
+# reject any other value with a 400 error.
+NO_TEMP_MODELS = {"gpt-5.5"}
 
 
 class GPT4LLM(BaseLLM):
@@ -16,6 +22,23 @@ class GPT4LLM(BaseLLM):
 
         self._client = OpenAI(api_key=api_key)
 
+    def _response_format(self, schema: Optional[type[BaseModel]]) -> dict[str, Any]:
+        if schema is None:
+            return {"type": "json_object"}
+        tightened = strict_json_schema(schema)
+        if not supports_strict_mode(tightened):
+            # e.g. confidence_by_role is a dict[str, X] field with no fixed
+            # key set -- not representable in strict mode.
+            return {"type": "json_object"}
+        return {
+            "type": "json_schema",
+            "json_schema": {
+                "name": schema.__name__,
+                "schema": tightened,
+                "strict": True,
+            },
+        }
+
     def generate(
         self,
         system_prompt: str,
@@ -23,17 +46,15 @@ class GPT4LLM(BaseLLM):
         *,
         temperature: float = 0.7,
         response_context: Optional[dict[str, Any]] = None,
+        schema: Optional[type[BaseModel]] = None,
     ) -> str:
         delay = 2.0
         last_err: Optional[Exception] = None
         for _ in range(5):
             try:
-                # Some models (e.g. gpt-5.5) only support temperature=1 (the default)
-                # and reject any other value with a 400 error.
-                NO_TEMP_MODELS = {"gpt-5.5"}
                 kwargs: dict[str, Any] = {
                     "model": self.model_name,
-                    "response_format": {"type": "json_object"},
+                    "response_format": self._response_format(schema),
                     "messages": [
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_prompt},

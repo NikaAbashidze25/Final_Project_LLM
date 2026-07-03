@@ -6,7 +6,7 @@ from src.stages import stage2_review as s2
 
 def _solved(problem, logger):
     assessments = s0.run_stage0(problem, logger)
-    assignment = s05.assign_roles(assessments)
+    assignment = s05.assign_roles(assessments, logger)
     solutions = s1.run_stage1(problem, assignment, logger)
     return assignment, solutions
 
@@ -17,7 +17,6 @@ def test_six_reviews_when_all_solvers_survive(problem, logger):
     reviews = s2.run_stage2(problem, assignment, solutions, logger)
 
     assert len(reviews) == 6
-    assert all(review is not None for review in reviews.values())
 
 
 def test_each_solver_receives_exactly_two_reviews(problem, logger):
@@ -25,17 +24,19 @@ def test_each_solver_receives_exactly_two_reviews(problem, logger):
     reviews = s2.run_stage2(problem, assignment, solutions, logger)
 
     for solver_id in solutions:
-        received = s2.reviews_for_target(reviews, solver_id)
+        received = [r for r in reviews if r["solution_reviewed"] == solver_id]
         assert len(received) == 2
-        assert all(review.solution_reviewed == solver_id for review in received)
+        reviewers = {r["reviewer_id"] for r in received}
+        assert reviewers == set(solutions.keys()) - {solver_id}
 
 
 def test_excluded_solver_is_skipped_as_reviewer_and_target(problem, logger):
     assignment, solutions = _solved(problem, logger)
     solutions = dict(solutions)
-    solutions["solver_1"] = None  # simulate a Stage 1 failure
+    del solutions["solver_1"]  # simulate a Stage 1 failure
 
     reviews = s2.run_stage2(problem, assignment, solutions, logger)
 
     assert len(reviews) == 2  # only the solver_2 <-> solver_3 pair remains
-    assert all("solver_1" not in key for key in reviews)
+    assert all(r["reviewer_id"] != "solver_1" and r["solution_reviewed"] != "solver_1"
+               for r in reviews)
