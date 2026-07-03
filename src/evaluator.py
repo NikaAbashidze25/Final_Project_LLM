@@ -335,6 +335,18 @@ ALL_PLOTS = [
     plot_confidence_calibration,
 ]
 
+# PNG filenames written by ALL_PLOTS (single source of truth for notebooks).
+PLOT_OUTPUT_NAMES = [
+    "overall_accuracy",
+    "per_category_accuracy",
+    "improvement_rate",
+    "consensus_rate",
+    "judge_accuracy",
+    "per_model_accuracy",
+    "confidence_calibration",
+]
+assert len(PLOT_OUTPUT_NAMES) == len(ALL_PLOTS)
+
 
 def print_summary(metrics: dict) -> None:
     print("\n" + "=" * 60)
