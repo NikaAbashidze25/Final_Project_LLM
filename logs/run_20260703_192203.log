@@ -1,0 +1,25 @@
+2026-07-03 19:22:03 | INFO    | Backend=offline | free_mode=True | provider=openai | seed=42
+2026-07-03 19:22:03 | INFO    | ======================================================================
+2026-07-03 19:22:03 | INFO    | PROBLEM prob_001 [mathematical_reasoning / hard]
+2026-07-03 19:22:03 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.77
+2026-07-03 19:22:03 | INFO    | stage0 | claude assessed: Judge conf=0.76
+2026-07-03 19:22:03 | INFO    | stage0 | gemini assessed: Judge conf=0.92
+2026-07-03 19:22:03 | INFO    | stage0 | grok assessed: Judge conf=0.76
+2026-07-03 19:22:03 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'claude', 'Solver_3': 'grok', 'Judge': 'gemini'}
+2026-07-03 19:22:03 | INFO    | stage1 | solver_1 (gpt-4) -> answer='155' conf=0.89
+2026-07-03 19:22:03 | INFO    | stage1 | solver_2 (claude) -> answer='148' conf=0.58
+2026-07-03 19:22:03 | INFO    | stage1 | solver_3 (grok) -> answer='150' conf=0.75
+2026-07-03 19:22:03 | INFO    | stage2 | solver_1 -> solver_2 : fundamentally_wrong (1 errors flagged)
+2026-07-03 19:22:03 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 19:22:03 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 19:22:03 | INFO    | stage2 | solver_2 -> solver_3 : fundamentally_wrong (1 errors flagged)
+2026-07-03 19:22:03 | INFO    | stage2 | solver_3 -> solver_1 : fundamentally_wrong (1 errors flagged)
+2026-07-03 19:22:03 | INFO    | stage2 | solver_3 -> solver_2 : correct (0 errors flagged)
+2026-07-03 19:22:03 | INFO    | stage3 | solver_1 refined -> answer='153' conf=0.85 (was_correct=False now_correct=True)
+2026-07-03 19:22:03 | INFO    | stage3 | solver_2 refined -> answer='153' conf=0.85 (was_correct=False now_correct=True)
+2026-07-03 19:22:03 | INFO    | stage3 | solver_3 refined -> answer='153' conf=0.77 (was_correct=False now_correct=True)
+2026-07-03 19:22:03 | INFO    | stage4 | judge=gemini winner=solver_1 conf=0.94
+2026-07-03 19:22:03 | INFO    | DONE prob_001 | final='153' correct=True | single=True voting=False
+2026-07-03 19:22:03 | INFO    | ======================================================================
+2026-07-03 19:22:03 | INFO    | RUN COMPLETE | 1 problems | full-system accuracy = 1/1 = 100.0%
+2026-07-03 19:22:03 | INFO    | Results written to data/results/final_answers.json
