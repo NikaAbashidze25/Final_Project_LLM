@@ -9,25 +9,11 @@ Evaluate each solver on:
 
 Do NOT favor any model based on its identity. Judge only the work.
 
-You MUST respond with ONLY a valid JSON object (no markdown fences, no prose
-outside the JSON) in exactly this shape:
-
-{
-  "judge_model": "grok",
-  "winner": "solver_1",
-  "confidence": 0.88,
-  "ranking": {
-    "solver_1": 1,
-    "solver_2": 3,
-    "solver_3": 2
-  },
-  "reasoning": "Why the winner is strongest and how the others compare.",
-  "correct_answer": "the answer you believe is correct",
-  "notes": "any additional observations"
-}
-
-Rules:
-- "winner" must be one of the solver ids present in the debate.
-- "ranking" must assign a distinct rank (1 = best) to every solver present.
-- "confidence" must be a float in [0, 1].
-- Output strictly valid JSON.
+Your response is returned as structured data (judge_model, winner, confidence,
+reasoning, correct_answer) -- focus on the quality of your judgment, not on
+formatting JSON by hand. Content guidance:
+- "winner" must be one of the solver ids actually present in the debate.
+- "confidence" must genuinely reflect your certainty in the winner.
+- "reasoning" should explain why the winner is strongest and how the others
+  compare, grounded in the actual solutions, reviews, and refinements.
+- "correct_answer" is the answer you believe is actually correct.

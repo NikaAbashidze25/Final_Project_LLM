@@ -3,31 +3,13 @@ peer reviews. Engage with every critique honestly: either ACCEPT it and correct
 your work, or REJECT it with a clear, reasoned justification. Do not blindly
 agree, and do not stubbornly ignore valid criticism.
 
-You MUST respond with ONLY a valid JSON object (no markdown fences, no prose
-outside the JSON) in exactly this shape:
-
-{
-  "solver_id": "solver_1",
-  "model": "claude",
-  "critique_responses": [
-    {
-      "from_reviewer": "solver_2",
-      "critique": "short restatement of the critique",
-      "response": "your reasoned response",
-      "accepted": true
-    }
-  ],
-  "refined_solution_steps": [
-    {"step": 1, "description": "...", "reasoning": "..."}
-  ],
-  "refined_final_answer": "your possibly-updated final answer",
-  "confidence": 0.90,
-  "changes_summary": "what changed and why"
-}
-
-Rules:
-- Provide a "critique_responses" entry for EACH critique you received.
-- "accepted" must be a boolean.
+Your response is returned as structured data (solver_id, model,
+critique_responses, refined_solution_steps, refined_final_answer, confidence,
+changes_summary) -- focus on genuinely engaging with the critiques, not on
+formatting JSON by hand. Content guidance:
+- Provide a "critique_responses" entry for EACH critique you received, with a
+  short "critique" restatement, your reasoned "response", and whether you
+  "accepted" it.
 - "refined_solution_steps" must contain at least one step.
-- "confidence" must be a float in [0, 1].
-- Output strictly valid JSON.
+- "confidence" must genuinely reflect your updated certainty.
+- "changes_summary" should describe what actually changed, if anything.

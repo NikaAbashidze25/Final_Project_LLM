@@ -1,10 +1,13 @@
 """Anthropic (Claude) client."""
 from __future__ import annotations
 
+import json
 import time
 from typing import Any, Optional
 
-from .base_llm import BaseLLM
+from pydantic import BaseModel
+
+from .base_llm import BaseLLM, strict_json_schema
 
 
 class ClaudeLLM(BaseLLM):
@@ -23,18 +26,39 @@ class ClaudeLLM(BaseLLM):
         *,
         temperature: float = 0.7,
         response_context: Optional[dict[str, Any]] = None,
+        schema: Optional[type[BaseModel]] = None,
     ) -> str:
+        # Anthropic has no `response_format`-style structured output; the
+        # standard way to constrain generation to a schema is to give the
+        # model exactly one tool (shaped like the schema) and force its use,
+        # so `tool_use.input` comes back already matching it.
+        kwargs: dict[str, Any] = {
+            "model": self.model_name,
+            "max_tokens": 4096,
+            "temperature": temperature,
+            "messages": [{"role": "user", "content": user_prompt}],
+        }
+        if schema is not None:
+            kwargs["system"] = system_prompt
+            kwargs["tools"] = [{
+                "name": schema.__name__,
+                "description": f"Record the {schema.__name__} result.",
+                "input_schema": strict_json_schema(schema),
+            }]
+            kwargs["tool_choice"] = {"type": "tool", "name": schema.__name__}
+        else:
+            kwargs["system"] = system_prompt + "\nReturn ONLY valid JSON."
+
         delay = 2.0
         last_err: Optional[Exception] = None
         for _ in range(5):
             try:
-                resp = self._client.messages.create(
-                    model=self.model_name,
-                    max_tokens=4096,
-                    temperature=temperature,
-                    system=system_prompt + "\nReturn ONLY valid JSON.",
-                    messages=[{"role": "user", "content": user_prompt}],
-                )
+                resp = self._client.messages.create(**kwargs)
+                if schema is not None:
+                    for block in resp.content:
+                        if getattr(block, "type", "") == "tool_use":
+                            return json.dumps(block.input)
+                    return ""
                 return "".join(
                     block.text for block in resp.content if getattr(block, "type", "") == "text"
                 )

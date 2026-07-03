@@ -14,7 +14,7 @@ import re
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Optional, Type, TypeVar
+from typing import Any, Literal, Optional, Type, TypeVar
 
 from pydantic import BaseModel, Field, ValidationError, field_validator
 
@@ -117,25 +117,18 @@ class Solution(BaseModel):
     assumptions: list[str] = []
 
 
+ErrorType = Literal[
+    "logical_error", "arithmetic_error", "missing_case",
+    "wrong_formula", "unjustified_assumption", "other",
+]
+Severity = Literal["critical", "major", "minor"]
+
+
 class ReviewError(BaseModel):
     location: str = ""
-    error_type: str
+    error_type: ErrorType
     description: str = ""
-    severity: str
-
-    @field_validator("error_type")
-    @classmethod
-    def _valid_error_type(cls, v: str) -> str:
-        if v not in config.ERROR_TYPE_VALUES:
-            raise ValueError(f"invalid error_type {v!r}")
-        return v
-
-    @field_validator("severity")
-    @classmethod
-    def _valid_severity(cls, v: str) -> str:
-        if v not in config.SEVERITY_VALUES:
-            raise ValueError(f"invalid severity {v!r}")
-        return v
+    severity: Severity
 
 
 class ReviewEvaluation(BaseModel):
@@ -145,18 +138,16 @@ class ReviewEvaluation(BaseModel):
     suggested_changes: list[str] = []
 
 
+OverallAssessment = Literal[
+    "correct", "promising_but_flawed", "fundamentally_wrong", "unclear",
+]
+
+
 class Review(BaseModel):
     reviewer_id: str
     solution_reviewed: str
     evaluation: ReviewEvaluation
-    overall_assessment: str
-
-    @field_validator("overall_assessment")
-    @classmethod
-    def _valid_assessment(cls, v: str) -> str:
-        if v not in config.OVERALL_ASSESSMENT_VALUES:
-            raise ValueError(f"invalid overall_assessment {v!r}")
-        return v
+    overall_assessment: OverallAssessment
 
 
 class CritiqueResponse(BaseModel):
@@ -216,6 +207,7 @@ def call_llm_validated(
                 attempt_prompt,
                 temperature=temp,
                 response_context=response_context,
+                schema=schema,
             )
         except Exception as err:  # network / provider error
             log_error(logger, model.identity, stage,

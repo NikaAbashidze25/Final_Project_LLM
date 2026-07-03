@@ -4,6 +4,8 @@ from __future__ import annotations
 import time
 from typing import Any, Optional
 
+from pydantic import BaseModel
+
 from .base_llm import BaseLLM
 
 
@@ -24,14 +26,21 @@ class GeminiLLM(BaseLLM):
         *,
         temperature: float = 0.7,
         response_context: Optional[dict[str, Any]] = None,
+        schema: Optional[type[BaseModel]] = None,
     ) -> str:
+        generation_config: dict[str, Any] = {
+            "temperature": temperature,
+            "response_mime_type": "application/json",
+        }
+        if schema is not None:
+            # The SDK accepts a pydantic model class directly and converts it
+            # to Gemini's (OpenAPI-subset) response_schema internally.
+            generation_config["response_schema"] = schema
+
         model = self._genai.GenerativeModel(
             model_name=self.model_name,
             system_instruction=system_prompt,
-            generation_config={
-                "temperature": temperature,
-                "response_mime_type": "application/json",
-            },
+            generation_config=generation_config,
         )
         delay = 2.0
         last_err: Optional[Exception] = None

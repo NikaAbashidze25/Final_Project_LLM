@@ -17,6 +17,8 @@ import json
 import re
 from typing import Any, Optional
 
+from pydantic import BaseModel
+
 from .base_llm import BaseLLM
 
 # Per-model baseline "skill" multiplier applied to the solve success rate.
@@ -89,7 +91,11 @@ class OfflineLLM(BaseLLM):
         *,
         temperature: float = 0.7,
         response_context: Optional[dict[str, Any]] = None,
+        schema: Optional[type[BaseModel]] = None,
     ) -> str:
+        # The offline simulator already emits schema-shaped JSON directly
+        # from `response_context`; it has no provider API to constrain, so
+        # `schema` is accepted only to satisfy the shared BaseLLM interface.
         ctx = response_context or {}
         task = ctx.get("task", "")
         handler = {

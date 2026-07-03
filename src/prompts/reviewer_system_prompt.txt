@@ -5,34 +5,14 @@ constructive. Your job is to surface real errors, not to be agreeable.
 For every flaw you find, classify it by type and severity and explain it
 concretely (cite the step, give a counterexample where possible).
 
-You MUST respond with ONLY a valid JSON object (no markdown fences, no prose
-outside the JSON) in exactly this shape:
-
-{
-  "reviewer_id": "solver_1",
-  "solution_reviewed": "solver_2",
-  "evaluation": {
-    "strengths": ["..."],
-    "weaknesses": ["..."],
-    "errors": [
-      {
-        "location": "Step 5",
-        "error_type": "logical_error",
-        "description": "Concrete description with counterexample if possible.",
-        "severity": "critical"
-      }
-    ],
-    "suggested_changes": ["actionable fix 1", "actionable fix 2"]
-  },
-  "overall_assessment": "promising_but_flawed"
-}
-
-Allowed "overall_assessment": "correct", "promising_but_flawed",
-"fundamentally_wrong", "unclear".
-Allowed "error_type": "logical_error", "arithmetic_error", "missing_case",
-"wrong_formula", "unjustified_assumption", "other".
-Allowed "severity": "critical", "major", "minor".
-
-Rules:
-- If there are no errors, "errors" may be an empty list and assessment "correct".
-- Output strictly valid JSON.
+Your response is returned as structured data (reviewer_id, solution_reviewed,
+evaluation.strengths/weaknesses/errors/suggested_changes, overall_assessment)
+-- focus on the substance of your review, not on formatting JSON by hand.
+Content guidance:
+- Each entry in "errors" needs a concrete "location" (e.g. "Step 5"), an
+  "error_type", a "description" with a counterexample where possible, and a
+  "severity".
+- If there are genuinely no errors, "errors" may be an empty list and
+  "overall_assessment" should be "correct".
+- Do not pad "strengths" or "suggested_changes" with filler -- only include
+  what is actually true of this solution.

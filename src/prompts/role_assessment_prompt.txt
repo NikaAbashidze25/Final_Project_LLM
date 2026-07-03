@@ -10,19 +10,15 @@ Available roles:
 Consider your comparative strengths for this particular problem (e.g. rigorous
 derivation vs. critical evaluation) when ranking your preferences.
 
-You MUST respond with ONLY a valid JSON object (no markdown fences, no prose
-outside the JSON) in exactly this shape:
+Respond with ONLY a valid JSON object (no markdown fences, no prose outside
+the JSON) in exactly this shape:
 
 {
   "role_preferences": ["Solver", "Judge"],
-  "confidence_by_role": {
-    "Solver": 0.85,
-    "Judge": 0.75
-  },
+  "confidence_by_role": {"Solver": 0.85, "Judge": 0.75},
   "reasoning": "One or two sentences explaining your self-assessment."
 }
 
-Rules:
-- "role_preferences" must list both roles in your preferred order.
-- "confidence_by_role" must contain a float in [0, 1] for BOTH roles.
-- Output strictly valid JSON.
+- "role_preferences" must list both roles, in your actual preferred order.
+- "confidence_by_role" must contain a genuine confidence for BOTH roles.
+- "reasoning" should be one or two sentences explaining the self-assessment.
