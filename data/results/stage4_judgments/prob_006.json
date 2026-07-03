@@ -1,8 +1,0 @@
-{
-  "judge_model": "gpt-4",
-  "winner": "solver_1",
-  "confidence": 0.6,
-  "reasoning": "All three solvers give the correct final answer and essentially the same valid bijective argument: a strictly increasing 5-digit number is determined uniquely by choosing its 5 digits, and 0 cannot be included because it would have to be the leading digit, so the count is C(9,5)=126. The peer reviews were accurate, and none of the refinements needed substantive changes. Ranking: solver_1, solver_2, and solver_3 are effectively tied on logical correctness and justification quality; solver_1 is selected by a very narrow margin due to slightly more explicit arithmetic and slightly better-calibrated confidence, not because of any meaningful mathematical advantage.",
-  "correct_answer": "126",
-  "_fallback": false
-}
