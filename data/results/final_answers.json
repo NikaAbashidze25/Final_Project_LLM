@@ -7,11 +7,11 @@
     "final_answer": "153",
     "correct_answer": "153",
     "is_correct": true,
-    "judge_confidence": 0.62,
+    "judge_confidence": 0.86,
     "judge_fallback": false,
-    "consensus": false,
+    "consensus": true,
     "improvement_occurred": false,
-    "solvers_disagree": true,
+    "solvers_disagree": false,
     "role_assignment": {
       "Solver_1": "claude",
       "Solver_2": "gemini",
@@ -42,63 +42,63 @@
         "model": "gemini",
         "original_answer": "153",
         "original_correct": true,
-        "original_confidence": 0.85,
+        "original_confidence": 0.95,
         "refined_answer": "153",
         "refined_correct": true,
-        "refined_confidence": 0.9
+        "refined_confidence": 0.85
       },
       "solver_3": {
         "model": "grok",
-        "original_answer": "The number of ways to tile a 3x8 rectangle with 2x1 dominoes is 153.",
+        "original_answer": "153",
         "original_correct": true,
-        "original_confidence": 0.85,
-        "refined_answer": "The number of ways to tile a 3x8 rectangle with 2x1 dominoes is 175.",
-        "refined_correct": false,
-        "refined_confidence": 0.9
+        "original_confidence": 0.95,
+        "refined_answer": "153",
+        "refined_correct": true,
+        "refined_confidence": 0.85
       }
     },
     "reviews_summary": [
       {
         "reviewer": "solver_1",
         "reviewed": "solver_2",
-        "assessment": "fundamentally_wrong",
+        "assessment": "promising_but_flawed",
         "flagged_real_error": false,
-        "num_errors": 1
+        "num_errors": 2
       },
       {
         "reviewer": "solver_1",
         "reviewed": "solver_3",
-        "assessment": "promising_but_flawed",
-        "flagged_real_error": false,
-        "num_errors": 1
-      },
-      {
-        "reviewer": "solver_2",
-        "reviewed": "solver_1",
         "assessment": "fundamentally_wrong",
         "flagged_real_error": false,
         "num_errors": 2
       },
       {
         "reviewer": "solver_2",
-        "reviewed": "solver_3",
+        "reviewed": "solver_1",
         "assessment": "promising_but_flawed",
         "flagged_real_error": false,
-        "num_errors": 1
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": false,
+        "num_errors": 2
       },
       {
         "reviewer": "solver_3",
         "reviewed": "solver_1",
-        "assessment": "fundamentally_wrong",
+        "assessment": "promising_but_flawed",
         "flagged_real_error": false,
         "num_errors": 2
       },
       {
         "reviewer": "solver_3",
         "reviewed": "solver_2",
-        "assessment": "fundamentally_wrong",
+        "assessment": "promising_but_flawed",
         "flagged_real_error": false,
-        "num_errors": 1
+        "num_errors": 2
       }
     ]
   }
