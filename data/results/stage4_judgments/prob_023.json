@@ -1,0 +1,14 @@
+{
+  "judge_model": "gpt-4",
+  "winner": "solver_3",
+  "confidence": 0.9,
+  "ranking": {
+    "solver_1": 2,
+    "solver_2": 3,
+    "solver_3": 1
+  },
+  "reasoning": "Solver 3 provided a clear and logical analysis of winning and losing positions, leading to a correct conclusion regarding the first player's optimal move. Although there were initial flaws in the reasoning, the refinements significantly improved the quality and accuracy of the solution. Solver 1 made substantial improvements but still had inconsistencies in the final answer and analysis. Solver 2's solution was promising but ultimately flawed due to critical errors in reasoning and lack of clarity in the analysis.",
+  "correct_answer": "The first player wins by removing 1 stone, leaving 20 stones for the second player.",
+  "notes": "Overall, all solvers showed improvement in their refinements, but Solver 3's final answer was the most robust and logically sound with a solid justification of winning positions.",
+  "_fallback": false
+}
