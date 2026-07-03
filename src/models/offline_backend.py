@@ -202,10 +202,11 @@ class OfflineLLM(BaseLLM):
         received_valid_critique = bool(ctx.get("received_valid_critique", False))
         # Decide refined correctness.
         if was_correct:
-            now_correct = self._rand(ctx.get("problem_id"), ctx.get("solver_id"), "keep") < 0.95
+            # A correct solver should strongly resist potentially false critiques.
+            now_correct = self._rand(ctx.get("problem_id"), ctx.get("solver_id"), "keep") < 0.98
         else:
             # More likely to fix when a valid critique pointed out the error.
-            p_fix = 0.45 if received_valid_critique else 0.15
+            p_fix = 0.60 if received_valid_critique else 0.15
             now_correct = self._rand(ctx.get("problem_id"), ctx.get("solver_id"), "fix") < p_fix
         answer = str(ctx.get("ground_truth")) if now_correct \
             else self._wrong_answer(ctx, "refine")
