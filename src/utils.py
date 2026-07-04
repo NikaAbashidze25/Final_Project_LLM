@@ -282,14 +282,19 @@ def answers_match(candidate: str, truth: str) -> bool:
     if c == t or t in c or c in t:
         return True
 
-    # Numeric comparison: compare the most salient numbers.
+    # Numeric comparison: compare only the LAST number in each string (the
+    # actual final answer is almost always stated at the end, e.g. "...is
+    # 195."). Matching on ANY shared number is wrong -- answers phrased as
+    # full sentences ("The number of ways to tile a 3x8 rectangle ... is
+    # 195") repeat numbers from the problem statement itself ("3x8", "2x1"),
+    # so comparing every pair would spuriously match two answers that only
+    # agree on the problem's dimensions, not on the actual result.
     cn, tn = _numbers(c), _numbers(t)
-    if tn:
-        for tv in tn:
-            for cv in cn:
-                tol = max(0.01 * abs(tv), 0.05)
-                if abs(cv - tv) <= tol:
-                    return True
+    if cn and tn:
+        tv, cv = tn[-1], cn[-1]
+        tol = max(0.01 * abs(tv), 0.05)
+        if abs(cv - tv) <= tol:
+            return True
 
     # Yes/No equivalence.
     yes = {"yes", "true", "first player wins", "first player"}

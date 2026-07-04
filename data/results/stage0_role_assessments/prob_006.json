@@ -1,0 +1,46 @@
+{
+  "gpt-4": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.8
+    },
+    "reasoning": "I am well-equipped to solve combinatorial problems like this by systematically deriving the solution, while I also possess the ability to critically evaluate solutions if needed."
+  },
+  "claude": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to derive a solution for counting increasing digit combinations, but my critical evaluation skills are slightly less strong."
+  },
+  "gemini": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.8
+    },
+    "reasoning": "I feel confident in independently solving combinatorial problems like this, as they involve clear logical reasoning and straightforward calculations. However, my ability to judge solutions is slightly less confident, as it relies on comparing multiple approaches."
+  },
+  "grok": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-suited to solve this problem as it involves combinatorial counting, where I can independently derive the solution. My confidence in evaluating others' solutions is lower as it requires a different analytical approach."
+  }
+}

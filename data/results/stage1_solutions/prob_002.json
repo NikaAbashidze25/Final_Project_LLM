@@ -1,0 +1,102 @@
+[
+  {
+    "solver_id": "solver_1",
+    "model": "claude",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Calculate the number of factors of 5 in 100!",
+        "reasoning": "Trailing zeros in a factorial are produced by pairs of factors of 2 and 5. Since there are generally more factors of 2 than 5 in factorials, the number of trailing zeros is determined by the number of times 5 is a factor in the numbers from 1 to 100."
+      },
+      {
+        "step": 2,
+        "description": "Apply the formula for counting factors of 5: ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋ + ...",
+        "reasoning": "This formula counts how many multiples of 5, 25, 125, etc., are present in the numbers from 1 to n. For n = 100, we will count multiples of 5 and 25."
+      },
+      {
+        "step": 3,
+        "description": "Calculate ⌊100/5⌋, ⌊100/25⌋ and higher powers if necessary.",
+        "reasoning": "Calculating these values gives: ⌊100/5⌋ = 20 (there are 20 multiples of 5), ⌊100/25⌋ = 4 (there are 4 multiples of 25), and ⌊100/125⌋ = 0 (there are no multiples of 125)."
+      },
+      {
+        "step": 4,
+        "description": "Sum the results from previous calculations: 20 + 4 = 24.",
+        "reasoning": "This sum gives the total number of trailing zeros in 100! since it counts all pairs of factors of 2 and 5."
+      }
+    ],
+    "final_answer": "100! has 24 trailing zeros.",
+    "confidence": 0.95,
+    "assumptions": [
+      "The only factors contributing to trailing zeros in factorials are 2 and 5, with 5 being the limiting factor.",
+      "All calculations for ⌊n/k⌋ are performed correctly for k being powers of 5."
+    ],
+    "_correct": true
+  },
+  {
+    "solver_id": "solver_2",
+    "model": "gemini",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Count the number of factors of 5 in the numbers from 1 to 100.",
+        "reasoning": "Trailing zeros in a factorial are produced by pairs of factors of 2 and 5. Since factors of 2 are more frequent than factors of 5, the number of trailing zeros is determined by the number of times 5 is a factor in the numbers leading up to 100."
+      },
+      {
+        "step": 2,
+        "description": "Calculate the contribution of each power of 5 to the count of trailing zeros.",
+        "reasoning": "To find the number of trailing zeros, we use the formula: floor(100/5) + floor(100/25). This counts how many multiples of 5 and multiples of 25 there are up to 100."
+      },
+      {
+        "step": 3,
+        "description": "Perform the calculations: floor(100/5) = 20 and floor(100/25) = 4.",
+        "reasoning": "This gives us the total number of factors of 5 contributing to trailing zeros. Adding these values: 20 + 4 = 24."
+      },
+      {
+        "step": 4,
+        "description": "Conclude that the total number of trailing zeros in 100! is 24.",
+        "reasoning": "Since we have counted all the contributions from the factors of 5, we find that 100! has 24 trailing zeros."
+      }
+    ],
+    "final_answer": "There are 24 trailing zeros at the end of 100!",
+    "confidence": 0.95,
+    "assumptions": [
+      "All calculations are based on integer division (floor function).",
+      "There are no additional factors of 5 beyond multiples of 5 and 25 that contribute to trailing zeros in 100!.",
+      "The only relevant factors are those that contribute to pairs of 2 and 5, and since factors of 2 are abundant, only the count of 5 is needed."
+    ],
+    "_correct": true
+  },
+  {
+    "solver_id": "solver_3",
+    "model": "grok",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Calculate the number of factors of 5 in 100!",
+        "reasoning": "Trailing zeros in a factorial are produced by the factors of 10, which are the product of the factors 2 and 5. Since there are generally more factors of 2 than 5 in any factorial, the number of trailing zeros is determined by the number of times 5 is a factor in the numbers from 1 to 100."
+      },
+      {
+        "step": 2,
+        "description": "Use the formula to count the factors of 5: ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋...",
+        "reasoning": "To find the number of factors of 5 in 100!, I apply the formula which sums the integer divisions of 100 by powers of 5 until the power exceeds 100."
+      },
+      {
+        "step": 3,
+        "description": "Calculate the individual components: ⌊100/5⌋, ⌊100/25⌋, and ⌊100/125⌋",
+        "reasoning": "Calculating these values gives us the counts of multiples of 5, 25, and 125 in the range 1 to 100. Specifically, ⌊100/5⌋ = 20, ⌊100/25⌋ = 4, and ⌊100/125⌋ = 0."
+      },
+      {
+        "step": 4,
+        "description": "Sum the counts: 20 + 4 + 0 = 24",
+        "reasoning": "The total count of trailing zeros is the sum of the individual counts of factors of 5."
+      }
+    ],
+    "final_answer": "There are 24 trailing zeros in 100!",
+    "confidence": 0.95,
+    "assumptions": [
+      "The calculation of trailing zeros depends on the number of factors of 5 in the factorial, as factors of 2 are always more abundant.",
+      "The formula for counting factors of a prime in a factorial is correctly applied."
+    ],
+    "_correct": true
+  }
+]

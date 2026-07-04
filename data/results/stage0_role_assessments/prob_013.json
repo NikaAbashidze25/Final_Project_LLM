@@ -1,0 +1,46 @@
+{
+  "gpt-4": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to independently derive the energy of a photon using the given formulas and constants, while I have moderate confidence in evaluating potential solutions."
+  },
+  "claude": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-suited to independently calculate the energy of a photon using the given wavelength, constants, and relevant formulas, while I have slightly less confidence in evaluating potential solutions from others."
+  },
+  "gemini": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-suited to independently calculate the energy of a photon using the given wavelength, constants, and formula, demonstrating strong problem-solving skills."
+  },
+  "grok": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-equipped to independently derive the solution for the energy of a photon using the given wavelength and constants. My confidence in evaluating solutions is lower, as critical analysis may require more contextual understanding."
+  }
+}

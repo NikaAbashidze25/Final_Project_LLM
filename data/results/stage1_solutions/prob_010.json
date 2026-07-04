@@ -1,0 +1,89 @@
+[
+  {
+    "solver_id": "solver_1",
+    "model": "claude",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Calculate the initial horizontal and vertical components of the velocity.",
+        "reasoning": "Using trigonometric functions, the horizontal component (Vx) can be calculated as Vx = V * cos(θ) and the vertical component (Vy) as Vy = V * sin(θ). Here, V = 20 m/s and θ = 30 degrees."
+      },
+      {
+        "step": 2,
+        "description": "Determine the time of flight of the projectile.",
+        "reasoning": "The time of flight can be calculated using the formula: t = (2 * Vy) / g. This accounts for the time to reach the maximum height and return to the ground."
+      },
+      {
+        "step": 3,
+        "description": "Calculate the horizontal range using the time of flight and horizontal velocity.",
+        "reasoning": "The horizontal range (R) can be calculated using the formula: R = Vx * t. This gives the distance traveled in the horizontal direction."
+      }
+    ],
+    "final_answer": "40.0",
+    "confidence": 0.95,
+    "assumptions": [
+      "The projectile is launched from ground level and lands at the same height.",
+      "Air resistance is negligible.",
+      "The acceleration due to gravity is constant at 9.8 m/s^2."
+    ],
+    "_correct": false
+  },
+  {
+    "solver_id": "solver_2",
+    "model": "gemini",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Resolve the initial velocity into horizontal and vertical components.",
+        "reasoning": "The initial speed of the projectile is given as 20 m/s, and it is launched at an angle of 30 degrees. To find the horizontal (Vx) and vertical (Vy) components, we use trigonometric functions: Vx = V * cos(theta) and Vy = V * sin(theta). Thus, Vx = 20 * cos(30°) and Vy = 20 * sin(30°)."
+      },
+      {
+        "step": 2,
+        "description": "Calculate the time of flight.",
+        "reasoning": "The time of flight (T) can be determined by analyzing the vertical motion. The vertical displacement when the projectile lands back on the ground is zero. The time of flight can be calculated using the formula T = (2 * Vy) / g. Substituting Vy from step 1, we can calculate T."
+      },
+      {
+        "step": 3,
+        "description": "Calculate the horizontal range using the time of flight and horizontal velocity.",
+        "reasoning": "The horizontal range (R) of the projectile can be found using the formula R = Vx * T. With Vx computed in step 1 and T from step 2, we can find the horizontal range."
+      }
+    ],
+    "final_answer": "34.6",
+    "confidence": 0.95,
+    "assumptions": [
+      "Air resistance is negligible.",
+      "The launch and landing heights are the same (ground level).",
+      "The acceleration due to gravity is constant at 9.8 m/s²."
+    ],
+    "_correct": false
+  },
+  {
+    "solver_id": "solver_3",
+    "model": "grok",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Calculate the initial horizontal and vertical components of the projectile's velocity.",
+        "reasoning": "Using the launch speed and angle, I can calculate the horizontal (Vx) and vertical (Vy) components of the initial velocity. Vx = V * cos(θ) and Vy = V * sin(θ), where V is the launch speed (20 m/s) and θ is the launch angle (30 degrees). This step is crucial to determine how far the projectile will travel horizontally and how long it will be in the air."
+      },
+      {
+        "step": 2,
+        "description": "Calculate the time of flight of the projectile.",
+        "reasoning": "The time of flight can be determined by analyzing the vertical motion. The time to reach the maximum height is given by t_up = Vy / g. The total time of flight will be twice this value (t_total = 2 * t_up) because the projectile takes the same amount of time to ascend and descend."
+      },
+      {
+        "step": 3,
+        "description": "Calculate the horizontal range of the projectile.",
+        "reasoning": "The horizontal range can be calculated using the formula Range = Vx * t_total. This will give the total horizontal distance traveled during the time the projectile is in the air."
+      }
+    ],
+    "final_answer": "57.8",
+    "confidence": 0.95,
+    "assumptions": [
+      "The projectile is launched in a vacuum (no air resistance).",
+      "The acceleration due to gravity is constant at 9.8 m/s^2.",
+      "The launch angle is measured from the horizontal, and the angle is in degrees."
+    ],
+    "_correct": false
+  }
+]

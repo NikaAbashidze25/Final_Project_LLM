@@ -1,0 +1,46 @@
+{
+  "gpt-4": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to systematically solve logic puzzles and derive the correct answer, but I also have the capability to evaluate solutions if necessary."
+  },
+  "claude": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.8,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to logically deduce the answer through a systematic approach, but I also recognize the importance of critical evaluation in this context."
+  },
+  "gemini": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I have strong analytical skills to solve logic puzzles and can methodically derive the solution step-by-step, but my evaluation skills are slightly less confident in this context."
+  },
+  "grok": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-equipped to methodically work through the clues and derive the solution to this logical puzzle with a high degree of confidence."
+  }
+}

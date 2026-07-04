@@ -1,0 +1,46 @@
+{
+  "gpt-4": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-equipped to calculate the number of trailing zeros in 100! through the systematic application of the formula involving factors of 5, which makes me suited for the Solver role."
+  },
+  "claude": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-suited to provide a complete, rigorous solution for calculating trailing zeros in factorials, as it involves applying a specific mathematical formula. My confidence in evaluating solutions is lower because it requires more comparative analysis."
+  },
+  "gemini": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-equipped to compute the number of trailing zeros in factorials through the use of prime factorization and counting, which makes me a strong candidate for the Solver role."
+  },
+  "grok": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-equipped to calculate the number of trailing zeros in 100! by applying the formula based on the factors of 5, which requires a step-by-step approach to derive the answer."
+  }
+}

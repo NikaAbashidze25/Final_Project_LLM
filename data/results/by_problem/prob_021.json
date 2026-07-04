@@ -1,0 +1,519 @@
+{
+  "problem": {
+    "id": "prob_021",
+    "category": "game_theory",
+    "problem": "In a sealed-bid second-price (Vickrey) auction for a single item, where the highest bidder wins but pays the second-highest bid, what is each bidder's optimal (dominant) bidding strategy?",
+    "correct_answer": "Bid your true valuation",
+    "difficulty": "hard",
+    "source_notes": "Truthful bidding is the dominant strategy in a second-price auction."
+  },
+  "assessments": {
+    "gpt-4": {
+      "role_preferences": [
+        "Solver",
+        "Judge"
+      ],
+      "confidence_by_role": {
+        "Solver": 0.9,
+        "Judge": 0.7
+      },
+      "reasoning": "I have strong knowledge of auction theory and can clearly articulate the optimal bidding strategy in a second-price auction, while my critical evaluation skills are good but not as strong as my ability to solve this problem directly."
+    },
+    "claude": {
+      "role_preferences": [
+        "Solver",
+        "Judge"
+      ],
+      "confidence_by_role": {
+        "Solver": 0.9,
+        "Judge": 0.7
+      },
+      "reasoning": "I am confident in my ability to produce a clear and rigorous explanation of the optimal bidding strategy in a second-price auction, as it relies on established economic principles. However, my role in evaluating existing solutions is slightly less strong compared to my capacity to derive the solution independently."
+    },
+    "gemini": {
+      "role_preferences": [
+        "Solver",
+        "Judge"
+      ],
+      "confidence_by_role": {
+        "Solver": 0.9,
+        "Judge": 0.7
+      },
+      "reasoning": "I am well-suited to independently produce a complete and rigorous solution for this auction problem, as I can effectively analyze and explain the optimal bidding strategies in detail."
+    },
+    "grok": {
+      "role_preferences": [
+        "Solver",
+        "Judge"
+      ],
+      "confidence_by_role": {
+        "Solver": 0.9,
+        "Judge": 0.7
+      },
+      "reasoning": "I feel confident in independently producing a rigorous solution for the bidding strategy in a Vickrey auction, as this involves clear economic principles. While I can evaluate solutions, my strength lies in deriving the bidding strategy."
+    }
+  },
+  "assignment": {
+    "Solver_1": "claude",
+    "Solver_2": "gemini",
+    "Solver_3": "grok",
+    "Judge": "gpt-4"
+  },
+  "solutions": {
+    "solver_1": {
+      "solver_id": "solver_1",
+      "model": "claude",
+      "solution_steps": [
+        {
+          "step": 1,
+          "description": "Define the auction rules and bidder strategies.",
+          "reasoning": "In a sealed-bid second-price auction, bidders submit bids without knowing others' bids. The highest bidder wins but pays the second-highest bid. This structure incentivizes bidders to reveal their true valuations."
+        },
+        {
+          "step": 2,
+          "description": "Establish that bidding one's true value is a dominant strategy.",
+          "reasoning": "A bidder's optimal strategy is to bid their true valuation for the item because if they bid below their true value, they risk losing the auction to a lower bid when they could have won. Conversely, if they bid above their true value and win, they may end up paying more than what the item is worth to them."
+        },
+        {
+          "step": 3,
+          "description": "Analyze the implications of truthful bidding.",
+          "reasoning": "If all bidders bid their true valuations, the winner will be the one with the highest value, and they will pay the second-highest bid, which they would have been willing to pay anyway. This maximizes their utility and ensures that no player can benefit by deviating from this strategy."
+        },
+        {
+          "step": 4,
+          "description": "Conclude that the dominant strategy is to bid truthfully.",
+          "reasoning": "Since all bidders face the same incentives in a Vickrey auction, bidding truthfully guarantees that they maximize their expected utility. Thus, regardless of the actions of other bidders, the best strategy is always to bid one's true valuation."
+        }
+      ],
+      "final_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+      "confidence": 0.95,
+      "assumptions": [
+        "Bidders are rational and aim to maximize their utility.",
+        "Bidders have a clear understanding of their own valuations of the item being auctioned.",
+        "Bidders cannot communicate or coordinate with each other prior to bidding."
+      ],
+      "_correct": false
+    },
+    "solver_2": {
+      "solver_id": "solver_2",
+      "model": "gemini",
+      "solution_steps": [
+        {
+          "step": 1,
+          "description": "Analyze the auction format and its implications for bidding strategies.",
+          "reasoning": "In a sealed-bid second-price auction, bidders submit their bids without knowing other bidders' offers. The winner is the highest bidder, but the price paid is the second-highest bid. This format encourages bidders to bid their true value for the item."
+        },
+        {
+          "step": 2,
+          "description": "Identify that bidding one's true value is a dominant strategy.",
+          "reasoning": "If a bidder bids below their true value, they risk losing the auction to someone who might bid their true value. If they bid above their true value, they could win but end up paying more than the item is worth to them. Therefore, the optimal strategy is to bid exactly what the item is worth to them."
+        },
+        {
+          "step": 3,
+          "description": "Conclude that each bidder's optimal strategy is to submit a bid equal to their valuation of the item.",
+          "reasoning": "Since the auction mechanism ensures that the winner only pays the second-highest bid, bidders maximize their utility by bidding their true valuation, knowing that they will not pay more than that value."
+        }
+      ],
+      "final_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+      "confidence": 0.95,
+      "assumptions": [
+        "All bidders are rational and have a clear understanding of their own valuation of the item.",
+        "Bidders have no collusion or communication with each other regarding their bids."
+      ],
+      "_correct": false
+    },
+    "solver_3": {
+      "solver_id": "solver_3",
+      "model": "grok",
+      "solution_steps": [
+        {
+          "step": 1,
+          "description": "Analyze the auction format and its implications for bidding strategy.",
+          "reasoning": "In a second-price auction, the winner is the highest bidder but pays the price of the second-highest bid. This setup incentivizes bidders to bid their true value (valuation of the item), as bidding more than their true value risks overpaying, while bidding less could result in losing the auction."
+        },
+        {
+          "step": 2,
+          "description": "Determine the optimal strategy for bidding under the assumption of other bidders' strategies.",
+          "reasoning": "If all bidders follow the strategy of bidding their true values, a bidder can maximize their utility by bidding their own valuation. If they bid lower than their valuation, they risk losing the auction. If they bid higher, they may win but could end up paying more than their valuation."
+        },
+        {
+          "step": 3,
+          "description": "Conclude that bidding one's true value is a dominant strategy.",
+          "reasoning": "Given that in a second-price auction a bidder's payoff is maximized by winning the item at a price that is not higher than their valuation, the rational choice is to bid exactly what the item is worth to them."
+        }
+      ],
+      "final_answer": "Each bidder's optimal bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+      "confidence": 0.95,
+      "assumptions": [
+        "All bidders are rational and have complete knowledge of their own valuations.",
+        "Bidders do not collude or communicate with each other about their bids.",
+        "There are at least two bidders participating in the auction."
+      ],
+      "_correct": false
+    }
+  },
+  "reviews": [
+    {
+      "reviewer_id": "solver_1",
+      "solution_reviewed": "solver_2",
+      "evaluation": {
+        "strengths": [
+          "The solution clearly outlines the auction format and its implications for bidding strategies.",
+          "It correctly identifies that bidding one's true value is a dominant strategy, which aligns with established auction theory."
+        ],
+        "weaknesses": [
+          "The reasoning in step 2 could be made more explicit regarding the consequences of bidding strategies, particularly the potential risk of losing the auction if bidding below one's true value."
+        ],
+        "errors": [
+          {
+            "location": "Step 2",
+            "error_type": "unjustified_assumption",
+            "description": "The solution assumes that all bidders understand their true valuation perfectly and will behave rationally, which may not always be the case. In real-world scenarios, bidders may have uncertainties about their valuations or may misestimate them, impacting their bidding strategies.",
+            "severity": "major"
+          }
+        ],
+        "suggested_changes": [
+          "Expand on the assumptions regarding bidder rationality and valuation accuracy to acknowledge the potential for misestimations, which could affect bidding behavior."
+        ]
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": true
+    },
+    {
+      "reviewer_id": "solver_1",
+      "solution_reviewed": "solver_3",
+      "evaluation": {
+        "strengths": [
+          "The solution clearly articulates the reasoning behind why bidding one's true value is optimal in a second-price auction.",
+          "The steps logically build upon each other to reach the conclusion, demonstrating a coherent thought process."
+        ],
+        "weaknesses": [
+          "The solution could benefit from an example to illustrate the bidding strategy more concretely."
+        ],
+        "errors": [],
+        "suggested_changes": [
+          "Include a simple numerical example to demonstrate the optimal bidding strategy and its implications in a second-price auction."
+        ]
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    },
+    {
+      "reviewer_id": "solver_2",
+      "solution_reviewed": "solver_1",
+      "evaluation": {
+        "strengths": [
+          "The solution clearly defines the rules of the auction and the strategic implications for bidders.",
+          "Each step logically builds on the previous one, leading to a coherent conclusion about the dominant strategy."
+        ],
+        "weaknesses": [],
+        "errors": [],
+        "suggested_changes": []
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    },
+    {
+      "reviewer_id": "solver_2",
+      "solution_reviewed": "solver_3",
+      "evaluation": {
+        "strengths": [
+          "The solution correctly identifies that the second-price auction incentivizes bidders to bid their true valuation.",
+          "The reasoning is logically structured, leading to the conclusion that bidding one's true value is a dominant strategy."
+        ],
+        "weaknesses": [],
+        "errors": [],
+        "suggested_changes": []
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    },
+    {
+      "reviewer_id": "solver_3",
+      "solution_reviewed": "solver_1",
+      "evaluation": {
+        "strengths": [
+          "The solution clearly explains the auction rules and the dominant strategy of bidding one's true valuation.",
+          "The reasoning is logically structured and follows a clear progression from defining the auction to concluding the optimal strategy."
+        ],
+        "weaknesses": [
+          "The solution briefly mentions the incentives without providing a detailed explanation of why bidding above one's true value can lead to a loss of utility."
+        ],
+        "errors": [
+          {
+            "location": "Step 2",
+            "error_type": "unjustified_assumption",
+            "description": "The reasoning assumes that all bidders will bid rationally, but does not consider situations where bidders may have misconceptions about their valuations or the auction dynamics, which can lead to irrational bidding behavior.",
+            "severity": "major"
+          },
+          {
+            "location": "Step 3",
+            "error_type": "missing_case",
+            "description": "The analysis does not account for cases where bidders might collude or share information, which can affect the outcome and the strategy of bidding truthfully. This is especially relevant in real-world scenarios where bidders might not be entirely independent.",
+            "severity": "major"
+          }
+        ],
+        "suggested_changes": [
+          "Expand the discussion in Step 2 to address potential irrational behavior among bidders and how that could impact the auction outcome.",
+          "Include a consideration of collusion or information sharing among bidders in Step 3 to provide a more robust analysis of the auction dynamics."
+        ]
+      },
+      "overall_assessment": "promising_but_flawed",
+      "_flagged_real_error": true
+    },
+    {
+      "reviewer_id": "solver_3",
+      "solution_reviewed": "solver_2",
+      "evaluation": {
+        "strengths": [
+          "The solution correctly identifies the nature of a sealed-bid second-price auction and its implications for bidding strategies.",
+          "The reasoning clearly explains why bidding one's true value is a dominant strategy, which aligns with economic theory."
+        ],
+        "weaknesses": [
+          "The solution could benefit from a more thorough discussion of potential edge cases or assumptions that could affect the bidding strategy."
+        ],
+        "errors": [],
+        "suggested_changes": [
+          "Provide a brief discussion on scenarios where bidders may have different valuations or risk preferences that could affect their bidding strategy in practice."
+        ]
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    }
+  ],
+  "refinements": {
+    "solver_1": {
+      "solver_id": "solver_1",
+      "model": "claude",
+      "critique_responses": [
+        {
+          "from_reviewer": "solver_2",
+          "critique": "The solution is correct and well-structured with no weaknesses or errors identified.",
+          "response": "Thank you for your positive feedback! I appreciate your acknowledgment of the clarity and logical progression of the solution.",
+          "accepted": true
+        },
+        {
+          "from_reviewer": "solver_3",
+          "critique": "The reasoning assumes that all bidders will bid rationally and doesn't account for collusion or misinformation.",
+          "response": "I acknowledge the critique regarding the assumption of rationality. While the dominant strategy holds under the assumption of rational bidders, I will expand my discussion to consider the implications of irrational behavior and collusion. This will enhance the robustness of the analysis. I will clarify that while the dominant strategy remains to bid truthfully, real-world dynamics can introduce complexities that affect bidding behavior.",
+          "accepted": true
+        }
+      ],
+      "refined_solution_steps": [
+        {
+          "step": 1,
+          "description": "Define the auction rules and bidder strategies.",
+          "reasoning": "In a sealed-bid second-price auction, bidders submit bids without knowing others' bids. The highest bidder wins but pays the second-highest bid. This structure incentivizes bidders to reveal their true valuations."
+        },
+        {
+          "step": 2,
+          "description": "Establish that bidding one's true value is a dominant strategy, while considering irrational behavior.",
+          "reasoning": "A bidder's optimal strategy is to bid their true valuation for the item. However, if a bidder has misconceptions about their valuation or the auction dynamics, they may bid irrationally. This could lead to losing the auction or overpaying, but the theoretical optimal strategy remains to bid truthfully."
+        },
+        {
+          "step": 3,
+          "description": "Analyze the implications of truthful bidding and possible collusion.",
+          "reasoning": "If all bidders bid their true valuations, the winner will be the one with the highest value, paying the second-highest bid. However, if bidders collude or share information, this could alter the bidding dynamics, undermining the assumption of independent bidding. Thus, while truthful bidding maximizes utility, real-world conditions may lead to different outcomes."
+        },
+        {
+          "step": 4,
+          "description": "Conclude that the dominant strategy is to bid truthfully, with caveats.",
+          "reasoning": "Bidding truthfully guarantees maximized expected utility under independent and rational bidding circumstances. Nevertheless, bidders must be aware of the potential for irrational behavior and collusion, which can impact their strategic decisions."
+        }
+      ],
+      "refined_final_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, though bidders should be aware of potential irrational behavior and collusion that could affect outcomes.",
+      "confidence": 0.9,
+      "changes_summary": "Expanded the discussion in Step 2 to address irrational behavior and its impact on bidding. Added considerations of collusion and information sharing in Step 3 to strengthen the analysis of auction dynamics.",
+      "_correct": false
+    },
+    "solver_2": {
+      "solver_id": "solver_2",
+      "model": "gemini",
+      "critique_responses": [
+        {
+          "from_reviewer": "solver_1",
+          "critique": "Step 2's reasoning could be made more explicit regarding the consequences of bidding strategies, particularly the risk of losing the auction if bidding below one's true value. Additionally, the assumption of perfect understanding of true valuations is problematic as bidders may misestimate their values.",
+          "response": "I appreciate the feedback on the need for clearer reasoning in Step 2 about the consequences of bidding strategies. I will expand on the potential risks of bidding below one's true value. Regarding the assumption of perfect valuation, I acknowledge that in real-world scenarios, bidders may face uncertainties about their valuations. I will revise the assumptions to reflect this complexity.",
+          "accepted": true
+        },
+        {
+          "from_reviewer": "solver_3",
+          "critique": "The solution could benefit from a more thorough discussion of potential edge cases or assumptions that could affect the bidding strategy.",
+          "response": "Thank you for highlighting the need for a discussion on edge cases and varying bidder valuations. I agree that understanding different risk preferences and valuation scenarios can provide a more comprehensive view of bidding strategies. I will incorporate this discussion into the refined solution.",
+          "accepted": true
+        }
+      ],
+      "refined_solution_steps": [
+        {
+          "step": 1,
+          "description": "Analyze the auction format and its implications for bidding strategies.",
+          "reasoning": "In a sealed-bid second-price auction, bidders submit their bids without knowing other bidders' offers. The winner is the highest bidder, but the price paid is the second-highest bid. This format encourages bidders to bid their true value for the item."
+        },
+        {
+          "step": 2,
+          "description": "Identify that bidding one's true value is a dominant strategy.",
+          "reasoning": "If a bidder bids below their true value, they risk losing the auction to someone who might bid their true value. If they bid above their true value, they could win but end up paying more than the item is worth to them. Thus, the optimal strategy is to bid exactly what the item is worth. However, it is important to note that bidders may misestimate their valuations due to uncertainty, which could alter their bidding behavior."
+        },
+        {
+          "step": 3,
+          "description": "Conclude that each bidder's optimal strategy is to submit a bid equal to their valuation of the item.",
+          "reasoning": "Since the auction mechanism ensures that the winner only pays the second-highest bid, bidders maximize their utility by bidding their true valuation. Additionally, bidders should be aware that different risk preferences and varying valuations among participants can influence the auction dynamics."
+        }
+      ],
+      "refined_final_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, while considering potential misestimations and varying risk preferences among bidders.",
+      "confidence": 0.9,
+      "changes_summary": "I clarified the reasoning in Step 2 regarding the risks of underbidding and acknowledged the possibility of misestimations in bidders' true valuations. I also added a discussion on the impact of varying risk preferences and valuations on bidding strategies.",
+      "_correct": false
+    },
+    "solver_3": {
+      "solver_id": "solver_3",
+      "model": "grok",
+      "critique_responses": [
+        {
+          "from_reviewer": "solver_1",
+          "critique": "The solution could benefit from an example to illustrate the bidding strategy more concretely.",
+          "response": "I agree that a numerical example would enhance the clarity of the explanation, making it easier for readers to grasp the practical implications of the bidding strategy.",
+          "accepted": true
+        },
+        {
+          "from_reviewer": "solver_2",
+          "critique": "No weaknesses identified; the solution is correct.",
+          "response": "Thank you for the positive feedback. I will focus on enhancing the solution by incorporating an example as suggested by reviewer 1.",
+          "accepted": true
+        }
+      ],
+      "refined_solution_steps": [
+        {
+          "step": 1,
+          "description": "Analyze the auction format and its implications for bidding strategy.",
+          "reasoning": "In a second-price auction, the winner is the highest bidder but pays the price of the second-highest bid. This setup incentivizes bidders to bid their true value (valuation of the item), as bidding more than their true value risks overpaying, while bidding less could result in losing the auction."
+        },
+        {
+          "step": 2,
+          "description": "Provide a numerical example to illustrate the bidding strategy.",
+          "reasoning": "For instance, if Bidder A values the item at $100 and Bidder B values it at $80, if both bid their true values, Bidder A wins at $80, which is less than their valuation, maximizing their utility. If Bidder A bids $90 instead, they still win but may feel they overpaid if the item is worth only $90."
+        },
+        {
+          "step": 3,
+          "description": "Conclude that bidding one's true value is a dominant strategy.",
+          "reasoning": "Given that in a second-price auction a bidder's payoff is maximized by winning the item at a price that is not higher than their valuation, the rational choice is to bid exactly what the item is worth to them."
+        }
+      ],
+      "refined_final_answer": "Each bidder's optimal bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, as illustrated by the example where Bidder A values the item at $100 and wins it for $80 when Bidder B values it at $80.",
+      "confidence": 0.95,
+      "changes_summary": "Incorporated a numerical example to illustrate the bidding strategy more concretely, enhancing the clarity and understanding of the solution.",
+      "_correct": false
+    }
+  },
+  "judgment": {
+    "judge_model": "gpt-4",
+    "winner": "solver_2",
+    "confidence": 0.78,
+    "reasoning": "All three solvers identify the correct core result: truthful bidding is the dominant strategy in a Vickrey auction. The main differences are in the quality and precision of justification after refinement. Solver_2 is the strongest overall: its final answer remains correct, and its refinement modestly improves the explanation of underbidding and overbidding risks while preserving the central conclusion. It adds some caveats about valuation uncertainty and risk preferences that are somewhat extraneous to the standard theoretical result, but they do not seriously undermine the answer. Solver_1 also gives the correct answer and a generally coherent explanation, but its refinement accepts critiques about irrationality and collusion in a way that slightly blurs the standard dominant-strategy claim: truthful bidding is dominant regardless of other bidders' bids, not merely under 'independent and rational bidding circumstances.' Collusion changes the environment rather than refuting the Vickrey dominant-strategy result. Solver_3 is correct in its final conclusion, but its refinement introduces a flawed numerical example: if Bidder A values the item at $100 and bids $90 against an $80 bid, A still pays $80, so the statement that A 'may feel they overpaid if the item is worth only $90' is internally inconsistent and misunderstands the second-price payment in that example. Therefore, despite all solvers reaching the right answer, solver_2 has the best balance of correctness, consistency, and refinement quality. Ranking: 1) solver_2, 2) solver_1, 3) solver_3.",
+    "correct_answer": "In a standard sealed-bid second-price (Vickrey) auction with private values and no collusion, each bidder has a weakly dominant strategy to bid exactly their true valuation of the item.",
+    "_fallback": false
+  },
+  "record": {
+    "problem_id": "prob_021",
+    "category": "game_theory",
+    "difficulty": "hard",
+    "winner_solver": "solver_2",
+    "final_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, while considering potential misestimations and varying risk preferences among bidders.",
+    "correct_answer": "Bid your true valuation",
+    "is_correct": false,
+    "judge_confidence": 0.78,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "In a sealed-bid second-price auction, each bidder's optimal bidding strategy is to bid their true valuation of the item.",
+      "is_correct": false
+    },
+    "baseline_voting": {
+      "answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+      "is_correct": false,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, though bidders should be aware of potential irrational behavior and collusion that could affect outcomes.",
+        "refined_correct": false,
+        "refined_confidence": 0.9
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, while considering potential misestimations and varying risk preferences among bidders.",
+        "refined_correct": false,
+        "refined_confidence": 0.9
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "Each bidder's optimal bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "Each bidder's optimal bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, as illustrated by the example where Bidder A values the item at $100 and wins it for $80 when Bidder B values it at $80.",
+        "refined_correct": false,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": true,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": true,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  }
+}

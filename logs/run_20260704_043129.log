@@ -1,0 +1,41 @@
+2026-07-04 04:31:29 | INFO    | Backend=openai | free_mode=True | provider=openai | seed=42
+2026-07-04 04:31:29 | INFO    | Resuming run over 7 problem(s): prob_019 .. prob_025
+2026-07-04 04:31:29 | INFO    | ======================================================================
+2026-07-04 04:31:29 | INFO    | PROBLEM prob_019 [logic_puzzle / very_hard]
+2026-07-04 04:31:29 | INFO    | stage0-4 | reusing existing results for prob_019 (no LLM calls)
+2026-07-04 04:31:29 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'claude', 'Solver_3': 'gemini', 'Judge': 'grok'}
+2026-07-04 04:31:38 | INFO    | DONE prob_019 | final='The minimum number of weighings required to identify the counterfeit ball and determine if it is heavier or lighter is 3.' correct=True | single=False voting=False
+2026-07-04 04:31:38 | INFO    | ======================================================================
+2026-07-04 04:31:38 | INFO    | PROBLEM prob_020 [logic_puzzle / very_hard]
+2026-07-04 04:31:38 | INFO    | stage0-4 | reusing existing results for prob_020 (no LLM calls)
+2026-07-04 04:31:38 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 04:31:47 | INFO    | DONE prob_020 | final="Cheryl's birthday is July 16." correct=True | single=True voting=True
+2026-07-04 04:31:47 | INFO    | ======================================================================
+2026-07-04 04:31:47 | INFO    | PROBLEM prob_021 [game_theory / hard]
+2026-07-04 04:31:47 | INFO    | stage0-4 | reusing existing results for prob_021 (no LLM calls)
+2026-07-04 04:31:47 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 04:31:53 | INFO    | DONE prob_021 | final="Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, while considering potential misestimations and varying risk preferences among bidders." correct=False | single=False voting=False
+2026-07-04 04:31:53 | INFO    | ======================================================================
+2026-07-04 04:31:53 | INFO    | PROBLEM prob_022 [game_theory / medium]
+2026-07-04 04:31:53 | INFO    | stage0-4 | reusing existing results for prob_022 (no LLM calls)
+2026-07-04 04:31:53 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'claude', 'Solver_3': 'grok', 'Judge': 'gemini'}
+2026-07-04 04:32:00 | INFO    | DONE prob_022 | final='The Nash equilibrium strategy profile is (Defect, Defect).' correct=False | single=True voting=False
+2026-07-04 04:32:00 | INFO    | ======================================================================
+2026-07-04 04:32:00 | INFO    | PROBLEM prob_023 [game_theory / hard]
+2026-07-04 04:32:00 | INFO    | stage0-4 | reusing existing results for prob_023 (no LLM calls)
+2026-07-04 04:32:00 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 04:32:08 | INFO    | DONE prob_023 | final='The first player wins with the first move of removing 1 stone.' correct=True | single=True voting=True
+2026-07-04 04:32:08 | INFO    | ======================================================================
+2026-07-04 04:32:08 | INFO    | PROBLEM prob_024 [game_theory / very_hard]
+2026-07-04 04:32:08 | INFO    | stage0-4 | reusing existing results for prob_024 (no LLM calls)
+2026-07-04 04:32:08 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'claude', 'Solver_3': 'grok', 'Judge': 'gemini'}
+2026-07-04 04:32:16 | INFO    | DONE prob_024 | final='In Nash equilibrium, each firm produces 30 units.' correct=True | single=True voting=True
+2026-07-04 04:32:16 | INFO    | ======================================================================
+2026-07-04 04:32:16 | INFO    | PROBLEM prob_025 [game_theory / hard]
+2026-07-04 04:32:16 | INFO    | stage0-4 | reusing existing results for prob_025 (no LLM calls)
+2026-07-04 04:32:16 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 04:32:22 | INFO    | DONE prob_025 | final='Yes, the first player has a winning strategy.' correct=True | single=True voting=True
+2026-07-04 04:32:22 | INFO    | ======================================================================
+2026-07-04 04:32:22 | INFO    | RUN COMPLETE | 7 problem(s) this run | accuracy = 5/7 = 71.4%
+2026-07-04 04:32:22 | INFO    | OVERALL | 8/25 problems recorded | accuracy = 6/8 = 75.0%
+2026-07-04 04:32:22 | INFO    | Results written to data\results\final_answers.json

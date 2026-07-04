@@ -1,0 +1,460 @@
+2026-07-04 02:27:50 | INFO    | Backend=openai | free_mode=True | provider=openai | seed=42
+2026-07-04 02:27:50 | INFO    | ======================================================================
+2026-07-04 02:27:50 | INFO    | PROBLEM prob_001 [mathematical_reasoning / hard]
+2026-07-04 02:27:55 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:27:58 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:28:01 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:28:03 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:28:03 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:28:11 | INFO    | stage1 | solver_1 (claude) -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' conf=0.90
+2026-07-04 02:28:19 | INFO    | stage1 | solver_2 (gemini) -> answer='153' conf=0.95
+2026-07-04 02:28:27 | INFO    | stage1 | solver_3 (grok) -> answer='543' conf=0.95
+2026-07-04 02:28:33 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-04 02:28:38 | INFO    | stage2 | solver_1 -> solver_3 : fundamentally_wrong (1 errors flagged)
+2026-07-04 02:28:44 | WARNING | stage2 | solver_2 -> solver_1 : overridden 'fundamentally_wrong' -> 'promising_but_flawed' (reviewer's own answer agrees with the reviewed answer)
+2026-07-04 02:28:44 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:28:50 | INFO    | stage2 | solver_2 -> solver_3 : fundamentally_wrong (2 errors flagged)
+2026-07-04 02:28:55 | INFO    | stage2 | solver_3 -> solver_1 : fundamentally_wrong (1 errors flagged)
+2026-07-04 02:29:01 | INFO    | stage2 | solver_3 -> solver_2 : fundamentally_wrong (2 errors flagged)
+2026-07-04 02:29:13 | INFO    | stage3 | solver_1 refined -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 195.' conf=0.95 (was_correct=True now_correct=False)
+2026-07-04 02:29:25 | WARNING | stage3 | solver_2 -> reverted refinement '276' to original '153' (original was peer-corroborated by 1 solver(s); replacement has no independent corroboration)
+2026-07-04 02:29:25 | INFO    | stage3 | solver_2 refined -> answer='153' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:29:37 | INFO    | stage3 | solver_3 refined -> answer='129' conf=0.90 (was_correct=False now_correct=False)
+2026-07-04 02:29:50 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.82
+2026-07-04 02:29:57 | INFO    | DONE prob_001 | final='153' correct=True | single=True voting=False
+2026-07-04 02:29:57 | INFO    | ======================================================================
+2026-07-04 02:29:57 | INFO    | PROBLEM prob_002 [mathematical_reasoning / medium]
+2026-07-04 02:29:59 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:30:02 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:30:05 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:30:08 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:30:08 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:30:16 | INFO    | stage1 | solver_1 (claude) -> answer='100! has 24 trailing zeros.' conf=0.95
+2026-07-04 02:30:24 | INFO    | stage1 | solver_2 (gemini) -> answer='There are 24 trailing zeros at the end of 100!' conf=0.95
+2026-07-04 02:30:30 | INFO    | stage1 | solver_3 (grok) -> answer='There are 24 trailing zeros in 100!' conf=0.95
+2026-07-04 02:30:34 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:30:37 | INFO    | stage2 | solver_1 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:30:42 | INFO    | stage2 | solver_2 -> solver_1 : correct (1 errors flagged)
+2026-07-04 02:30:46 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:30:50 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-04 02:30:54 | INFO    | stage2 | solver_3 -> solver_2 : correct (1 errors flagged)
+2026-07-04 02:31:08 | INFO    | stage3 | solver_1 refined -> answer='100! has 24 trailing zeros.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:31:17 | INFO    | stage3 | solver_2 refined -> answer='There are 24 trailing zeros at the end of 100!' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:31:28 | INFO    | stage3 | solver_3 refined -> answer='There are 24 trailing zeros in 100!' conf=0.97 (was_correct=True now_correct=True)
+2026-07-04 02:31:34 | INFO    | stage4 | judge=gpt-4 winner=solver_3 conf=0.90
+2026-07-04 02:31:41 | INFO    | DONE prob_002 | final='There are 24 trailing zeros in 100!' correct=True | single=True voting=False
+2026-07-04 02:31:41 | INFO    | ======================================================================
+2026-07-04 02:31:41 | INFO    | PROBLEM prob_003 [mathematical_reasoning / hard]
+2026-07-04 02:31:43 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:31:46 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:31:49 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:31:51 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:31:51 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:32:01 | INFO    | stage1 | solver_1 (claude) -> answer='There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5.' conf=0.95
+2026-07-04 02:32:10 | INFO    | stage1 | solver_2 (gemini) -> answer='There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.' conf=0.95
+2026-07-04 02:32:21 | INFO    | stage1 | solver_3 (grok) -> answer='There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.' conf=0.95
+2026-07-04 02:32:25 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:32:30 | INFO    | stage2 | solver_1 -> solver_3 : correct (1 errors flagged)
+2026-07-04 02:32:34 | INFO    | stage2 | solver_2 -> solver_1 : correct (1 errors flagged)
+2026-07-04 02:32:37 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:32:42 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:32:47 | INFO    | stage2 | solver_3 -> solver_2 : correct (1 errors flagged)
+2026-07-04 02:33:07 | INFO    | stage3 | solver_1 refined -> answer='There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:33:20 | INFO    | stage3 | solver_2 refined -> answer='There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:33:33 | INFO    | stage3 | solver_3 refined -> answer='There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:33:43 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.62
+2026-07-04 02:33:53 | INFO    | DONE prob_003 | final='There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.' correct=True | single=True voting=True
+2026-07-04 02:33:53 | INFO    | ======================================================================
+2026-07-04 02:33:53 | INFO    | PROBLEM prob_004 [mathematical_reasoning / medium]
+2026-07-04 02:33:56 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:33:58 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:34:01 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:34:04 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:34:04 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:34:13 | INFO    | stage1 | solver_1 (claude) -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95
+2026-07-04 02:34:21 | INFO    | stage1 | solver_2 (gemini) -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95
+2026-07-04 02:34:30 | INFO    | stage1 | solver_3 (grok) -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95
+2026-07-04 02:34:34 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:34:39 | INFO    | stage2 | solver_1 -> solver_3 : correct (1 errors flagged)
+2026-07-04 02:34:45 | INFO    | stage2 | solver_2 -> solver_1 : correct (1 errors flagged)
+2026-07-04 02:34:51 | INFO    | stage2 | solver_2 -> solver_3 : correct (2 errors flagged)
+2026-07-04 02:35:00 | INFO    | stage2 | solver_3 -> solver_1 : correct (2 errors flagged)
+2026-07-04 02:35:08 | INFO    | stage2 | solver_3 -> solver_2 : correct (1 errors flagged)
+2026-07-04 02:35:23 | INFO    | stage3 | solver_1 refined -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:35:33 | INFO    | stage3 | solver_2 refined -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:35:48 | INFO    | stage3 | solver_3 refined -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.97 (was_correct=True now_correct=True)
+2026-07-04 02:35:56 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.68
+2026-07-04 02:36:04 | INFO    | DONE prob_004 | final='The sum of all positive divisors of 360 is 1170.' correct=True | single=True voting=True
+2026-07-04 02:36:04 | INFO    | ======================================================================
+2026-07-04 02:36:04 | INFO    | PROBLEM prob_005 [mathematical_reasoning / hard]
+2026-07-04 02:36:07 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:36:09 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:36:12 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:36:14 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:36:14 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:36:22 | INFO    | stage1 | solver_1 (claude) -> answer='24/49' conf=0.95
+2026-07-04 02:36:32 | INFO    | stage1 | solver_2 (gemini) -> answer='24/49' conf=0.95
+2026-07-04 02:36:39 | INFO    | stage1 | solver_3 (grok) -> answer='24/49' conf=0.95
+2026-07-04 02:36:43 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:36:48 | INFO    | stage2 | solver_1 -> solver_3 : correct (1 errors flagged)
+2026-07-04 02:36:52 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:36:57 | INFO    | stage2 | solver_2 -> solver_3 : correct (2 errors flagged)
+2026-07-04 02:37:02 | INFO    | stage2 | solver_3 -> solver_1 : correct (2 errors flagged)
+2026-07-04 02:37:06 | INFO    | stage2 | solver_3 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:37:18 | INFO    | stage3 | solver_1 refined -> answer='24/49' conf=0.90 (was_correct=True now_correct=True)
+2026-07-04 02:37:38 | INFO    | stage3 | solver_2 refined -> answer='24/49' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:37:48 | INFO    | stage3 | solver_3 refined -> answer='24/49' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:38:01 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.98
+2026-07-04 02:38:08 | INFO    | DONE prob_005 | final='24/49' correct=True | single=True voting=True
+2026-07-04 02:38:08 | INFO    | ======================================================================
+2026-07-04 02:38:08 | INFO    | PROBLEM prob_006 [mathematical_reasoning / hard]
+2026-07-04 02:38:11 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.80
+2026-07-04 02:38:14 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:38:18 | INFO    | stage0 | gemini assessed: Judge conf=0.80
+2026-07-04 02:38:22 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:38:22 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:38:27 | INFO    | stage1 | solver_1 (claude) -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=0.95
+2026-07-04 02:38:33 | INFO    | stage1 | solver_2 (gemini) -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=0.95
+2026-07-04 02:38:39 | INFO    | stage1 | solver_3 (grok) -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=1.00
+2026-07-04 02:38:43 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:38:46 | INFO    | stage2 | solver_1 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:38:49 | INFO    | stage2 | solver_2 -> solver_1 : correct (0 errors flagged)
+2026-07-04 02:38:52 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:38:55 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-04 02:38:58 | INFO    | stage2 | solver_3 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:39:12 | INFO    | stage3 | solver_1 refined -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:39:22 | INFO    | stage3 | solver_2 refined -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:39:31 | INFO    | stage3 | solver_3 refined -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=1.00 (was_correct=True now_correct=True)
+2026-07-04 02:39:41 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.72
+2026-07-04 02:39:47 | INFO    | DONE prob_006 | final='There are 126 five-digit positive integers with strictly increasing digits.' correct=True | single=True voting=True
+2026-07-04 02:39:47 | INFO    | ======================================================================
+2026-07-04 02:39:47 | INFO    | PROBLEM prob_007 [mathematical_reasoning / hard]
+2026-07-04 02:39:50 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:39:53 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:39:57 | INFO    | stage0 | gemini assessed: Judge conf=0.80
+2026-07-04 02:40:00 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:40:00 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'claude', 'Solver_3': 'grok', 'Judge': 'gemini'}
+2026-07-04 02:40:09 | INFO    | stage1 | solver_1 (gpt-4) -> answer='07' conf=0.90
+2026-07-04 02:40:17 | INFO    | stage1 | solver_2 (claude) -> answer='07' conf=0.95
+2026-07-04 02:40:25 | INFO    | stage1 | solver_3 (grok) -> answer='07' conf=0.95
+2026-07-04 02:40:31 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-04 02:40:36 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:40:42 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:40:47 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:40:52 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:40:57 | INFO    | stage2 | solver_3 -> solver_2 : correct (1 errors flagged)
+2026-07-04 02:41:10 | INFO    | stage3 | solver_1 refined -> answer='07' conf=0.90 (was_correct=True now_correct=True)
+2026-07-04 02:41:23 | INFO    | stage3 | solver_2 refined -> answer='07' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:41:35 | INFO    | stage3 | solver_3 refined -> answer='07' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:41:43 | INFO    | stage4 | judge=gemini winner=solver_2 conf=0.82
+2026-07-04 02:41:51 | INFO    | DONE prob_007 | final='07' correct=True | single=True voting=True
+2026-07-04 02:41:51 | INFO    | ======================================================================
+2026-07-04 02:41:51 | INFO    | PROBLEM prob_008 [physics_reasoning / very_hard]
+2026-07-04 02:41:54 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:41:56 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:41:59 | INFO    | stage0 | gemini assessed: Judge conf=0.80
+2026-07-04 02:42:01 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:42:02 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'claude', 'Solver_3': 'grok', 'Judge': 'gemini'}
+2026-07-04 02:42:10 | INFO    | stage1 | solver_1 (gpt-4) -> answer='0.866' conf=0.95
+2026-07-04 02:42:17 | INFO    | stage1 | solver_2 (claude) -> answer='0.577' conf=0.95
+2026-07-04 02:42:25 | INFO    | stage1 | solver_3 (grok) -> answer='0.577' conf=0.95
+2026-07-04 02:42:29 | INFO    | stage2 | solver_1 -> solver_2 : fundamentally_wrong (1 errors flagged)
+2026-07-04 02:42:35 | INFO    | stage2 | solver_1 -> solver_3 : fundamentally_wrong (1 errors flagged)
+2026-07-04 02:42:41 | INFO    | stage2 | solver_2 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-04 02:42:48 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-04 02:42:54 | INFO    | stage2 | solver_3 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-04 02:42:59 | INFO    | stage2 | solver_3 -> solver_2 : correct (2 errors flagged)
+2026-07-04 02:43:12 | INFO    | stage3 | solver_1 refined -> answer='0.577' conf=0.85 (was_correct=False now_correct=False)
+2026-07-04 02:43:26 | INFO    | stage3 | solver_2 refined -> answer='0.866' conf=0.85 (was_correct=False now_correct=False)
+2026-07-04 02:43:39 | WARNING | stage3 | solver_3 -> reverted refinement '0.750' to original '0.577' (original was peer-corroborated by 1 solver(s); replacement has no independent corroboration)
+2026-07-04 02:43:39 | INFO    | stage3 | solver_3 refined -> answer='0.577' conf=0.95 (was_correct=False now_correct=False)
+2026-07-04 02:44:13 | INFO    | stage4 | judge=gemini winner=solver_2 conf=0.40
+2026-07-04 02:44:22 | INFO    | DONE prob_008 | final='0.866' correct=False | single=False voting=False
+2026-07-04 02:44:22 | INFO    | ======================================================================
+2026-07-04 02:44:22 | INFO    | PROBLEM prob_009 [physics_reasoning / medium]
+2026-07-04 02:44:25 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.80
+2026-07-04 02:44:27 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:44:31 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:44:33 | INFO    | stage0 | grok assessed: Judge conf=0.80
+2026-07-04 02:44:33 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:44:40 | INFO    | stage1 | solver_1 (claude) -> answer='2.02 seconds' conf=0.95
+2026-07-04 02:44:46 | INFO    | stage1 | solver_2 (gemini) -> answer='2.02 seconds' conf=0.95
+2026-07-04 02:44:52 | INFO    | stage1 | solver_3 (grok) -> answer='2.02 seconds' conf=0.95
+2026-07-04 02:44:58 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:45:03 | INFO    | stage2 | solver_1 -> solver_3 : correct (1 errors flagged)
+2026-07-04 02:45:07 | INFO    | stage2 | solver_2 -> solver_1 : correct (1 errors flagged)
+2026-07-04 02:45:11 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:45:15 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-04 02:45:20 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:45:34 | INFO    | stage3 | solver_1 refined -> answer='2.02 seconds' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:45:46 | INFO    | stage3 | solver_2 refined -> answer='2.02 seconds' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:45:55 | INFO    | stage3 | solver_3 refined -> answer='2.02 seconds' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:46:02 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.62
+2026-07-04 02:46:09 | INFO    | DONE prob_009 | final='2.02 seconds' correct=True | single=True voting=True
+2026-07-04 02:46:09 | INFO    | ======================================================================
+2026-07-04 02:46:09 | INFO    | PROBLEM prob_010 [physics_reasoning / hard]
+2026-07-04 02:46:11 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:46:14 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:46:18 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:46:21 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:46:21 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:46:26 | INFO    | stage1 | solver_1 (claude) -> answer='40.0' conf=0.95
+2026-07-04 02:46:31 | INFO    | stage1 | solver_2 (gemini) -> answer='34.6' conf=0.95
+2026-07-04 02:46:37 | INFO    | stage1 | solver_3 (grok) -> answer='57.8' conf=0.95
+2026-07-04 02:46:43 | INFO    | stage2 | solver_1 -> solver_2 : fundamentally_wrong (2 errors flagged)
+2026-07-04 02:46:51 | INFO    | stage2 | solver_1 -> solver_3 : fundamentally_wrong (2 errors flagged)
+2026-07-04 02:46:57 | INFO    | stage2 | solver_2 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-04 02:47:03 | INFO    | stage2 | solver_2 -> solver_3 : fundamentally_wrong (3 errors flagged)
+2026-07-04 02:47:08 | INFO    | stage2 | solver_3 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-04 02:47:14 | INFO    | stage2 | solver_3 -> solver_2 : fundamentally_wrong (2 errors flagged)
+2026-07-04 02:47:24 | INFO    | stage3 | solver_1 refined -> answer='35.3' conf=0.90 (was_correct=False now_correct=True)
+2026-07-04 02:47:35 | INFO    | stage3 | solver_2 refined -> answer='35.3' conf=0.90 (was_correct=False now_correct=True)
+2026-07-04 02:47:42 | INFO    | stage3 | solver_3 refined -> answer='35.3' conf=0.90 (was_correct=False now_correct=True)
+2026-07-04 02:47:57 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.60
+2026-07-04 02:48:02 | INFO    | DONE prob_010 | final='35.3' correct=True | single=False voting=False
+2026-07-04 02:48:02 | INFO    | ======================================================================
+2026-07-04 02:48:02 | INFO    | PROBLEM prob_011 [physics_reasoning / medium]
+2026-07-04 02:48:04 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:48:07 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:48:10 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:48:12 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:48:12 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:48:17 | INFO    | stage1 | solver_1 (claude) -> answer='The total current drawn from the battery is 2.0 amperes.' conf=0.95
+2026-07-04 02:48:23 | INFO    | stage1 | solver_2 (gemini) -> answer='The total current drawn from the battery is 2 amperes.' conf=0.95
+2026-07-04 02:48:30 | INFO    | stage1 | solver_3 (grok) -> answer='The total current drawn from the battery is 2 A.' conf=0.95
+2026-07-04 02:48:34 | INFO    | stage2 | solver_1 -> solver_2 : correct (1 errors flagged)
+2026-07-04 02:48:37 | INFO    | stage2 | solver_1 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:48:45 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (3 errors flagged)
+2026-07-04 02:48:48 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:48:56 | WARNING | stage2 | solver_3 -> solver_1 : overridden 'fundamentally_wrong' -> 'promising_but_flawed' (reviewer's own answer agrees with the reviewed answer)
+2026-07-04 02:48:56 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-04 02:49:03 | INFO    | stage2 | solver_3 -> solver_2 : correct (2 errors flagged)
+2026-07-04 02:49:16 | INFO    | stage3 | solver_1 refined -> answer='The total current drawn from the battery is 2.0 amperes.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:49:27 | INFO    | stage3 | solver_2 refined -> answer='The total current drawn from the battery is 2 amperes.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:49:39 | INFO    | stage3 | solver_3 refined -> answer='The total current drawn from the battery is 2 A (amperes).' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:49:47 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.98
+2026-07-04 02:49:52 | INFO    | DONE prob_011 | final='The total current drawn from the battery is 2 amperes.' correct=True | single=True voting=False
+2026-07-04 02:49:52 | INFO    | ======================================================================
+2026-07-04 02:49:52 | INFO    | PROBLEM prob_012 [physics_reasoning / medium]
+2026-07-04 02:49:55 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:49:57 | INFO    | stage0 | claude assessed: Judge conf=0.80
+2026-07-04 02:50:00 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:50:02 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:50:02 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'claude'}
+2026-07-04 02:50:06 | INFO    | stage1 | solver_1 (gpt-4) -> answer='4.9' conf=0.95
+2026-07-04 02:50:13 | INFO    | stage1 | solver_2 (gemini) -> answer='4.9' conf=1.00
+2026-07-04 02:50:19 | INFO    | stage1 | solver_3 (grok) -> answer='4.9' conf=0.95
+2026-07-04 02:50:23 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:50:27 | INFO    | stage2 | solver_1 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:50:31 | INFO    | stage2 | solver_2 -> solver_1 : correct (1 errors flagged)
+2026-07-04 02:50:34 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:50:37 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-04 02:50:41 | INFO    | stage2 | solver_3 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:50:49 | INFO    | stage3 | solver_1 refined -> answer='4.9 m/s²' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:50:58 | INFO    | stage3 | solver_2 refined -> answer='4.9' conf=1.00 (was_correct=True now_correct=True)
+2026-07-04 02:51:11 | INFO    | stage3 | solver_3 refined -> answer='4.9' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:51:17 | INFO    | stage4 | judge=claude winner=solver_1 conf=0.93
+2026-07-04 02:51:21 | INFO    | DONE prob_012 | final='4.9 m/s²' correct=True | single=True voting=True
+2026-07-04 02:51:21 | INFO    | ======================================================================
+2026-07-04 02:51:21 | INFO    | PROBLEM prob_013 [physics_reasoning / hard]
+2026-07-04 02:51:24 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:51:26 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:51:29 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:51:31 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:51:31 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:51:38 | INFO    | stage1 | solver_1 (claude) -> answer='4.0e-19 J' conf=0.95
+2026-07-04 02:51:44 | INFO    | stage1 | solver_2 (gemini) -> answer='3.98e-19 J' conf=0.95
+2026-07-04 02:51:50 | INFO    | stage1 | solver_3 (grok) -> answer='3.98e-19 J' conf=0.95
+2026-07-04 02:51:55 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:51:59 | WARNING | stage2 | solver_1 -> solver_3 : overridden 'fundamentally_wrong' -> 'promising_but_flawed' (reviewer's own answer agrees with the reviewed answer)
+2026-07-04 02:51:59 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:52:04 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:52:07 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:52:12 | INFO    | stage2 | solver_3 -> solver_1 : correct (1 errors flagged)
+2026-07-04 02:52:15 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (0 errors flagged)
+2026-07-04 02:52:27 | INFO    | stage3 | solver_1 refined -> answer='3.98e-19 J' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:52:38 | INFO    | stage3 | solver_2 refined -> answer='4.0e-19 J' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:52:50 | INFO    | stage3 | solver_3 refined -> answer='4.0e-19 J' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:53:02 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.93
+2026-07-04 02:53:08 | INFO    | DONE prob_013 | final='4.0e-19 J' correct=True | single=True voting=True
+2026-07-04 02:53:08 | INFO    | ======================================================================
+2026-07-04 02:53:08 | INFO    | PROBLEM prob_014 [physics_reasoning / hard]
+2026-07-04 02:53:10 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.80
+2026-07-04 02:53:13 | INFO    | stage0 | claude assessed: Judge conf=0.80
+2026-07-04 02:53:16 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:53:18 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:53:18 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:53:25 | INFO    | stage1 | solver_1 (claude) -> answer='0.628' conf=0.95
+2026-07-04 02:53:33 | INFO    | stage1 | solver_2 (gemini) -> answer='0.628' conf=0.95
+2026-07-04 02:53:39 | INFO    | stage1 | solver_3 (grok) -> answer='0.628 seconds' conf=0.95
+2026-07-04 02:53:43 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:53:47 | INFO    | stage2 | solver_1 -> solver_3 : correct (1 errors flagged)
+2026-07-04 02:53:51 | INFO    | stage2 | solver_2 -> solver_1 : correct (1 errors flagged)
+2026-07-04 02:53:56 | INFO    | stage2 | solver_2 -> solver_3 : correct (1 errors flagged)
+2026-07-04 02:53:58 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-04 02:54:03 | INFO    | stage2 | solver_3 -> solver_2 : correct (1 errors flagged)
+2026-07-04 02:54:12 | INFO    | stage3 | solver_1 refined -> answer='0.628' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:54:23 | INFO    | stage3 | solver_2 refined -> answer='0.628' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:54:31 | INFO    | stage3 | solver_3 refined -> answer='0.628 seconds' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:54:36 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.98
+2026-07-04 02:54:41 | INFO    | DONE prob_014 | final='0.628' correct=True | single=True voting=True
+2026-07-04 02:54:41 | INFO    | ======================================================================
+2026-07-04 02:54:41 | INFO    | PROBLEM prob_015 [logic_puzzle / very_hard]
+2026-07-04 02:54:44 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:54:46 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:54:49 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:54:52 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:54:52 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:54:58 | INFO    | stage1 | solver_1 (claude) -> answer='The German owns the fish.' conf=0.95
+2026-07-04 02:55:04 | INFO    | stage1 | solver_2 (gemini) -> answer='The German owns the fish.' conf=0.95
+2026-07-04 02:55:10 | INFO    | stage1 | solver_3 (grok) -> answer='The German owns the fish.' conf=0.95
+2026-07-04 02:55:13 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:55:16 | INFO    | stage2 | solver_1 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:55:20 | INFO    | stage2 | solver_2 -> solver_1 : correct (0 errors flagged)
+2026-07-04 02:55:23 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (0 errors flagged)
+2026-07-04 02:55:28 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-04 02:55:32 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (0 errors flagged)
+2026-07-04 02:55:43 | INFO    | stage3 | solver_1 refined -> answer='The German owns the fish.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:55:52 | INFO    | stage3 | solver_2 refined -> answer='The German owns the fish.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:56:02 | INFO    | stage3 | solver_3 refined -> answer='The German owns the fish.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:56:13 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.62
+2026-07-04 02:56:18 | INFO    | DONE prob_015 | final='The German owns the fish.' correct=True | single=True voting=True
+2026-07-04 02:56:18 | INFO    | ======================================================================
+2026-07-04 02:56:18 | INFO    | PROBLEM prob_016 [logic_puzzle / hard]
+2026-07-04 02:56:21 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:56:24 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:56:26 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:56:31 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:56:31 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:56:35 | INFO    | stage1 | solver_1 (claude) -> answer='A is a knave and B is a knight.' conf=0.95
+2026-07-04 02:56:40 | INFO    | stage1 | solver_2 (gemini) -> answer='A is a knave and B is a knight.' conf=1.00
+2026-07-04 02:56:45 | INFO    | stage1 | solver_3 (grok) -> answer='A is a knave and B is a knight.' conf=0.95
+2026-07-04 02:56:48 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:56:51 | INFO    | stage2 | solver_1 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:56:57 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:57:01 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-04 02:57:05 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-04 02:57:09 | INFO    | stage2 | solver_3 -> solver_2 : correct (0 errors flagged)
+2026-07-04 02:57:23 | INFO    | stage3 | solver_1 refined -> answer='A is a knave and B is a knight.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:57:32 | INFO    | stage3 | solver_2 refined -> answer='A is a knave and B is a knight.' conf=1.00 (was_correct=True now_correct=True)
+2026-07-04 02:57:42 | INFO    | stage3 | solver_3 refined -> answer='A is a knave and B is a knight.' conf=0.97 (was_correct=True now_correct=True)
+2026-07-04 02:57:56 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.42
+2026-07-04 02:58:01 | INFO    | DONE prob_016 | final='A is a knave and B is a knight.' correct=True | single=False voting=True
+2026-07-04 02:58:01 | INFO    | ======================================================================
+2026-07-04 02:58:01 | INFO    | PROBLEM prob_017 [logic_puzzle / hard]
+2026-07-04 02:58:04 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 02:58:06 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 02:58:08 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 02:58:11 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 02:58:11 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 02:58:16 | INFO    | stage1 | solver_1 (claude) -> answer='The minimum number of one-way river crossings needed is 7.' conf=0.95
+2026-07-04 02:58:25 | INFO    | stage1 | solver_2 (gemini) -> answer='The minimum number of one-way river crossings needed is 7.' conf=0.95
+2026-07-04 02:58:31 | INFO    | stage1 | solver_3 (grok) -> answer='The minimum number of one-way river crossings needed is 7.' conf=0.95
+2026-07-04 02:58:37 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-04 02:58:42 | INFO    | stage2 | solver_1 -> solver_3 : correct (1 errors flagged)
+2026-07-04 02:58:49 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-04 02:58:55 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-04 02:59:00 | WARNING | stage2 | solver_3 -> solver_1 : overridden 'fundamentally_wrong' -> 'promising_but_flawed' (reviewer's own answer agrees with the reviewed answer)
+2026-07-04 02:59:00 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-04 02:59:05 | INFO    | stage2 | solver_3 -> solver_2 : correct (2 errors flagged)
+2026-07-04 02:59:20 | INFO    | stage3 | solver_1 refined -> answer='The minimum number of one-way river crossings needed is 7.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:59:31 | INFO    | stage3 | solver_2 refined -> answer='The minimum number of one-way river crossings needed is 7.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 02:59:40 | INFO    | stage3 | solver_3 refined -> answer='The minimum number of one-way river crossings needed is 7.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 03:00:05 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.62
+2026-07-04 03:00:13 | INFO    | DONE prob_017 | final='The minimum number of one-way river crossings needed is 7.' correct=True | single=True voting=True
+2026-07-04 03:00:13 | INFO    | ======================================================================
+2026-07-04 03:00:13 | INFO    | PROBLEM prob_018 [logic_puzzle / hard]
+2026-07-04 03:00:16 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 03:00:19 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 03:00:21 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 03:00:30 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 03:00:30 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 03:00:38 | INFO    | stage1 | solver_1 (claude) -> answer='The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.' conf=0.95
+2026-07-04 03:00:47 | INFO    | stage1 | solver_2 (gemini) -> answer='The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.' conf=0.95
+2026-07-04 03:01:07 | INFO    | stage1 | solver_3 (grok) -> answer='23' conf=0.95
+2026-07-04 03:01:15 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-04 03:01:23 | INFO    | stage2 | solver_1 -> solver_3 : correct (1 errors flagged)
+2026-07-04 03:01:27 | INFO    | stage2 | solver_2 -> solver_1 : correct (0 errors flagged)
+2026-07-04 03:01:35 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-04 03:01:41 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-04 03:01:47 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-04 03:02:05 | INFO    | stage3 | solver_1 refined -> answer='The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 03:02:21 | INFO    | stage3 | solver_2 refined -> answer='The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.' conf=0.98 (was_correct=True now_correct=True)
+2026-07-04 03:02:35 | INFO    | stage3 | solver_3 refined -> answer='23' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 03:02:49 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.86
+2026-07-04 03:02:59 | INFO    | DONE prob_018 | final='The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.' correct=True | single=True voting=True
+2026-07-04 03:02:59 | INFO    | ======================================================================
+2026-07-04 03:02:59 | INFO    | PROBLEM prob_019 [logic_puzzle / very_hard]
+2026-07-04 03:03:02 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.80
+2026-07-04 03:03:27 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 03:03:34 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 03:04:18 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 03:04:18 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 03:04:38 | INFO    | stage1 | solver_1 (claude) -> answer='The minimum number of weighings required to guarantee identification of the counterfeit ball and its weight difference is 3.' conf=0.95
+2026-07-04 03:04:49 | INFO    | stage1 | solver_2 (gemini) -> answer='It takes a minimum of 3 weighings to guarantee identification of the counterfeit ball and whether it is heavier or lighter.' conf=0.90
+2026-07-04 03:04:58 | INFO    | stage1 | solver_3 (grok) -> answer='The minimum number of weighings required to identify the counterfeit ball and determine if it is heavier or lighter is 3.' conf=0.85
+2026-07-04 03:05:42 | WARNING | stage2 | solver_1 -> solver_2 : overridden 'fundamentally_wrong' -> 'promising_but_flawed' (reviewer's own answer agrees with the reviewed answer)
+2026-07-04 03:05:42 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-04 03:05:57 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-04 03:06:06 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (3 errors flagged)
+2026-07-04 03:06:17 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-04 03:07:30 | ERROR   | model=grok | stage=stage2_review | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:08:16 | INFO    | model=grok | stage=stage2_review | recovered on attempt 2
+2026-07-04 03:08:17 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-04 03:08:23 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-04 03:09:36 | ERROR   | model=claude | stage=stage3_refine | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:09:52 | INFO    | model=claude | stage=stage3_refine | recovered on attempt 2
+2026-07-04 03:09:53 | INFO    | stage3 | solver_1 refined -> answer='The minimum number of weighings required to guarantee identification of the counterfeit ball and its weight difference is 3.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 03:10:05 | WARNING | stage3 | solver_2 -> reverted refinement 'It takes a minimum of 4 weighings to guarantee identification of the counterfeit ball and whether it is heavier or lighter.' to original 'It takes a minimum of 3 weighings to guarantee identification of the counterfeit ball and whether it is heavier or lighter.' (original was peer-corroborated by 2 solver(s); replacement has no independent corroboration)
+2026-07-04 03:10:05 | INFO    | stage3 | solver_2 refined -> answer='It takes a minimum of 3 weighings to guarantee identification of the counterfeit ball and whether it is heavier or lighter.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 03:10:25 | INFO    | stage3 | solver_3 refined -> answer='The minimum number of weighings required to identify the counterfeit ball and determine if it is heavier or lighter is 3.' conf=0.90 (was_correct=True now_correct=True)
+2026-07-04 03:11:05 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.55
+2026-07-04 03:11:13 | INFO    | DONE prob_019 | final='The minimum number of weighings required to guarantee identification of the counterfeit ball and its weight difference is 3.' correct=True | single=True voting=False
+2026-07-04 03:11:13 | INFO    | ======================================================================
+2026-07-04 03:11:13 | INFO    | PROBLEM prob_020 [logic_puzzle / very_hard]
+2026-07-04 03:11:17 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 03:11:24 | INFO    | stage0 | claude assessed: Judge conf=0.80
+2026-07-04 03:11:26 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 03:11:41 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 03:11:41 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'claude'}
+2026-07-04 03:12:09 | INFO    | stage1 | solver_1 (gpt-4) -> answer="Cheryl's birthday is July 16." conf=0.95
+2026-07-04 03:12:20 | INFO    | stage1 | solver_2 (gemini) -> answer="Cheryl's birthday is July 16." conf=0.95
+2026-07-04 03:12:39 | INFO    | stage1 | solver_3 (grok) -> answer="Cheryl's birthday is July 16." conf=0.90
+2026-07-04 03:12:45 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-04 03:12:53 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-04 03:13:11 | INFO    | stage2 | solver_2 -> solver_1 : correct (2 errors flagged)
+2026-07-04 03:13:22 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-04 03:13:27 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-04 03:13:33 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-04 03:13:46 | INFO    | stage3 | solver_1 refined -> answer="Cheryl's birthday is July 16." conf=0.95 (was_correct=True now_correct=True)
+2026-07-04 03:14:18 | INFO    | stage3 | solver_2 refined -> answer="Cheryl's birthday is July 16." conf=0.97 (was_correct=True now_correct=True)
+2026-07-04 03:15:31 | ERROR   | model=grok | stage=stage3_refine | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:16:45 | ERROR   | model=grok | stage=stage3_refine | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:17:58 | ERROR   | model=grok | stage=stage3_refine | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:17:59 | ERROR   | model=grok | stage=stage3_refine | FAILED to obtain a valid response after 3 attempts
+2026-07-04 03:17:59 | WARNING | stage3 | solver_3 refinement failed; keeping original solution
+2026-07-04 03:19:13 | ERROR   | model=claude | stage=stage4_judge | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:20:28 | ERROR   | model=claude | stage=stage4_judge | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:21:42 | ERROR   | model=claude | stage=stage4_judge | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:21:43 | ERROR   | model=claude | stage=stage4_judge | FAILED to obtain a valid response after 3 attempts
+2026-07-04 03:21:43 | WARNING | stage4 | judge failed/invalid; falling back to highest-confidence solver
+2026-07-04 03:21:43 | INFO    | stage4 | judge=claude winner=solver_2 conf=0.97
+2026-07-04 03:22:56 | ERROR   | model=gpt-4 | stage=baseline_single | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:24:10 | ERROR   | model=gpt-4 | stage=baseline_single | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:25:23 | ERROR   | model=gpt-4 | stage=baseline_single | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:25:24 | ERROR   | model=gpt-4 | stage=baseline_single | FAILED to obtain a valid response after 3 attempts
+2026-07-04 03:25:24 | INFO    | DONE prob_020 | final="Cheryl's birthday is July 16." correct=True | single=False voting=True
+2026-07-04 03:25:24 | INFO    | ======================================================================
+2026-07-04 03:25:24 | INFO    | PROBLEM prob_021 [game_theory / hard]
+2026-07-04 03:26:37 | ERROR   | model=gpt-4 | stage=stage0_assessment | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:27:51 | ERROR   | model=gpt-4 | stage=stage0_assessment | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:29:06 | ERROR   | model=gpt-4 | stage=stage0_assessment | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:29:07 | ERROR   | model=gpt-4 | stage=stage0_assessment | FAILED to obtain a valid response after 3 attempts
+2026-07-04 03:29:07 | WARNING | model=gpt-4 | stage0 | using fallback assessment
+2026-07-04 03:29:07 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.50
+2026-07-04 03:30:19 | ERROR   | model=claude | stage=stage0_assessment | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:31:33 | ERROR   | model=claude | stage=stage0_assessment | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:32:47 | ERROR   | model=claude | stage=stage0_assessment | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 03:32:48 | ERROR   | model=claude | stage=stage0_assessment | FAILED to obtain a valid response after 3 attempts
+2026-07-04 03:32:48 | WARNING | model=claude | stage0 | using fallback assessment
+2026-07-04 03:32:48 | INFO    | stage0 | claude assessed: Judge conf=0.50

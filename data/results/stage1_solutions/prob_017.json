@@ -1,0 +1,148 @@
+[
+  {
+    "solver_id": "solver_1",
+    "model": "claude",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Take the chicken across the river first.",
+        "reasoning": "This prevents the chicken from being left alone with the grain or the fox."
+      },
+      {
+        "step": 2,
+        "description": "Return alone to the original side.",
+        "reasoning": "The farmer needs to return to transport the next item."
+      },
+      {
+        "step": 3,
+        "description": "Take the fox across the river.",
+        "reasoning": "The fox can be taken now since the chicken is not on the original side."
+      },
+      {
+        "step": 4,
+        "description": "Bring the chicken back to the original side.",
+        "reasoning": "This prevents the chicken from being left alone with the fox."
+      },
+      {
+        "step": 5,
+        "description": "Take the grain across the river.",
+        "reasoning": "The grain can be taken now since the chicken is back on the original side."
+      },
+      {
+        "step": 6,
+        "description": "Return alone to the original side.",
+        "reasoning": "The farmer must return to transport the final item."
+      },
+      {
+        "step": 7,
+        "description": "Take the chicken across the river again.",
+        "reasoning": "Now all three items can be safely transported across."
+      }
+    ],
+    "final_answer": "The minimum number of one-way river crossings needed is 7.",
+    "confidence": 0.95,
+    "assumptions": [
+      "The farmer can only transport one item at a time.",
+      "The fox and chicken cannot be left alone together without supervision.",
+      "The chicken and grain cannot be left alone together without supervision."
+    ],
+    "_correct": true
+  },
+  {
+    "solver_id": "solver_2",
+    "model": "gemini",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Take the chicken across the river first.",
+        "reasoning": "This ensures that the fox and the grain are left together, which is safe."
+      },
+      {
+        "step": 2,
+        "description": "Return alone to the original side.",
+        "reasoning": "The farmer needs to go back to bring either the fox or the grain next."
+      },
+      {
+        "step": 3,
+        "description": "Take the fox across the river.",
+        "reasoning": "Now, the chicken is on the other side, and the farmer must ensure the chicken is not left alone with the fox."
+      },
+      {
+        "step": 4,
+        "description": "Bring the chicken back to the original side.",
+        "reasoning": "This prevents the chicken from being left alone with the fox."
+      },
+      {
+        "step": 5,
+        "description": "Take the grain across the river.",
+        "reasoning": "Now, the fox is on the other side, and the grain can be safely taken across."
+      },
+      {
+        "step": 6,
+        "description": "Return alone to the original side.",
+        "reasoning": "The farmer must go back one last time to get the chicken."
+      },
+      {
+        "step": 7,
+        "description": "Take the chicken across the river again.",
+        "reasoning": "Now all three items are safely across the river."
+      }
+    ],
+    "final_answer": "The minimum number of one-way river crossings needed is 7.",
+    "confidence": 0.95,
+    "assumptions": [
+      "The farmer can only take one item at a time across the river.",
+      "The fox, chicken, and grain cannot be left alone together in any combination that violates the stated conditions."
+    ],
+    "_correct": true
+  },
+  {
+    "solver_id": "solver_3",
+    "model": "grok",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Take the chicken across the river first.",
+        "reasoning": "This ensures that the chicken is separated from both the fox and the grain, preventing any potential conflict."
+      },
+      {
+        "step": 2,
+        "description": "Return alone to the original side.",
+        "reasoning": "The farmer needs to go back to get another item, so he cannot take anything on this trip."
+      },
+      {
+        "step": 3,
+        "description": "Take the fox across the river next.",
+        "reasoning": "The farmer needs to ensure the fox does not stay with the chicken, so he will take the fox to the other side."
+      },
+      {
+        "step": 4,
+        "description": "Bring the chicken back to the original side.",
+        "reasoning": "This way, the chicken is not left alone with the fox, which would be dangerous."
+      },
+      {
+        "step": 5,
+        "description": "Take the grain across the river.",
+        "reasoning": "Now that the chicken is back, the farmer can safely take the grain across without leaving it with the chicken."
+      },
+      {
+        "step": 6,
+        "description": "Return alone to the original side once again.",
+        "reasoning": "The farmer must return to get the last item."
+      },
+      {
+        "step": 7,
+        "description": "Finally, take the chicken across the river one last time.",
+        "reasoning": "Now all three items can be transported safely without any conflicts."
+      }
+    ],
+    "final_answer": "The minimum number of one-way river crossings needed is 7.",
+    "confidence": 0.95,
+    "assumptions": [
+      "The boat can only carry the farmer and one additional item at a time.",
+      "The fox, chicken, and grain must not be left alone with each other in the specified pairs.",
+      "The farmer can make multiple trips back and forth across the river."
+    ],
+    "_correct": true
+  }
+]

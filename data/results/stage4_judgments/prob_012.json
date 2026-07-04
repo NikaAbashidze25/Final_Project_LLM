@@ -1,14 +1,8 @@
 {
-  "judge_model": "gpt-4",
+  "judge_model": "claude",
   "winner": "solver_1",
-  "confidence": 0.9,
-  "ranking": {
-    "solver_1": 1,
-    "solver_3": 2,
-    "solver_2": 3
-  },
-  "reasoning": "Solver 1 provided a clear and correct answer with a strong explanation of the concepts involved, and successfully incorporated critiques to improve clarity and precision in the refined solution. Solver 3 also improved their solution but did not clarify the final answer as effectively as Solver 1. Solver 2, while correct, had weaker initial clarity regarding the cancellation of mass and the final answer presentation, which hindered its ranking.",
-  "correct_answer": "4.9 m/s^2",
-  "notes": "All solvers ultimately arrived at the correct answer, but the quality of explanation and clarity in presentation varied, influencing their rankings.",
+  "confidence": 0.93,
+  "reasoning": "All three solvers reached the correct result: for a frictionless incline, the acceleration along the plane is a = g sin(30°) = 9.8 × 0.5 = 4.9 m/s². The differences are mostly in presentation and refinement quality. Solver_1 gave the most concise correct derivation and, in refinement, directly addressed both critiques by adding units and clarifying that the angle is in degrees. Its refined final answer is also fully formatted with units, making it the strongest final response for this simple problem. Solver_2 provided a very complete and internally consistent derivation, improved the discussion of force components, and clearly stated the perpendicular component does not affect acceleration along the incline; however, its refined final answer is still just '4.9' without units despite the problem asking for m/s². Solver_3 also gave a correct and well-justified solution and improved the explanation, but it is somewhat overlong for the problem and likewise leaves the refined final answer as '4.9' without units. Ranking: 1) solver_1, 2) solver_2, 3) solver_3. Solver_1 wins narrowly because its final refined answer is correct, concise, includes units, and incorporates the critiques cleanly.",
+  "correct_answer": "4.9 m/s²",
   "_fallback": false
 }

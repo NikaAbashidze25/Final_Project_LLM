@@ -1,0 +1,542 @@
+{
+  "problem": {
+    "id": "prob_002",
+    "category": "mathematical_reasoning",
+    "problem": "How many trailing zeros are there at the end of 100! (100 factorial)?",
+    "correct_answer": "24",
+    "difficulty": "medium",
+    "source_notes": "floor(100/5)+floor(100/25)=20+4=24."
+  },
+  "assessments": {
+    "gpt-4": {
+      "role_preferences": [
+        "Solver",
+        "Judge"
+      ],
+      "confidence_by_role": {
+        "Solver": 0.9,
+        "Judge": 0.7
+      },
+      "reasoning": "I am well-equipped to calculate the number of trailing zeros in 100! through the systematic application of the formula involving factors of 5, which makes me suited for the Solver role."
+    },
+    "claude": {
+      "role_preferences": [
+        "Solver",
+        "Judge"
+      ],
+      "confidence_by_role": {
+        "Solver": 0.9,
+        "Judge": 0.7
+      },
+      "reasoning": "I am well-suited to provide a complete, rigorous solution for calculating trailing zeros in factorials, as it involves applying a specific mathematical formula. My confidence in evaluating solutions is lower because it requires more comparative analysis."
+    },
+    "gemini": {
+      "role_preferences": [
+        "Solver",
+        "Judge"
+      ],
+      "confidence_by_role": {
+        "Solver": 0.9,
+        "Judge": 0.7
+      },
+      "reasoning": "I am well-equipped to compute the number of trailing zeros in factorials through the use of prime factorization and counting, which makes me a strong candidate for the Solver role."
+    },
+    "grok": {
+      "role_preferences": [
+        "Solver",
+        "Judge"
+      ],
+      "confidence_by_role": {
+        "Solver": 0.9,
+        "Judge": 0.7
+      },
+      "reasoning": "I am well-equipped to calculate the number of trailing zeros in 100! by applying the formula based on the factors of 5, which requires a step-by-step approach to derive the answer."
+    }
+  },
+  "assignment": {
+    "Solver_1": "claude",
+    "Solver_2": "gemini",
+    "Solver_3": "grok",
+    "Judge": "gpt-4"
+  },
+  "solutions": {
+    "solver_1": {
+      "solver_id": "solver_1",
+      "model": "claude",
+      "solution_steps": [
+        {
+          "step": 1,
+          "description": "Calculate the number of factors of 5 in 100!",
+          "reasoning": "Trailing zeros in a factorial are produced by pairs of factors of 2 and 5. Since there are generally more factors of 2 than 5 in factorials, the number of trailing zeros is determined by the number of times 5 is a factor in the numbers from 1 to 100."
+        },
+        {
+          "step": 2,
+          "description": "Apply the formula for counting factors of 5: ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋ + ...",
+          "reasoning": "This formula counts how many multiples of 5, 25, 125, etc., are present in the numbers from 1 to n. For n = 100, we will count multiples of 5 and 25."
+        },
+        {
+          "step": 3,
+          "description": "Calculate ⌊100/5⌋, ⌊100/25⌋ and higher powers if necessary.",
+          "reasoning": "Calculating these values gives: ⌊100/5⌋ = 20 (there are 20 multiples of 5), ⌊100/25⌋ = 4 (there are 4 multiples of 25), and ⌊100/125⌋ = 0 (there are no multiples of 125)."
+        },
+        {
+          "step": 4,
+          "description": "Sum the results from previous calculations: 20 + 4 = 24.",
+          "reasoning": "This sum gives the total number of trailing zeros in 100! since it counts all pairs of factors of 2 and 5."
+        }
+      ],
+      "final_answer": "100! has 24 trailing zeros.",
+      "confidence": 0.95,
+      "assumptions": [
+        "The only factors contributing to trailing zeros in factorials are 2 and 5, with 5 being the limiting factor.",
+        "All calculations for ⌊n/k⌋ are performed correctly for k being powers of 5."
+      ],
+      "_correct": true
+    },
+    "solver_2": {
+      "solver_id": "solver_2",
+      "model": "gemini",
+      "solution_steps": [
+        {
+          "step": 1,
+          "description": "Count the number of factors of 5 in the numbers from 1 to 100.",
+          "reasoning": "Trailing zeros in a factorial are produced by pairs of factors of 2 and 5. Since factors of 2 are more frequent than factors of 5, the number of trailing zeros is determined by the number of times 5 is a factor in the numbers leading up to 100."
+        },
+        {
+          "step": 2,
+          "description": "Calculate the contribution of each power of 5 to the count of trailing zeros.",
+          "reasoning": "To find the number of trailing zeros, we use the formula: floor(100/5) + floor(100/25). This counts how many multiples of 5 and multiples of 25 there are up to 100."
+        },
+        {
+          "step": 3,
+          "description": "Perform the calculations: floor(100/5) = 20 and floor(100/25) = 4.",
+          "reasoning": "This gives us the total number of factors of 5 contributing to trailing zeros. Adding these values: 20 + 4 = 24."
+        },
+        {
+          "step": 4,
+          "description": "Conclude that the total number of trailing zeros in 100! is 24.",
+          "reasoning": "Since we have counted all the contributions from the factors of 5, we find that 100! has 24 trailing zeros."
+        }
+      ],
+      "final_answer": "There are 24 trailing zeros at the end of 100!",
+      "confidence": 0.95,
+      "assumptions": [
+        "All calculations are based on integer division (floor function).",
+        "There are no additional factors of 5 beyond multiples of 5 and 25 that contribute to trailing zeros in 100!.",
+        "The only relevant factors are those that contribute to pairs of 2 and 5, and since factors of 2 are abundant, only the count of 5 is needed."
+      ],
+      "_correct": true
+    },
+    "solver_3": {
+      "solver_id": "solver_3",
+      "model": "grok",
+      "solution_steps": [
+        {
+          "step": 1,
+          "description": "Calculate the number of factors of 5 in 100!",
+          "reasoning": "Trailing zeros in a factorial are produced by the factors of 10, which are the product of the factors 2 and 5. Since there are generally more factors of 2 than 5 in any factorial, the number of trailing zeros is determined by the number of times 5 is a factor in the numbers from 1 to 100."
+        },
+        {
+          "step": 2,
+          "description": "Use the formula to count the factors of 5: ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋...",
+          "reasoning": "To find the number of factors of 5 in 100!, I apply the formula which sums the integer divisions of 100 by powers of 5 until the power exceeds 100."
+        },
+        {
+          "step": 3,
+          "description": "Calculate the individual components: ⌊100/5⌋, ⌊100/25⌋, and ⌊100/125⌋",
+          "reasoning": "Calculating these values gives us the counts of multiples of 5, 25, and 125 in the range 1 to 100. Specifically, ⌊100/5⌋ = 20, ⌊100/25⌋ = 4, and ⌊100/125⌋ = 0."
+        },
+        {
+          "step": 4,
+          "description": "Sum the counts: 20 + 4 + 0 = 24",
+          "reasoning": "The total count of trailing zeros is the sum of the individual counts of factors of 5."
+        }
+      ],
+      "final_answer": "There are 24 trailing zeros in 100!",
+      "confidence": 0.95,
+      "assumptions": [
+        "The calculation of trailing zeros depends on the number of factors of 5 in the factorial, as factors of 2 are always more abundant.",
+        "The formula for counting factors of a prime in a factorial is correctly applied."
+      ],
+      "_correct": true
+    }
+  },
+  "reviews": [
+    {
+      "reviewer_id": "solver_1",
+      "solution_reviewed": "solver_2",
+      "evaluation": {
+        "strengths": [
+          "Clearly outlines the reasoning for counting trailing zeros based on factors of 5.",
+          "Correctly identifies the steps and calculations needed to arrive at the final answer."
+        ],
+        "weaknesses": [
+          "The solution could provide a more detailed explanation of why factors of 2 are abundant compared to factors of 5, though this is implied."
+        ],
+        "errors": [],
+        "suggested_changes": [
+          "Add a brief mention or example of why factors of 2 are more frequent than factors of 5 to strengthen the explanation."
+        ]
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    },
+    {
+      "reviewer_id": "solver_1",
+      "solution_reviewed": "solver_3",
+      "evaluation": {
+        "strengths": [
+          "The explanation of why trailing zeros are determined by the number of factors of 5 is clear and accurate.",
+          "The use of the formula for counting factors of a prime in a factorial is correctly stated."
+        ],
+        "weaknesses": [
+          "The solution could benefit from a clearer breakdown of the calculations for each step, particularly in step 3."
+        ],
+        "errors": [],
+        "suggested_changes": [
+          "Provide more detailed intermediate calculations in step 3 to enhance clarity, such as explicitly writing out the results of the integer divisions to avoid any ambiguity."
+        ]
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    },
+    {
+      "reviewer_id": "solver_2",
+      "solution_reviewed": "solver_1",
+      "evaluation": {
+        "strengths": [
+          "The solution correctly identifies that the number of trailing zeros in a factorial is determined by the number of factors of 5.",
+          "The reasoning is structured logically, following a clear step-by-step approach."
+        ],
+        "weaknesses": [
+          "Some calculations could be better elaborated, especially in steps discussing the counting of multiples of 5 and 25."
+        ],
+        "errors": [
+          {
+            "location": "Step 3",
+            "error_type": "arithmetic_error",
+            "description": "The calculations presented in Step 3 are correct, but the explanation could be clearer. The values \u00105/5\u0012 and \u00105/25\u0012 are accurate, but there is a lack of clarity in stating that these values are derived from the integer division, which is critical for understanding how trailing zeros are counted.",
+            "severity": "minor"
+          }
+        ],
+        "suggested_changes": [
+          "Clarify the explanation in Step 3 regarding how the integer division is performed and how it directly relates to counting factors of 5."
+        ]
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    },
+    {
+      "reviewer_id": "solver_2",
+      "solution_reviewed": "solver_3",
+      "evaluation": {
+        "strengths": [
+          "The solution correctly identifies that trailing zeros in a factorial are determined by the number of factors of 5, which is the correct approach.",
+          "The application of the formula for counting factors of a prime in a factorial is correctly explained."
+        ],
+        "weaknesses": [
+          "The description in step 3 could benefit from a more explicit calculation to clarify how the integer divisions are derived.",
+          "Although the calculations are performed correctly, additional explanation of why the sums are taken in step 4 would enhance clarity."
+        ],
+        "errors": [],
+        "suggested_changes": [
+          "In step 3, provide a clearer breakdown of how the integer divisions are calculated, such as showing the actual division process, e.g., explaining how ⌊100/5⌋ = 20 and why it is rounded down.",
+          "In step 4, it would be helpful to clarify that we are summing all contributions from factors of 5, 25, etc., and relate this back to the concept of trailing zeros."
+        ]
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    },
+    {
+      "reviewer_id": "solver_3",
+      "solution_reviewed": "solver_1",
+      "evaluation": {
+        "strengths": [
+          "The solution correctly identifies that trailing zeros are determined by counting the factors of 5 in the factorial.",
+          "The step-by-step approach is clear and logically structured, making it easy to follow the reasoning."
+        ],
+        "weaknesses": [
+          "The reasoning in Step 1 could be elaborated to explicitly state that each pair of factors (2, 5) contributes to one trailing zero, which is crucial for understanding why factors of 5 are counted."
+        ],
+        "errors": [],
+        "suggested_changes": [
+          "Expand the explanation in Step 1 to clarify the significance of counting factors of 2 and 5 in relation to trailing zeros."
+        ]
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    },
+    {
+      "reviewer_id": "solver_3",
+      "solution_reviewed": "solver_2",
+      "evaluation": {
+        "strengths": [
+          "The reasoning behind counting factors of 5 is correct and well-explained.",
+          "The step-by-step calculations are clear and follow a logical structure."
+        ],
+        "weaknesses": [
+          "The explanation could benefit from a brief mention of why factors of 2 are not counted, although this is implied."
+        ],
+        "errors": [
+          {
+            "location": "Step 3",
+            "error_type": "arithmetic_error",
+            "description": "The calculation of floor(100/25) is incorrect. It should yield 4, which is correct, but the reviewer should clarify that it is because 100/25 = 4 exactly, and no additional factors of 5 from higher powers are needed.",
+            "severity": "minor"
+          }
+        ],
+        "suggested_changes": [
+          "Clarify the calculations in Step 3 to explicitly state that floor(100/25) = 4 because 100 is exactly divisible by 25.",
+          "Consider mentioning that factors of 2 are abundant, even if briefly, to reinforce the reasoning for focusing on factors of 5."
+        ]
+      },
+      "overall_assessment": "correct",
+      "_flagged_real_error": false
+    }
+  ],
+  "refinements": {
+    "solver_1": {
+      "solver_id": "solver_1",
+      "model": "claude",
+      "critique_responses": [
+        {
+          "from_reviewer": "solver_2",
+          "critique": "The calculations presented in Step 3 are correct, but the explanation could be clearer. The values ⌊100/5⌋ and ⌊100/25⌋ are accurate, but there is a lack of clarity in stating that these values are derived from the integer division, which is critical for understanding how trailing zeros are counted.",
+          "response": "I accept this critique and will clarify the explanation in Step 3 to explicitly state that the values are derived from integer division. This will help ensure the reasoning is fully understood.",
+          "accepted": true
+        },
+        {
+          "from_reviewer": "solver_3",
+          "critique": "The reasoning in Step 1 could be elaborated to explicitly state that each pair of factors (2, 5) contributes to one trailing zero, which is crucial for understanding why factors of 5 are counted.",
+          "response": "I accept this critique and will expand the explanation in Step 1 to clarify the significance of counting factors of 2 and 5 and how each pair contributes to one trailing zero. This enhancement will improve the overall clarity of the solution.",
+          "accepted": true
+        }
+      ],
+      "refined_solution_steps": [
+        {
+          "step": 1,
+          "description": "Calculate the number of factors of 5 in 100!",
+          "reasoning": "Trailing zeros in a factorial are produced by pairs of factors of 2 and 5. Each pair of these factors contributes to one trailing zero, and since there are generally more factors of 2 than 5 in factorials, the number of trailing zeros is determined by counting the number of times 5 is a factor in the numbers from 1 to 100."
+        },
+        {
+          "step": 2,
+          "description": "Apply the formula for counting factors of 5: ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋ + ...",
+          "reasoning": "This formula counts how many multiples of 5, 25, 125, etc., are present in the numbers from 1 to n. For n = 100, we will count multiples of 5 and 25."
+        },
+        {
+          "step": 3,
+          "description": "Calculate ⌊100/5⌋, ⌊100/25⌋ and higher powers if necessary.",
+          "reasoning": "Calculating these values gives: ⌊100/5⌋ = 20 (there are 20 multiples of 5), ⌊100/25⌋ = 4 (there are 4 multiples of 25), and ⌊100/125⌋ = 0 (there are no multiples of 125). These results are derived from integer division, which is important for counting the factors accurately."
+        },
+        {
+          "step": 4,
+          "description": "Sum the results from previous calculations: 20 + 4 = 24.",
+          "reasoning": "This sum gives the total number of trailing zeros in 100! since it counts all pairs of factors of 2 and 5."
+        }
+      ],
+      "refined_final_answer": "100! has 24 trailing zeros.",
+      "confidence": 0.95,
+      "changes_summary": "I clarified the explanations in Steps 1 and 3 to enhance understanding of how trailing zeros are counted. Specifically, I elaborated on the significance of pairs of factors contributing to trailing zeros and highlighted that the values derived from integer division are crucial for this counting process.",
+      "_correct": true
+    },
+    "solver_2": {
+      "solver_id": "solver_2",
+      "model": "gemini",
+      "critique_responses": [
+        {
+          "from_reviewer": "solver_1",
+          "critique": "The solution could provide a more detailed explanation of why factors of 2 are abundant compared to factors of 5, though this is implied.",
+          "response": "I appreciate this suggestion. While I mentioned that factors of 2 are more frequent, I will include a brief explanation to strengthen the reasoning. Specifically, every even number contributes at least one factor of 2, making them more plentiful than multiples of 5.",
+          "accepted": true
+        },
+        {
+          "from_reviewer": "solver_3",
+          "critique": "The explanation could benefit from a brief mention of why factors of 2 are not counted, although this is implied. Also, there is a minor arithmetic error in the explanation of Step 3 that needs clarification.",
+          "response": "I acknowledge the need for clarity regarding the factors of 2. I will add a brief note about their abundance. Additionally, I will clarify in Step 3 that floor(100/25) = 4 because 100 is exactly divisible by 25, reinforcing the accuracy of the calculation.",
+          "accepted": true
+        }
+      ],
+      "refined_solution_steps": [
+        {
+          "step": 1,
+          "description": "Count the number of factors of 5 in the numbers from 1 to 100.",
+          "reasoning": "Trailing zeros in a factorial are produced by pairs of factors of 2 and 5. Factors of 2 are abundant because every even number contributes at least one factor of 2, making them more frequent than factors of 5."
+        },
+        {
+          "step": 2,
+          "description": "Calculate the contribution of each power of 5 to the count of trailing zeros.",
+          "reasoning": "To find the number of trailing zeros, we use the formula: floor(100/5) + floor(100/25). This counts how many multiples of 5 and multiples of 25 there are up to 100."
+        },
+        {
+          "step": 3,
+          "description": "Perform the calculations: floor(100/5) = 20 and floor(100/25) = 4.",
+          "reasoning": "This gives us the total number of factors of 5 contributing to trailing zeros. Since 100 is exactly divisible by 25, floor(100/25) = 4 is correct. Adding these values: 20 + 4 = 24."
+        },
+        {
+          "step": 4,
+          "description": "Conclude that the total number of trailing zeros in 100! is 24.",
+          "reasoning": "Since we have counted all the contributions from the factors of 5, we find that 100! has 24 trailing zeros."
+        }
+      ],
+      "refined_final_answer": "There are 24 trailing zeros at the end of 100!",
+      "confidence": 0.95,
+      "changes_summary": "Added clarification on the abundance of factors of 2 and explicitly stated that floor(100/25) = 4 because 100 is exactly divisible by 25.",
+      "_correct": true
+    },
+    "solver_3": {
+      "solver_id": "solver_3",
+      "model": "grok",
+      "critique_responses": [
+        {
+          "from_reviewer": "solver_1",
+          "critique": "The solution could benefit from a clearer breakdown of the calculations for each step, particularly in step 3.",
+          "response": "I agree that providing more detailed intermediate calculations in step 3 would enhance clarity. I will explicitly write out the results of the integer divisions to avoid ambiguity.",
+          "accepted": true
+        },
+        {
+          "from_reviewer": "solver_2",
+          "critique": "The description in step 3 could benefit from a more explicit calculation to clarify how the integer divisions are derived.",
+          "response": "I concur that a clearer breakdown of the integer division calculations would be beneficial. I will include explanations for how the results are obtained, including the reasoning behind rounding down in the calculations.",
+          "accepted": true
+        }
+      ],
+      "refined_solution_steps": [
+        {
+          "step": 1,
+          "description": "Calculate the number of factors of 5 in 100!",
+          "reasoning": "Trailing zeros in a factorial are produced by the factors of 10, which are the product of the factors 2 and 5. Since there are generally more factors of 2 than 5 in any factorial, the number of trailing zeros is determined by the number of times 5 is a factor in the numbers from 1 to 100."
+        },
+        {
+          "step": 2,
+          "description": "Use the formula to count the factors of 5: ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋...",
+          "reasoning": "To find the number of factors of 5 in 100!, I apply the formula which sums the integer divisions of 100 by powers of 5 until the power exceeds 100."
+        },
+        {
+          "step": 3,
+          "description": "Calculate the individual components: ⌊100/5⌋, ⌊100/25⌋, and ⌊100/125⌋",
+          "reasoning": "Calculating these values gives us the counts of multiples of 5, 25, and 125 in the range 1 to 100. Specifically, ⌊100/5⌋ = 20, because 100 divided by 5 is 20. ⌊100/25⌋ = 4, since 100 divided by 25 is 4. ⌊100/125⌋ = 0, as 100 divided by 125 is less than 1, and we round down to 0."
+        },
+        {
+          "step": 4,
+          "description": "Sum the counts: 20 + 4 + 0 = 24",
+          "reasoning": "The total count of trailing zeros is the sum of the individual counts of factors of 5. We sum these contributions because each factor of 5 contributes to a trailing zero when paired with a factor of 2."
+        }
+      ],
+      "refined_final_answer": "There are 24 trailing zeros in 100!",
+      "confidence": 0.97,
+      "changes_summary": "I provided more detailed calculations in step 3, explicitly showing the division process and the reasoning for rounding down. Additionally, I clarified the reasoning in step 4 regarding the summation of contributions from factors of 5.",
+      "_correct": true
+    }
+  },
+  "judgment": {
+    "judge_model": "gpt-4",
+    "winner": "solver_3",
+    "confidence": 0.9,
+    "reasoning": "All three solvers correctly solve the problem using the standard method: trailing zeros in 100! are determined by the number of factors of 5, since factors of 2 are more abundant. The count is floor(100/5) + floor(100/25) + floor(100/125) = 20 + 4 + 0 = 24. Solver_1 gives a fully correct original answer and makes meaningful refinements by explicitly explaining factor pairs and integer division. Solver_2 is also correct and improves its explanation of why factors of 2 are abundant; however, its formula in the refined solution stops at floor(100/25) without explicitly mentioning floor(100/125)=0, which is harmless for n=100 but slightly less complete. Solver_3 is correct and provides the clearest refined explanation, explicitly including the zero contribution from 125, detailing the divisions, and explaining why the contributions are summed. Its refinement directly addresses the critiques and improves clarity without introducing errors. Therefore, solver_3 is marginally strongest, followed closely by solver_1, then solver_2.",
+    "correct_answer": "24 trailing zeros",
+    "_fallback": false
+  },
+  "record": {
+    "problem_id": "prob_002",
+    "category": "mathematical_reasoning",
+    "difficulty": "medium",
+    "winner_solver": "solver_3",
+    "final_answer": "There are 24 trailing zeros in 100!",
+    "correct_answer": "24",
+    "is_correct": true,
+    "judge_confidence": 0.9,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "There are 24 trailing zeros in 100!.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": null,
+      "is_correct": false,
+      "had_majority": false
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "100! has 24 trailing zeros.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "100! has 24 trailing zeros.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "There are 24 trailing zeros at the end of 100!",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "There are 24 trailing zeros at the end of 100!",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "There are 24 trailing zeros in 100!",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "There are 24 trailing zeros in 100!",
+        "refined_correct": true,
+        "refined_confidence": 0.97
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      }
+    ]
+  }
+}

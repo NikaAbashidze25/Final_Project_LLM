@@ -4,14 +4,14 @@
     "category": "mathematical_reasoning",
     "difficulty": "hard",
     "winner_solver": "solver_1",
-    "final_answer": "153",
+    "final_answer": "The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.",
     "correct_answer": "153",
     "is_correct": true,
-    "judge_confidence": 0.86,
+    "judge_confidence": 0.68,
     "judge_fallback": false,
-    "consensus": true,
-    "improvement_occurred": false,
-    "solvers_disagree": false,
+    "consensus": false,
+    "improvement_occurred": true,
+    "solvers_disagree": true,
     "role_assignment": {
       "Solver_1": "claude",
       "Solver_2": "gemini",
@@ -24,35 +24,35 @@
       "is_correct": true
     },
     "baseline_voting": {
-      "answer": "153",
+      "answer": "The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.",
       "is_correct": true,
       "had_majority": true
     },
     "solvers": {
       "solver_1": {
         "model": "claude",
-        "original_answer": "153",
+        "original_answer": "The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.",
         "original_correct": true,
         "original_confidence": 0.95,
-        "refined_answer": "153",
-        "refined_correct": true,
-        "refined_confidence": 0.9
-      },
-      "solver_2": {
-        "model": "gemini",
-        "original_answer": "153",
-        "original_correct": true,
-        "original_confidence": 0.95,
-        "refined_answer": "153",
+        "refined_answer": "The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.",
         "refined_correct": true,
         "refined_confidence": 0.85
       },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.",
+        "original_correct": true,
+        "original_confidence": 0.9,
+        "refined_answer": "The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.",
+        "refined_correct": true,
+        "refined_confidence": 0.8
+      },
       "solver_3": {
         "model": "grok",
-        "original_answer": "153",
-        "original_correct": true,
+        "original_answer": "There are 233 ways to tile a 3x8 rectangle completely with 2x1 dominoes.",
+        "original_correct": false,
         "original_confidence": 0.95,
-        "refined_answer": "153",
+        "refined_answer": "There are 153 ways to tile a 3x8 rectangle completely with 2x1 dominoes.",
         "refined_correct": true,
         "refined_confidence": 0.85
       }
@@ -69,7 +69,7 @@
         "reviewer": "solver_1",
         "reviewed": "solver_3",
         "assessment": "fundamentally_wrong",
-        "flagged_real_error": false,
+        "flagged_real_error": true,
         "num_errors": 2
       },
       {
@@ -83,6 +83,2272 @@
         "reviewer": "solver_2",
         "reviewed": "solver_3",
         "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": false,
+        "num_errors": 2
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_002",
+    "category": "mathematical_reasoning",
+    "difficulty": "medium",
+    "winner_solver": "solver_3",
+    "final_answer": "There are 24 trailing zeros in 100!",
+    "correct_answer": "24",
+    "is_correct": true,
+    "judge_confidence": 0.9,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "There are 24 trailing zeros in 100!.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": null,
+      "is_correct": false,
+      "had_majority": false
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "100! has 24 trailing zeros.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "100! has 24 trailing zeros.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "There are 24 trailing zeros at the end of 100!",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "There are 24 trailing zeros at the end of 100!",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "There are 24 trailing zeros in 100!",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "There are 24 trailing zeros in 100!",
+        "refined_correct": true,
+        "refined_confidence": 0.97
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_003",
+    "category": "mathematical_reasoning",
+    "difficulty": "hard",
+    "winner_solver": "solver_2",
+    "final_answer": "There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.",
+    "correct_answer": "266",
+    "is_correct": true,
+    "judge_confidence": 0.62,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "There are 266 positive integers from 1 to 1000 inclusive that are divisible by none of 2, 3, or 5.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_004",
+    "category": "mathematical_reasoning",
+    "difficulty": "medium",
+    "winner_solver": "solver_1",
+    "final_answer": "The sum of all positive divisors of 360 is 1170.",
+    "correct_answer": "1170",
+    "is_correct": true,
+    "judge_confidence": 0.68,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "The sum of all positive divisors of 360 is 1170.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "The sum of all positive divisors of 360 is 1170.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "The sum of all positive divisors of 360 is 1170.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The sum of all positive divisors of 360 is 1170.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "The sum of all positive divisors of 360 is 1170.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The sum of all positive divisors of 360 is 1170.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "The sum of all positive divisors of 360 is 1170.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The sum of all positive divisors of 360 is 1170.",
+        "refined_correct": true,
+        "refined_confidence": 0.97
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_005",
+    "category": "mathematical_reasoning",
+    "difficulty": "hard",
+    "winner_solver": "solver_2",
+    "final_answer": "24/49",
+    "correct_answer": "24/49",
+    "is_correct": true,
+    "judge_confidence": 0.98,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "24/49",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "24/49",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "24/49",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "24/49",
+        "refined_correct": true,
+        "refined_confidence": 0.9
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "24/49",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "24/49",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "24/49",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "24/49",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_006",
+    "category": "mathematical_reasoning",
+    "difficulty": "hard",
+    "winner_solver": "solver_1",
+    "final_answer": "There are 126 five-digit positive integers with strictly increasing digits.",
+    "correct_answer": "126",
+    "is_correct": true,
+    "judge_confidence": 0.72,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "There are 126 five-digit positive integers with strictly increasing digits.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "There are 126 five-digit positive integers with strictly increasing digits.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "There are 126 five-digit positive integers with strictly increasing digits.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "There are 126 five-digit positive integers with strictly increasing digits.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "There are 126 five-digit positive integers with strictly increasing digits.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "There are 126 five-digit positive integers with strictly increasing digits.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "There are 126 five-digit positive integers with strictly increasing digits.",
+        "original_correct": true,
+        "original_confidence": 1.0,
+        "refined_answer": "There are 126 five-digit positive integers with strictly increasing digits.",
+        "refined_correct": true,
+        "refined_confidence": 1.0
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_007",
+    "category": "mathematical_reasoning",
+    "difficulty": "hard",
+    "winner_solver": "solver_2",
+    "final_answer": "07",
+    "correct_answer": "07",
+    "is_correct": true,
+    "judge_confidence": 0.82,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "gpt-4",
+      "Solver_2": "claude",
+      "Solver_3": "grok",
+      "Judge": "gemini"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "The last two digits of 7^2025 are 07.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "07",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "gpt-4",
+        "original_answer": "07",
+        "original_correct": true,
+        "original_confidence": 0.9,
+        "refined_answer": "07",
+        "refined_correct": true,
+        "refined_confidence": 0.9
+      },
+      "solver_2": {
+        "model": "claude",
+        "original_answer": "07",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "07",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "07",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "07",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_008",
+    "category": "physics_reasoning",
+    "difficulty": "very_hard",
+    "winner_solver": "solver_2",
+    "final_answer": "0.866",
+    "correct_answer": "0.289",
+    "is_correct": false,
+    "judge_confidence": 0.4,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "gpt-4",
+      "Solver_2": "claude",
+      "Solver_3": "grok",
+      "Judge": "gemini"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "0.577",
+      "is_correct": false
+    },
+    "baseline_voting": {
+      "answer": "0.577",
+      "is_correct": false,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "gpt-4",
+        "original_answer": "0.866",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "0.577",
+        "refined_correct": false,
+        "refined_confidence": 0.85
+      },
+      "solver_2": {
+        "model": "claude",
+        "original_answer": "0.577",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "0.866",
+        "refined_correct": false,
+        "refined_confidence": 0.85
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "0.577",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "0.577",
+        "refined_correct": false,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": true,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": true,
+        "num_errors": 2
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_009",
+    "category": "physics_reasoning",
+    "difficulty": "medium",
+    "winner_solver": "solver_1",
+    "final_answer": "2.02 seconds",
+    "correct_answer": "2.02",
+    "is_correct": true,
+    "judge_confidence": 0.62,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "2.02 seconds",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "2.02 seconds",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "2.02 seconds",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "2.02 seconds",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "2.02 seconds",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "2.02 seconds",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "2.02 seconds",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "2.02 seconds",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_010",
+    "category": "physics_reasoning",
+    "difficulty": "hard",
+    "winner_solver": "solver_2",
+    "final_answer": "35.3",
+    "correct_answer": "35.3",
+    "is_correct": true,
+    "judge_confidence": 0.6,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": true,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "35.3",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": null,
+      "is_correct": false,
+      "had_majority": false
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "40.0",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "35.3",
+        "refined_correct": true,
+        "refined_confidence": 0.9
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "34.6",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "35.3",
+        "refined_correct": true,
+        "refined_confidence": 0.9
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "57.8",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "35.3",
+        "refined_correct": true,
+        "refined_confidence": 0.9
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 3
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "fundamentally_wrong",
+        "flagged_real_error": true,
+        "num_errors": 2
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_011",
+    "category": "physics_reasoning",
+    "difficulty": "medium",
+    "winner_solver": "solver_2",
+    "final_answer": "The total current drawn from the battery is 2 amperes.",
+    "correct_answer": "2",
+    "is_correct": true,
+    "judge_confidence": 0.98,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "Total current drawn from the battery is 1.5 A.",
+      "is_correct": false
+    },
+    "baseline_voting": {
+      "answer": null,
+      "is_correct": false,
+      "had_majority": false
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "The total current drawn from the battery is 2.0 amperes.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The total current drawn from the battery is 2.0 amperes.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "The total current drawn from the battery is 2 amperes.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The total current drawn from the battery is 2 amperes.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "The total current drawn from the battery is 2 A.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The total current drawn from the battery is 2 A (amperes).",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 3
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 2
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_012",
+    "category": "physics_reasoning",
+    "difficulty": "medium",
+    "winner_solver": "solver_1",
+    "final_answer": "4.9 m/s²",
+    "correct_answer": "4.9",
+    "is_correct": true,
+    "judge_confidence": 0.93,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "gpt-4",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "claude"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "4.9 m/s^2",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "4.9",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "gpt-4",
+        "original_answer": "4.9",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "4.9 m/s²",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "4.9",
+        "original_correct": true,
+        "original_confidence": 1.0,
+        "refined_answer": "4.9",
+        "refined_correct": true,
+        "refined_confidence": 1.0
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "4.9",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "4.9",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_013",
+    "category": "physics_reasoning",
+    "difficulty": "hard",
+    "winner_solver": "solver_2",
+    "final_answer": "4.0e-19 J",
+    "correct_answer": "3.98e-19",
+    "is_correct": true,
+    "judge_confidence": 0.93,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "3.98e-19 J",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "3.98e-19 J",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "4.0e-19 J",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "3.98e-19 J",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "3.98e-19 J",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "4.0e-19 J",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "3.98e-19 J",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "4.0e-19 J",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_014",
+    "category": "physics_reasoning",
+    "difficulty": "hard",
+    "winner_solver": "solver_2",
+    "final_answer": "0.628",
+    "correct_answer": "0.628",
+    "is_correct": true,
+    "judge_confidence": 0.98,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "0.628",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "0.628",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "0.628",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "0.628",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "0.628",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "0.628",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "0.628 seconds",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "0.628 seconds",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_015",
+    "category": "logic_puzzle",
+    "difficulty": "very_hard",
+    "winner_solver": "solver_1",
+    "final_answer": "The German owns the fish.",
+    "correct_answer": "German",
+    "is_correct": true,
+    "judge_confidence": 0.62,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "The German owns the fish.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "The German owns the fish.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "The German owns the fish.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The German owns the fish.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "The German owns the fish.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The German owns the fish.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "The German owns the fish.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The German owns the fish.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_016",
+    "category": "logic_puzzle",
+    "difficulty": "hard",
+    "winner_solver": "solver_1",
+    "final_answer": "A is a knave and B is a knight.",
+    "correct_answer": "A is a knave and B is a knight",
+    "is_correct": true,
+    "judge_confidence": 0.42,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "A is a knave and B is a knight.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "A is a knave and B is a knight.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "A is a knave and B is a knight.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "A is a knave and B is a knight.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "A is a knave and B is a knight.",
+        "original_correct": true,
+        "original_confidence": 1.0,
+        "refined_answer": "A is a knave and B is a knight.",
+        "refined_correct": true,
+        "refined_confidence": 1.0
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "A is a knave and B is a knight.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "A is a knave and B is a knight.",
+        "refined_correct": true,
+        "refined_confidence": 0.97
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_017",
+    "category": "logic_puzzle",
+    "difficulty": "hard",
+    "winner_solver": "solver_2",
+    "final_answer": "The minimum number of one-way river crossings needed is 7.",
+    "correct_answer": "7",
+    "is_correct": true,
+    "judge_confidence": 0.62,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "The minimum number of one-way river crossings needed is 7.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "The minimum number of one-way river crossings needed is 7.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "The minimum number of one-way river crossings needed is 7.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The minimum number of one-way river crossings needed is 7.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "The minimum number of one-way river crossings needed is 7.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The minimum number of one-way river crossings needed is 7.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "The minimum number of one-way river crossings needed is 7.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The minimum number of one-way river crossings needed is 7.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 2
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_018",
+    "category": "logic_puzzle",
+    "difficulty": "hard",
+    "winner_solver": "solver_1",
+    "final_answer": "The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.",
+    "correct_answer": "23",
+    "is_correct": true,
+    "judge_confidence": 0.86,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.",
+        "refined_correct": true,
+        "refined_confidence": 0.98
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "23",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "23",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_019",
+    "category": "logic_puzzle",
+    "difficulty": "very_hard",
+    "winner_solver": "solver_2",
+    "final_answer": "The minimum number of weighings required to identify the counterfeit ball and determine if it is heavier or lighter is 3.",
+    "correct_answer": "3",
+    "is_correct": true,
+    "judge_confidence": 0.55,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "gpt-4",
+      "Solver_2": "claude",
+      "Solver_3": "gemini",
+      "Judge": "grok"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "It takes a minimum of 3 weighings to guarantee the identification of the counterfeit ball and determine whether it is heavier or lighter.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": null,
+      "is_correct": false,
+      "had_majority": false
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "gpt-4",
+        "original_answer": "The minimum number of weighings required to guarantee identification of the counterfeit ball and whether it is heavier or lighter is 3.",
+        "original_correct": true,
+        "original_confidence": 0.9,
+        "refined_answer": "The minimum number of weighings required to guarantee identification of the counterfeit ball and whether it is heavier or lighter is 3.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "claude",
+        "original_answer": "The minimum number of weighings required to identify the counterfeit ball and determine if it is heavier or lighter is 3.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The minimum number of weighings required to identify the counterfeit ball and determine if it is heavier or lighter is 3.",
+        "refined_correct": true,
+        "refined_confidence": 0.98
+      },
+      "solver_3": {
+        "model": "gemini",
+        "original_answer": "The minimum number of weighings required to guarantee identification of the counterfeit ball and determine if it is heavier or lighter is 3.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The minimum number of weighings required to guarantee identification of the counterfeit ball and determine if it is heavier or lighter is 3.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 3
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_020",
+    "category": "logic_puzzle",
+    "difficulty": "very_hard",
+    "winner_solver": "solver_2",
+    "final_answer": "Cheryl's birthday is July 16.",
+    "correct_answer": "July 16",
+    "is_correct": true,
+    "judge_confidence": 0.98,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "Cheryl's birthday is August 15.",
+      "is_correct": false
+    },
+    "baseline_voting": {
+      "answer": "Cheryl's birthday is July 16.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "Cheryl's birthday is July 16.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "Cheryl's birthday is July 16.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "Cheryl's birthday is July 16.",
+        "original_correct": true,
+        "original_confidence": 0.9,
+        "refined_answer": "Cheryl's birthday is July 16.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "Cheryl's birthday is July 16.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "Cheryl's birthday is July 16.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_021",
+    "category": "game_theory",
+    "difficulty": "hard",
+    "winner_solver": "solver_2",
+    "final_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, while considering potential misestimations and varying risk preferences among bidders.",
+    "correct_answer": "Bid your true valuation",
+    "is_correct": false,
+    "judge_confidence": 0.78,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "In a sealed-bid second-price auction, each bidder's optimal bidding strategy is to bid their true valuation of the item.",
+      "is_correct": false
+    },
+    "baseline_voting": {
+      "answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+      "is_correct": false,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, though bidders should be aware of potential irrational behavior and collusion that could affect outcomes.",
+        "refined_correct": false,
+        "refined_confidence": 0.9
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "Each bidder's optimal (dominant) bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, while considering potential misestimations and varying risk preferences among bidders.",
+        "refined_correct": false,
+        "refined_confidence": 0.9
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "Each bidder's optimal bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item.",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "Each bidder's optimal bidding strategy in a sealed-bid second-price auction is to bid their true valuation of the item, as illustrated by the example where Bidder A values the item at $100 and wins it for $80 when Bidder B values it at $80.",
+        "refined_correct": false,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": true,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": true,
+        "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_022",
+    "category": "game_theory",
+    "difficulty": "medium",
+    "winner_solver": "solver_1",
+    "final_answer": "The Nash equilibrium strategy profile is (Defect, Defect).",
+    "correct_answer": "Both players defect",
+    "is_correct": false,
+    "judge_confidence": 0.9,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "gpt-4",
+      "Solver_2": "claude",
+      "Solver_3": "grok",
+      "Judge": "gemini"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "The Nash equilibrium strategy profile is for both players to defect.",
+      "is_correct": false
+    },
+    "baseline_voting": {
+      "answer": "The Nash equilibrium strategy profile is (Defect, Defect).",
+      "is_correct": false,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "gpt-4",
+        "original_answer": "The Nash equilibrium strategy profile is (Defect, Defect).",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "The Nash equilibrium strategy profile is (Defect, Defect).",
+        "refined_correct": false,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "claude",
+        "original_answer": "The Nash equilibrium strategy profile is for both players to defect.",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "The Nash equilibrium strategy profile is (Defect, Defect).",
+        "refined_correct": false,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "The Nash equilibrium strategy profile is (Defect, Defect).",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "The Nash equilibrium strategy profile is (Defect, Defect).",
+        "refined_correct": false,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": true,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": true,
+        "num_errors": 1
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_023",
+    "category": "game_theory",
+    "difficulty": "hard",
+    "winner_solver": "solver_1",
+    "final_answer": "The first player wins with the first move of removing 1 stone.",
+    "correct_answer": "First player wins by taking 1 stone",
+    "is_correct": true,
+    "judge_confidence": 0.82,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "The first player wins by removing 1 stone, leaving 20 stones for the second player.",
+      "is_correct": false
+    },
+    "baseline_voting": {
+      "answer": "The first player wins with the first move of removing 1 stone.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "The first player wins with the first move of removing 1 stone.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "The first player wins with the first move of removing 1 stone.",
+        "refined_correct": true,
+        "refined_confidence": 0.9
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "The first player wins with the first move of removing 1 stone.",
+        "original_correct": true,
+        "original_confidence": 0.9,
+        "refined_answer": "The first player wins with the first move of removing 1 stone.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "The first player wins and the winning first move is to remove 1 stone, leaving 20 stones.",
+        "original_correct": false,
+        "original_confidence": 0.95,
+        "refined_answer": "The first player wins and the winning first move is to remove 1 stone, leaving 20 stones.",
+        "refined_correct": false,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
         "flagged_real_error": false,
         "num_errors": 2
       },
@@ -98,7 +2364,213 @@
         "reviewed": "solver_2",
         "assessment": "promising_but_flawed",
         "flagged_real_error": false,
+        "num_errors": 1
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_024",
+    "category": "game_theory",
+    "difficulty": "very_hard",
+    "winner_solver": "solver_3",
+    "final_answer": "In Nash equilibrium, each firm produces 30 units.",
+    "correct_answer": "30",
+    "is_correct": true,
+    "judge_confidence": 0.9,
+    "judge_fallback": false,
+    "consensus": false,
+    "improvement_occurred": false,
+    "solvers_disagree": true,
+    "role_assignment": {
+      "Solver_1": "gpt-4",
+      "Solver_2": "claude",
+      "Solver_3": "grok",
+      "Judge": "gemini"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "In the Nash equilibrium, each firm produces 30 units.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "In Nash equilibrium, each firm produces 30 units.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "gpt-4",
+        "original_answer": "In Nash equilibrium, each firm produces 30 units.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "In Nash equilibrium, each firm produces 30 units.",
+        "refined_correct": true,
+        "refined_confidence": 0.9
+      },
+      "solver_2": {
+        "model": "claude",
+        "original_answer": "In the Nash equilibrium, each firm produces 30 units.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "In the Nash equilibrium, each firm produces 30 units.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "In Nash equilibrium, each firm produces 30 units.",
+        "original_correct": true,
+        "original_confidence": 0.95,
+        "refined_answer": "In Nash equilibrium, each firm produces 30 units.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "correct",
+        "flagged_real_error": false,
         "num_errors": 2
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      }
+    ]
+  },
+  {
+    "problem_id": "prob_025",
+    "category": "game_theory",
+    "difficulty": "hard",
+    "winner_solver": "solver_1",
+    "final_answer": "Yes, the first player has a winning strategy.",
+    "correct_answer": "Yes",
+    "is_correct": true,
+    "judge_confidence": 0.82,
+    "judge_fallback": false,
+    "consensus": true,
+    "improvement_occurred": false,
+    "solvers_disagree": false,
+    "role_assignment": {
+      "Solver_1": "claude",
+      "Solver_2": "gemini",
+      "Solver_3": "grok",
+      "Judge": "gpt-4"
+    },
+    "baseline_single": {
+      "model": "gpt-4",
+      "answer": "Yes, the first player has a winning strategy.",
+      "is_correct": true
+    },
+    "baseline_voting": {
+      "answer": "Yes, the first player has a winning strategy.",
+      "is_correct": true,
+      "had_majority": true
+    },
+    "solvers": {
+      "solver_1": {
+        "model": "claude",
+        "original_answer": "Yes, the first player has a winning strategy.",
+        "original_correct": true,
+        "original_confidence": 0.9,
+        "refined_answer": "Yes, the first player has a winning strategy.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_2": {
+        "model": "gemini",
+        "original_answer": "Yes, the first player has a winning strategy.",
+        "original_correct": true,
+        "original_confidence": 0.9,
+        "refined_answer": "Yes, the first player has a winning strategy.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      },
+      "solver_3": {
+        "model": "grok",
+        "original_answer": "Yes, the first player has a winning strategy.",
+        "original_correct": true,
+        "original_confidence": 0.9,
+        "refined_answer": "Yes, the first player has a winning strategy.",
+        "refined_correct": true,
+        "refined_confidence": 0.95
+      }
+    },
+    "reviews_summary": [
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
+      },
+      {
+        "reviewer": "solver_1",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_2",
+        "reviewed": "solver_3",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_1",
+        "assessment": "promising_but_flawed",
+        "flagged_real_error": false,
+        "num_errors": 1
+      },
+      {
+        "reviewer": "solver_3",
+        "reviewed": "solver_2",
+        "assessment": "correct",
+        "flagged_real_error": false,
+        "num_errors": 0
       }
     ]
   }

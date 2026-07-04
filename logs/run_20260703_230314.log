@@ -1,0 +1,425 @@
+2026-07-03 23:03:14 | INFO    | Backend=openai | free_mode=True | provider=openai | seed=42
+2026-07-03 23:03:14 | INFO    | ======================================================================
+2026-07-03 23:03:14 | INFO    | PROBLEM prob_001 [mathematical_reasoning / hard]
+2026-07-03 23:03:21 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:03:24 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:03:27 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:03:30 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:03:30 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:03:38 | INFO    | stage1 | solver_1 (claude) -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' conf=0.95
+2026-07-03 23:03:45 | INFO    | stage1 | solver_2 (gemini) -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' conf=0.95
+2026-07-03 23:03:53 | INFO    | stage1 | solver_3 (grok) -> answer='153' conf=0.95
+2026-07-03 23:04:00 | INFO    | stage2 | solver_1 -> solver_2 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:04:08 | INFO    | stage2 | solver_1 -> solver_3 : fundamentally_wrong (3 errors flagged)
+2026-07-03 23:04:15 | INFO    | stage2 | solver_2 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:04:22 | INFO    | stage2 | solver_2 -> solver_3 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:04:34 | INFO    | stage2 | solver_3 -> solver_1 : fundamentally_wrong (3 errors flagged)
+2026-07-03 23:04:41 | INFO    | stage2 | solver_3 -> solver_2 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:04:54 | INFO    | stage3 | solver_1 refined -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' conf=0.90 (was_correct=True now_correct=True)
+2026-07-03 23:05:07 | INFO    | stage3 | solver_2 refined -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' conf=0.85 (was_correct=True now_correct=True)
+2026-07-03 23:05:22 | INFO    | stage3 | solver_3 refined -> answer='1641' conf=0.85 (was_correct=True now_correct=False)
+2026-07-03 23:05:35 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.72
+2026-07-03 23:05:42 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_001: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:05:42 | INFO    | ======================================================================
+2026-07-03 23:05:42 | INFO    | PROBLEM prob_002 [mathematical_reasoning / medium]
+2026-07-03 23:05:44 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.80
+2026-07-03 23:05:47 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:05:50 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:05:53 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:05:53 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:05:59 | INFO    | stage1 | solver_1 (claude) -> answer='There are 24 trailing zeros in 100!.' conf=0.95
+2026-07-03 23:06:08 | INFO    | stage1 | solver_2 (gemini) -> answer='There are 24 trailing zeros in 100!' conf=0.95
+2026-07-03 23:06:14 | INFO    | stage1 | solver_3 (grok) -> answer='There are 24 trailing zeros in 100!.' conf=0.95
+2026-07-03 23:06:22 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:06:28 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:06:33 | INFO    | stage2 | solver_2 -> solver_1 : correct (0 errors flagged)
+2026-07-03 23:06:40 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:06:45 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:06:51 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (3 errors flagged)
+2026-07-03 23:07:01 | INFO    | stage3 | solver_1 refined -> answer='There are 24 trailing zeros in 100!.' conf=0.97 (was_correct=True now_correct=True)
+2026-07-03 23:07:12 | INFO    | stage3 | solver_2 refined -> answer='There are 24 trailing zeros in 100!' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:07:23 | INFO    | stage3 | solver_3 refined -> answer='There are 24 trailing zeros in 100!.' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:07:28 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.96
+2026-07-03 23:07:34 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_002: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:07:34 | INFO    | ======================================================================
+2026-07-03 23:07:34 | INFO    | PROBLEM prob_003 [mathematical_reasoning / hard]
+2026-07-03 23:07:37 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.80
+2026-07-03 23:07:39 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:07:43 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:07:45 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:07:45 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:07:54 | INFO    | stage1 | solver_1 (claude) -> answer='There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5.' conf=0.95
+2026-07-03 23:08:04 | INFO    | stage1 | solver_2 (gemini) -> answer='There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5.' conf=0.95
+2026-07-03 23:08:12 | INFO    | stage1 | solver_3 (grok) -> answer='There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5.' conf=0.95
+2026-07-03 23:08:21 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:08:31 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:08:38 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:08:45 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:08:49 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-03 23:08:54 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:09:09 | INFO    | stage3 | solver_1 refined -> answer='There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:09:24 | INFO    | stage3 | solver_2 refined -> answer='There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5, as confirmed by the inclusion-exclusion calculation.' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:09:38 | INFO    | stage3 | solver_3 refined -> answer='There are 266 positive integers from 1 to 1000 that are divisible by none of 2, 3, or 5.' conf=0.97 (was_correct=True now_correct=True)
+2026-07-03 23:09:46 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.90
+2026-07-03 23:09:53 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_003: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:09:53 | INFO    | ======================================================================
+2026-07-03 23:09:53 | INFO    | PROBLEM prob_004 [mathematical_reasoning / medium]
+2026-07-03 23:09:56 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:09:58 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:10:00 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:10:03 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:10:03 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:10:10 | INFO    | stage1 | solver_1 (claude) -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95
+2026-07-03 23:10:18 | INFO    | stage1 | solver_2 (gemini) -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95
+2026-07-03 23:10:25 | INFO    | stage1 | solver_3 (grok) -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95
+2026-07-03 23:10:32 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:10:38 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:10:44 | INFO    | stage2 | solver_2 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:10:52 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:10:57 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:11:02 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:11:15 | INFO    | stage3 | solver_1 refined -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.99 (was_correct=True now_correct=True)
+2026-07-03 23:11:28 | INFO    | stage3 | solver_2 refined -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:11:40 | INFO    | stage3 | solver_3 refined -> answer='The sum of all positive divisors of 360 is 1170.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:11:46 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.93
+2026-07-03 23:11:53 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_004: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:11:53 | INFO    | ======================================================================
+2026-07-03 23:11:53 | INFO    | PROBLEM prob_005 [mathematical_reasoning / hard]
+2026-07-03 23:11:56 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:11:58 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:12:00 | INFO    | stage0 | gemini assessed: Judge conf=0.80
+2026-07-03 23:12:03 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:12:03 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'claude', 'Solver_3': 'grok', 'Judge': 'gemini'}
+2026-07-03 23:12:11 | INFO    | stage1 | solver_1 (gpt-4) -> answer='24/49' conf=0.95
+2026-07-03 23:12:20 | INFO    | stage1 | solver_2 (claude) -> answer='24/49' conf=0.95
+2026-07-03 23:12:28 | INFO    | stage1 | solver_3 (grok) -> answer='24/49' conf=0.95
+2026-07-03 23:12:36 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:12:41 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:12:49 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:12:54 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:12:59 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:13:04 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:13:25 | INFO    | stage3 | solver_1 refined -> answer='The probability that the sum of the two chosen integers is even is 24/49.' conf=0.97 (was_correct=True now_correct=True)
+2026-07-03 23:13:42 | INFO    | stage3 | solver_2 refined -> answer='24/49' conf=0.97 (was_correct=True now_correct=True)
+2026-07-03 23:13:57 | INFO    | stage3 | solver_3 refined -> answer='24/49' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:14:09 | INFO    | stage4 | judge=gemini winner=solver_1 conf=0.72
+2026-07-03 23:14:16 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_005: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:14:16 | INFO    | ======================================================================
+2026-07-03 23:14:16 | INFO    | PROBLEM prob_006 [mathematical_reasoning / hard]
+2026-07-03 23:14:19 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.80
+2026-07-03 23:14:21 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:14:24 | INFO    | stage0 | gemini assessed: Judge conf=0.80
+2026-07-03 23:14:27 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:14:27 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:14:33 | INFO    | stage1 | solver_1 (claude) -> answer='There are 126 5-digit positive integers with strictly increasing digits.' conf=0.95
+2026-07-03 23:14:39 | INFO    | stage1 | solver_2 (gemini) -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=0.95
+2026-07-03 23:14:46 | INFO    | stage1 | solver_3 (grok) -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=0.95
+2026-07-03 23:14:48 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-03 23:14:52 | INFO    | stage2 | solver_1 -> solver_3 : correct (0 errors flagged)
+2026-07-03 23:14:57 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:15:00 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-03 23:15:05 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:15:10 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (0 errors flagged)
+2026-07-03 23:15:23 | INFO    | stage3 | solver_1 refined -> answer='There are 126 5-digit positive integers with strictly increasing digits.' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:15:33 | INFO    | stage3 | solver_2 refined -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=0.97 (was_correct=True now_correct=True)
+2026-07-03 23:15:43 | INFO    | stage3 | solver_3 refined -> answer='There are 126 five-digit positive integers with strictly increasing digits.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:15:53 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.78
+2026-07-03 23:16:01 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_006: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:16:01 | INFO    | ======================================================================
+2026-07-03 23:16:01 | INFO    | PROBLEM prob_007 [mathematical_reasoning / hard]
+2026-07-03 23:16:03 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:16:06 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:16:09 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:16:13 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:16:13 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:16:23 | INFO    | stage1 | solver_1 (claude) -> answer='07' conf=0.95
+2026-07-03 23:16:33 | INFO    | stage1 | solver_2 (gemini) -> answer='57' conf=0.95
+2026-07-03 23:16:40 | INFO    | stage1 | solver_3 (grok) -> answer='07' conf=0.95
+2026-07-03 23:16:46 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:16:55 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:17:02 | INFO    | stage2 | solver_2 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:17:08 | INFO    | stage2 | solver_2 -> solver_3 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:17:15 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:17:23 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (3 errors flagged)
+2026-07-03 23:17:33 | INFO    | stage3 | solver_1 refined -> answer='07' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:17:50 | INFO    | stage3 | solver_2 refined -> answer='57' conf=0.95 (was_correct=False now_correct=False)
+2026-07-03 23:18:03 | INFO    | stage3 | solver_3 refined -> answer='43' conf=0.90 (was_correct=True now_correct=False)
+2026-07-03 23:18:16 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.98
+2026-07-03 23:18:25 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_007: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:18:25 | INFO    | ======================================================================
+2026-07-03 23:18:25 | INFO    | PROBLEM prob_008 [physics_reasoning / very_hard]
+2026-07-03 23:18:28 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:18:30 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:18:33 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:18:36 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:18:36 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:18:44 | INFO    | stage1 | solver_1 (claude) -> answer='0.866' conf=0.95
+2026-07-03 23:18:50 | INFO    | stage1 | solver_2 (gemini) -> answer='1.732' conf=0.95
+2026-07-03 23:18:56 | INFO    | stage1 | solver_3 (grok) -> answer='0.577' conf=0.95
+2026-07-03 23:19:03 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:19:09 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:19:18 | INFO    | stage2 | solver_2 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:19:26 | INFO    | stage2 | solver_2 -> solver_3 : fundamentally_wrong (3 errors flagged)
+2026-07-03 23:19:33 | INFO    | stage2 | solver_3 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:19:39 | INFO    | stage2 | solver_3 -> solver_2 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:20:08 | INFO    | stage3 | solver_1 refined -> answer='0.577' conf=0.90 (was_correct=False now_correct=False)
+2026-07-03 23:20:23 | INFO    | stage3 | solver_2 refined -> answer='1.732' conf=0.95 (was_correct=False now_correct=False)
+2026-07-03 23:20:39 | INFO    | stage3 | solver_3 refined -> answer='0.500' conf=0.85 (was_correct=False now_correct=False)
+2026-07-03 23:21:04 | INFO    | stage4 | judge=gpt-4 winner=solver_3 conf=0.34
+2026-07-03 23:21:10 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_008: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:21:10 | INFO    | ======================================================================
+2026-07-03 23:21:10 | INFO    | PROBLEM prob_009 [physics_reasoning / medium]
+2026-07-03 23:21:13 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:21:16 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:21:18 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:21:21 | INFO    | stage0 | grok assessed: Judge conf=0.80
+2026-07-03 23:21:21 | INFO    | stage0.5 | role assignment: {'Solver_1': 'gpt-4', 'Solver_2': 'claude', 'Solver_3': 'gemini', 'Judge': 'grok'}
+2026-07-03 23:21:26 | INFO    | stage1 | solver_1 (gpt-4) -> answer='2.02 seconds' conf=0.95
+2026-07-03 23:21:32 | INFO    | stage1 | solver_2 (claude) -> answer='2.02' conf=0.95
+2026-07-03 23:21:38 | INFO    | stage1 | solver_3 (gemini) -> answer='2.02 seconds' conf=0.95
+2026-07-03 23:21:43 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:21:49 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (0 errors flagged)
+2026-07-03 23:21:53 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:21:58 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:22:04 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:22:09 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:22:20 | INFO    | stage3 | solver_1 refined -> answer='2.02 seconds' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:22:29 | INFO    | stage3 | solver_2 refined -> answer='2.02' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:22:41 | INFO    | stage3 | solver_3 refined -> answer='2.02 seconds' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:22:54 | INFO    | stage4 | judge=grok winner=solver_2 conf=0.82
+2026-07-03 23:23:00 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_009: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:23:00 | INFO    | ======================================================================
+2026-07-03 23:23:00 | INFO    | PROBLEM prob_010 [physics_reasoning / hard]
+2026-07-03 23:23:04 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:23:07 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:23:10 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:23:13 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:23:13 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:23:19 | INFO    | stage1 | solver_1 (claude) -> answer='The horizontal range of the projectile is approximately 35.3 meters.' conf=0.95
+2026-07-03 23:23:25 | INFO    | stage1 | solver_2 (gemini) -> answer='57.8' conf=0.90
+2026-07-03 23:23:31 | INFO    | stage1 | solver_3 (grok) -> answer='35.3' conf=0.95
+2026-07-03 23:23:38 | INFO    | stage2 | solver_1 -> solver_2 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:23:44 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:23:54 | INFO    | stage2 | solver_2 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:24:02 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (3 errors flagged)
+2026-07-03 23:24:10 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (3 errors flagged)
+2026-07-03 23:24:19 | INFO    | stage2 | solver_3 -> solver_2 : fundamentally_wrong (2 errors flagged)
+2026-07-03 23:24:35 | INFO    | stage3 | solver_1 refined -> answer='The horizontal range of the projectile is approximately 35.3 meters.' conf=0.90 (was_correct=True now_correct=True)
+2026-07-03 23:24:48 | INFO    | stage3 | solver_2 refined -> answer='35.3' conf=0.95 (was_correct=False now_correct=True)
+2026-07-03 23:24:57 | INFO    | stage3 | solver_3 refined -> answer='35.4' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:25:10 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.93
+2026-07-03 23:25:14 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_010: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:25:14 | INFO    | ======================================================================
+2026-07-03 23:25:14 | INFO    | PROBLEM prob_011 [physics_reasoning / medium]
+2026-07-03 23:25:18 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:25:21 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:25:23 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:25:26 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:25:26 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:25:32 | INFO    | stage1 | solver_1 (claude) -> answer='The total current drawn from the battery is 2 amperes.' conf=0.95
+2026-07-03 23:25:38 | INFO    | stage1 | solver_2 (gemini) -> answer='The total current drawn from the battery is 2 amperes.' conf=0.95
+2026-07-03 23:25:44 | INFO    | stage1 | solver_3 (grok) -> answer='The total current drawn from the battery is 2 amperes.' conf=1.00
+2026-07-03 23:25:56 | INFO    | stage2 | solver_1 -> solver_2 : fundamentally_wrong (3 errors flagged)
+2026-07-03 23:26:02 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:26:10 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:26:15 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (0 errors flagged)
+2026-07-03 23:26:21 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-03 23:26:30 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:26:42 | INFO    | stage3 | solver_1 refined -> answer='The total current drawn from the battery is 2 amperes.' conf=0.97 (was_correct=True now_correct=True)
+2026-07-03 23:26:54 | INFO    | stage3 | solver_2 refined -> answer='The total current drawn from the battery is 2 amperes.' conf=0.90 (was_correct=True now_correct=True)
+2026-07-03 23:27:04 | INFO    | stage3 | solver_3 refined -> answer='The total current drawn from the battery is 2 amperes.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:27:20 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.78
+2026-07-03 23:27:26 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_011: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:27:26 | INFO    | ======================================================================
+2026-07-03 23:27:26 | INFO    | PROBLEM prob_012 [physics_reasoning / medium]
+2026-07-03 23:27:30 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:27:34 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:27:37 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:27:40 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:27:40 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:27:46 | INFO    | stage1 | solver_1 (claude) -> answer='4.9' conf=0.95
+2026-07-03 23:27:52 | INFO    | stage1 | solver_2 (gemini) -> answer='4.9 m/s²' conf=1.00
+2026-07-03 23:27:59 | INFO    | stage1 | solver_3 (grok) -> answer='4.9' conf=1.00
+2026-07-03 23:28:03 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-03 23:28:11 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:28:17 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:28:22 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:28:30 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:28:34 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (0 errors flagged)
+2026-07-03 23:28:45 | INFO    | stage3 | solver_1 refined -> answer='4.9' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:28:52 | INFO    | stage3 | solver_2 refined -> answer='4.9 m/s²' conf=1.00 (was_correct=True now_correct=True)
+2026-07-03 23:29:01 | INFO    | stage3 | solver_3 refined -> answer='4.9 m/s²' conf=1.00 (was_correct=True now_correct=True)
+2026-07-03 23:29:08 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.92
+2026-07-03 23:29:15 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_012: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:29:15 | INFO    | ======================================================================
+2026-07-03 23:29:15 | INFO    | PROBLEM prob_013 [physics_reasoning / hard]
+2026-07-03 23:29:18 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:29:20 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:29:23 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:29:26 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:29:26 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:29:31 | INFO    | stage1 | solver_1 (claude) -> answer='4.00e-19 J' conf=0.95
+2026-07-03 23:29:36 | INFO    | stage1 | solver_2 (gemini) -> answer='3.98e-19 J' conf=0.95
+2026-07-03 23:29:42 | INFO    | stage1 | solver_3 (grok) -> answer='3.98e-19 J' conf=0.95
+2026-07-03 23:29:49 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:29:57 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:30:07 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:30:13 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:30:19 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:30:24 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:30:33 | INFO    | stage3 | solver_1 refined -> answer='3.98e-19 J' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:30:43 | INFO    | stage3 | solver_2 refined -> answer='4.0e-19 J' conf=0.90 (was_correct=True now_correct=True)
+2026-07-03 23:30:52 | INFO    | stage3 | solver_3 refined -> answer='4.0e-19 J' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:31:03 | INFO    | stage4 | judge=gpt-4 winner=solver_3 conf=0.96
+2026-07-03 23:31:08 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_013: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:31:08 | INFO    | ======================================================================
+2026-07-03 23:31:08 | INFO    | PROBLEM prob_014 [physics_reasoning / hard]
+2026-07-03 23:31:11 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:31:14 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:31:16 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:31:20 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:31:20 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:31:25 | INFO    | stage1 | solver_1 (claude) -> answer='0.628 seconds' conf=0.95
+2026-07-03 23:31:31 | INFO    | stage1 | solver_2 (gemini) -> answer='0.628' conf=0.95
+2026-07-03 23:31:37 | INFO    | stage1 | solver_3 (grok) -> answer='0.628 seconds' conf=0.95
+2026-07-03 23:31:42 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:31:48 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:31:53 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:31:58 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:36:00 | ERROR   | model=grok | stage=stage2_review | attempt 1: response was not valid JSON
+2026-07-03 23:36:04 | INFO    | model=grok | stage=stage2_review | recovered on attempt 2
+2026-07-03 23:36:05 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:36:12 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:36:21 | INFO    | stage3 | solver_1 refined -> answer='0.628 seconds' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:36:29 | INFO    | stage3 | solver_2 refined -> answer='0.628' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:36:39 | INFO    | stage3 | solver_3 refined -> answer='0.628 seconds' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:36:48 | INFO    | stage4 | judge=gpt-4 winner=solver_3 conf=0.90
+2026-07-03 23:36:53 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_014: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:36:53 | INFO    | ======================================================================
+2026-07-03 23:36:53 | INFO    | PROBLEM prob_015 [logic_puzzle / very_hard]
+2026-07-03 23:36:55 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.80
+2026-07-03 23:36:57 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:37:00 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:37:02 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:37:02 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:37:07 | INFO    | stage1 | solver_1 (claude) -> answer='The German owns the fish.' conf=0.95
+2026-07-03 23:37:13 | INFO    | stage1 | solver_2 (gemini) -> answer='The German owns the fish.' conf=0.95
+2026-07-03 23:37:18 | INFO    | stage1 | solver_3 (grok) -> answer='The German owns the fish.' conf=0.95
+2026-07-03 23:37:25 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:37:31 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:37:36 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:37:43 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:37:50 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:38:00 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:38:10 | INFO    | stage3 | solver_1 refined -> answer='The German owns the fish.' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:38:23 | INFO    | stage3 | solver_2 refined -> answer='The German owns the fish, as deduced through the elimination of all other possibilities based on the clues provided.' conf=0.95 (was_correct=True now_correct=True)
+2026-07-03 23:38:34 | INFO    | stage3 | solver_3 refined -> answer='The German owns the fish.' conf=0.90 (was_correct=True now_correct=True)
+2026-07-03 23:38:46 | INFO    | stage4 | judge=gpt-4 winner=solver_3 conf=0.72
+2026-07-03 23:38:51 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_015: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:38:51 | INFO    | ======================================================================
+2026-07-03 23:38:51 | INFO    | PROBLEM prob_016 [logic_puzzle / hard]
+2026-07-03 23:38:53 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:38:56 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:38:58 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:39:01 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:39:01 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:39:05 | INFO    | stage1 | solver_1 (claude) -> answer='A is a knave, and B is a knight.' conf=0.95
+2026-07-03 23:39:10 | INFO    | stage1 | solver_2 (gemini) -> answer='A is a knave and B is a knight.' conf=0.95
+2026-07-03 23:39:14 | INFO    | stage1 | solver_3 (grok) -> answer='A is a knave and B is a knight.' conf=0.95
+2026-07-03 23:39:21 | INFO    | stage2 | solver_1 -> solver_2 : correct (0 errors flagged)
+2026-07-03 23:39:27 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:39:35 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:39:39 | INFO    | stage2 | solver_2 -> solver_3 : correct (0 errors flagged)
+2026-07-03 23:39:42 | INFO    | stage2 | solver_3 -> solver_1 : correct (0 errors flagged)
+2026-07-03 23:39:45 | INFO    | stage2 | solver_3 -> solver_2 : correct (0 errors flagged)
+2026-07-03 23:39:53 | INFO    | stage3 | solver_1 refined -> answer='A is a knave, and B is a knight.' conf=0.98 (was_correct=False now_correct=False)
+2026-07-03 23:40:02 | INFO    | stage3 | solver_2 refined -> answer='A is a knave and B is a knight.' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:40:11 | INFO    | stage3 | solver_3 refined -> answer='A is a knave and B is a knight.' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:40:17 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.92
+2026-07-03 23:40:22 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_016: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:40:22 | INFO    | ======================================================================
+2026-07-03 23:40:22 | INFO    | PROBLEM prob_017 [logic_puzzle / hard]
+2026-07-03 23:40:26 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:40:28 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:40:31 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:40:34 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:40:34 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:40:39 | INFO    | stage1 | solver_1 (claude) -> answer='The minimum number of one-way river crossings needed is 7.' conf=0.95
+2026-07-03 23:40:48 | INFO    | stage1 | solver_2 (gemini) -> answer='The minimum number of one-way river crossings needed is 7.' conf=0.95
+2026-07-03 23:40:53 | INFO    | stage1 | solver_3 (grok) -> answer='The minimum number of one-way river crossings needed is 7.' conf=0.95
+2026-07-03 23:40:59 | INFO    | stage2 | solver_1 -> solver_2 : fundamentally_wrong (1 errors flagged)
+2026-07-03 23:41:06 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:41:10 | INFO    | stage2 | solver_2 -> solver_1 : fundamentally_wrong (1 errors flagged)
+2026-07-03 23:41:16 | INFO    | stage2 | solver_2 -> solver_3 : fundamentally_wrong (1 errors flagged)
+2026-07-03 23:41:22 | INFO    | stage2 | solver_3 -> solver_1 : fundamentally_wrong (1 errors flagged)
+2026-07-03 23:41:27 | INFO    | stage2 | solver_3 -> solver_2 : fundamentally_wrong (1 errors flagged)
+2026-07-03 23:41:38 | INFO    | stage3 | solver_1 refined -> answer='The minimum number of one-way river crossings needed is 5.' conf=0.90 (was_correct=True now_correct=False)
+2026-07-03 23:41:47 | INFO    | stage3 | solver_2 refined -> answer='The minimum number of one-way river crossings needed is 6.' conf=0.95 (was_correct=True now_correct=False)
+2026-07-03 23:41:53 | INFO    | stage3 | solver_3 refined -> answer='The minimum number of one-way river crossings needed is 6.' conf=0.90 (was_correct=True now_correct=False)
+2026-07-03 23:42:08 | INFO    | stage4 | judge=gpt-4 winner=solver_2 conf=0.55
+2026-07-03 23:42:14 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_017: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:42:14 | INFO    | ======================================================================
+2026-07-03 23:42:14 | INFO    | PROBLEM prob_018 [logic_puzzle / hard]
+2026-07-03 23:42:16 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-03 23:42:19 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-03 23:42:23 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-03 23:42:25 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-03 23:42:25 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-03 23:42:35 | INFO    | stage1 | solver_1 (claude) -> answer='The minimum number of people required in a room to ensure that the probability of at least two sharing a birthday exceeds 50% is 23.' conf=0.95
+2026-07-03 23:42:42 | INFO    | stage1 | solver_2 (gemini) -> answer='The minimum number of people that must be in a room so that the probability that at least two share a birthday exceeds 50% is 23.' conf=0.95
+2026-07-03 23:42:50 | INFO    | stage1 | solver_3 (grok) -> answer='The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.' conf=0.95
+2026-07-03 23:43:00 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:43:06 | INFO    | stage2 | solver_1 -> solver_3 : promising_but_flawed (0 errors flagged)
+2026-07-03 23:43:12 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:43:18 | INFO    | stage2 | solver_2 -> solver_3 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:43:26 | INFO    | stage2 | solver_3 -> solver_1 : promising_but_flawed (1 errors flagged)
+2026-07-03 23:43:33 | INFO    | stage2 | solver_3 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-03 23:43:50 | INFO    | stage3 | solver_1 refined -> answer='The minimum number of people required in a room to ensure that the probability of at least two sharing a birthday exceeds 50% is 23.' conf=0.98 (was_correct=True now_correct=True)
+2026-07-03 23:45:03 | ERROR   | model=gemini | stage=stage3_refine | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:46:17 | ERROR   | model=gemini | stage=stage3_refine | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:47:30 | ERROR   | model=gemini | stage=stage3_refine | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:47:31 | ERROR   | model=gemini | stage=stage3_refine | FAILED to obtain a valid response after 3 attempts
+2026-07-03 23:47:31 | WARNING | stage3 | solver_2 refinement failed; keeping original solution
+2026-07-03 23:48:43 | ERROR   | model=grok | stage=stage3_refine | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:49:57 | ERROR   | model=grok | stage=stage3_refine | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:51:10 | ERROR   | model=grok | stage=stage3_refine | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:51:11 | ERROR   | model=grok | stage=stage3_refine | FAILED to obtain a valid response after 3 attempts
+2026-07-03 23:51:11 | WARNING | stage3 | solver_3 refinement failed; keeping original solution
+2026-07-03 23:52:23 | ERROR   | model=gpt-4 | stage=stage4_judge | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:53:37 | ERROR   | model=gpt-4 | stage=stage4_judge | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:54:50 | ERROR   | model=gpt-4 | stage=stage4_judge | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:54:51 | ERROR   | model=gpt-4 | stage=stage4_judge | FAILED to obtain a valid response after 3 attempts
+2026-07-03 23:54:51 | WARNING | stage4 | judge failed/invalid; falling back to highest-confidence solver
+2026-07-03 23:54:51 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.98
+2026-07-03 23:56:04 | ERROR   | model=gpt-4 | stage=baseline_single | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:57:17 | ERROR   | model=gpt-4 | stage=baseline_single | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:58:31 | ERROR   | model=gpt-4 | stage=baseline_single | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-03 23:58:32 | ERROR   | model=gpt-4 | stage=baseline_single | FAILED to obtain a valid response after 3 attempts
+2026-07-03 23:58:32 | ERROR   | model=pipeline | stage=process_problem | unhandled error on prob_018: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\README.md\\by_problem'
+2026-07-03 23:58:32 | INFO    | ======================================================================
+2026-07-03 23:58:32 | INFO    | PROBLEM prob_019 [logic_puzzle / very_hard]
+2026-07-03 23:59:45 | ERROR   | model=gpt-4 | stage=stage0_assessment | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:00:59 | ERROR   | model=gpt-4 | stage=stage0_assessment | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:02:12 | ERROR   | model=gpt-4 | stage=stage0_assessment | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:02:13 | ERROR   | model=gpt-4 | stage=stage0_assessment | FAILED to obtain a valid response after 3 attempts
+2026-07-04 00:02:13 | WARNING | model=gpt-4 | stage0 | using fallback assessment
+2026-07-04 00:02:13 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.50
+2026-07-04 00:03:26 | ERROR   | model=claude | stage=stage0_assessment | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:04:39 | ERROR   | model=claude | stage=stage0_assessment | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:05:52 | ERROR   | model=claude | stage=stage0_assessment | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:05:53 | ERROR   | model=claude | stage=stage0_assessment | FAILED to obtain a valid response after 3 attempts
+2026-07-04 00:05:53 | WARNING | model=claude | stage0 | using fallback assessment
+2026-07-04 00:05:53 | INFO    | stage0 | claude assessed: Judge conf=0.50
+2026-07-04 00:07:06 | ERROR   | model=gemini | stage=stage0_assessment | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:08:20 | ERROR   | model=gemini | stage=stage0_assessment | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:09:33 | ERROR   | model=gemini | stage=stage0_assessment | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:09:34 | ERROR   | model=gemini | stage=stage0_assessment | FAILED to obtain a valid response after 3 attempts
+2026-07-04 00:09:34 | WARNING | model=gemini | stage0 | using fallback assessment
+2026-07-04 00:09:34 | INFO    | stage0 | gemini assessed: Judge conf=0.50
+2026-07-04 00:10:46 | ERROR   | model=grok | stage=stage0_assessment | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:12:00 | ERROR   | model=grok | stage=stage0_assessment | generation error on attempt 2: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:13:12 | ERROR   | model=grok | stage=stage0_assessment | generation error on attempt 3: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-07-04 00:13:13 | ERROR   | model=grok | stage=stage0_assessment | FAILED to obtain a valid response after 3 attempts
+2026-07-04 00:13:13 | WARNING | model=grok | stage0 | using fallback assessment
+2026-07-04 00:13:13 | INFO    | stage0 | grok assessed: Judge conf=0.50
+2026-07-04 00:13:13 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}

@@ -1,0 +1,46 @@
+{
+  "gpt-4": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.8
+    },
+    "reasoning": "I am confident in my ability to derive the period of oscillation for a mass-spring system using the formula, but I can also evaluate potential solutions if necessary."
+  },
+  "claude": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.8
+    },
+    "reasoning": "I am confident in my ability to derive the period of oscillation for a mass-spring system using the formula T = 2π√(m/k), which I can calculate directly. My evaluation skills are solid, but my primary strength lies in performing the calculations accurately."
+  },
+  "gemini": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to derive the period of oscillation using the formula for simple harmonic motion, which involves mass and spring stiffness. My ability to evaluate solutions is good, but the derivation requires more precision."
+  },
+  "grok": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to independently calculate the period of oscillation using the formula for simple harmonic motion, while my evaluation skills are slightly less certain."
+  }
+}

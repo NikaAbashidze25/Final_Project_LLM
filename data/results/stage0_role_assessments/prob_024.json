@@ -1,0 +1,46 @@
+{
+  "gpt-4": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to derive the Nash equilibrium in a Cournot duopoly, as it requires a rigorous analytical approach that I excel at. While I can evaluate solutions, my strengths lie more in producing a complete and accurate solution."
+  },
+  "claude": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-equipped to derive the Nash equilibrium in a Cournot duopoly setting, though I can also evaluate solutions if needed."
+  },
+  "gemini": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.8
+    },
+    "reasoning": "I am well-equipped to derive the Nash equilibrium solution for this Cournot duopoly problem through rigorous calculations and economic theory."
+  },
+  "grok": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-equipped to derive the Nash equilibrium for the Cournot duopoly problem, utilizing my understanding of game theory and economic principles."
+  }
+}

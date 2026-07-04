@@ -1,0 +1,103 @@
+[
+  {
+    "solver_id": "solver_1",
+    "model": "claude",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Calculate the probability that no two people share a birthday for a given number of people.",
+        "reasoning": "To find the minimum number of people such that the probability of at least two sharing a birthday exceeds 50%, I first compute the complementary probability that no two people share a birthday. For n people, the probability that the first person has a unique birthday is 1 (365/365), the second person has a unique birthday is 364/365, the third is 363/365, and so forth, until the nth person."
+      },
+      {
+        "step": 2,
+        "description": "Set up the inequality for the complementary probability and solve for n.",
+        "reasoning": "The probability that no two people share a birthday can be calculated as (365/365) * (364/365) * (363/365) * ... * ((365-n+1)/365). This product must be set to be less than 0.5 to ensure that the probability of at least two people sharing a birthday exceeds 50%. I can compute this stepwise for increasing values of n."
+      },
+      {
+        "step": 3,
+        "description": "Iterate through values of n to find the smallest n for which the complementary probability is less than 0.5.",
+        "reasoning": "I start from 1 person and increase n, computing the complementary probability until it falls below 0.5. This involves multiplying fractions and checking the product against 0.5."
+      }
+    ],
+    "final_answer": "The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.",
+    "confidence": 0.95,
+    "assumptions": [
+      "There are 365 equally likely birthdays and no leap years are considered.",
+      "The birthdays are uniformly distributed across the 365 days.",
+      "People are assumed to be randomly selected with respect to their birthdays."
+    ],
+    "_correct": true
+  },
+  {
+    "solver_id": "solver_2",
+    "model": "gemini",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Calculate the probability that no two people share a birthday.",
+        "reasoning": "To find the minimum number of people required such that the probability of at least two sharing a birthday exceeds 50%, it's easier to calculate the complementary probability: the probability that no two people share a birthday (P(no shared birthday)). For n people, the first person can have any of the 365 days as their birthday, the second person can have any of the remaining 364 days, and so on."
+      },
+      {
+        "step": 2,
+        "description": "Derive the formula for P(no shared birthday).",
+        "reasoning": "The probability that no two out of n people share a birthday can be calculated as: P(no shared birthday) = (365/365) * (364/365) * (363/365) * ... * ((365 - n + 1)/365). This simplifies to P(no shared birthday) = 365! / (365^n * (365 - n)!) for n <= 365. As n increases, this probability decreases."
+      },
+      {
+        "step": 3,
+        "description": "Set up the inequality to find the minimum n.",
+        "reasoning": "We want to find the smallest integer n such that P(no shared birthday) < 0.5. This means we need to compute P(no shared birthday) for increasing values of n until the condition is satisfied."
+      },
+      {
+        "step": 4,
+        "description": "Calculate P(no shared birthday) for increasing values of n.",
+        "reasoning": "Using the formula derived, we can compute P(no shared birthday) for n = 1, 2, 3, ..., until we find the first n where P(no shared birthday) < 0.5. We find that for n = 23, P(no shared birthday) is approximately 0.4927, which is indeed less than 0.5."
+      },
+      {
+        "step": 5,
+        "description": "Confirm the result and finalize.",
+        "reasoning": "Since n = 23 is the first integer where the probability of at least two people sharing a birthday exceeds 50%, we conclude that this is the minimum number of people required."
+      }
+    ],
+    "final_answer": "The minimum number of people required in a room so that the probability that at least two share a birthday exceeds 50% is 23.",
+    "confidence": 0.95,
+    "assumptions": [
+      "There are 365 equally likely birthdays (ignoring leap years).",
+      "All birthdays are independent events."
+    ],
+    "_correct": true
+  },
+  {
+    "solver_id": "solver_3",
+    "model": "grok",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Calculate the probability that all people have different birthdays.",
+        "reasoning": "To find the probability that at least two people share a birthday, we first calculate the probability that all selected people have unique birthdays. If there are n people in the room, the probability that all n birthdays are unique can be computed using the formula: P(different) = 365/365 * 364/365 * 363/365 ... for n people. This can be simplified to P(different) = (365! / (365-n)! ) / 365^n."
+      },
+      {
+        "step": 2,
+        "description": "Determine when the probability of at least one shared birthday exceeds 50%.",
+        "reasoning": "The probability that at least two people share a birthday is given by P(shared) = 1 - P(different). We need to find the smallest n such that P(shared) > 0.5, which translates to P(different) < 0.5."
+      },
+      {
+        "step": 3,
+        "description": "Compute P(different) for increasing values of n until the condition is met.",
+        "reasoning": "Starting with n = 1, calculate P(different) for n = 1, 2, 3, ..., until P(different) < 0.5 is found. This involves multiplying the fractions computed in step 1 iteratively."
+      },
+      {
+        "step": 4,
+        "description": "Identify the minimum number of people satisfying the condition.",
+        "reasoning": "By calculating these probabilities, we find that for n = 23, P(shared) exceeds 50%. Therefore, the minimum number of people required is 23."
+      }
+    ],
+    "final_answer": "23",
+    "confidence": 0.95,
+    "assumptions": [
+      "All birthdays are uniformly distributed across 365 days.",
+      "The year is non-leap, having exactly 365 days.",
+      "No two people can share a birthday more than once."
+    ],
+    "_correct": true
+  }
+]

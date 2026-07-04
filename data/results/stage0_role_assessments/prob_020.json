@@ -1,0 +1,46 @@
+{
+  "gpt-4": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-suited to solve logical puzzles by applying deductive reasoning step-by-step to arrive at the conclusion. My confidence is high in producing a complete solution, but slightly lower in evaluating others' solutions."
+  },
+  "claude": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to analyze and derive the logical steps needed to solve this puzzle independently, though I can also evaluate solutions if necessary."
+  },
+  "gemini": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in logically deriving the solution to the puzzle based on the clues provided, but I can also evaluate solutions if needed."
+  },
+  "grok": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to analyze the logical deductions and solve the puzzle step-by-step, while I possess a slightly lower confidence in evaluating others' solutions."
+  }
+}

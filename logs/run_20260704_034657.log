@@ -1,0 +1,5 @@
+2026-07-04 03:46:57 | INFO    | Backend=openai | free_mode=True | provider=openai | seed=42
+2026-07-04 03:46:57 | INFO    | Resuming run over 7 problem(s): prob_019 .. prob_025
+2026-07-04 03:46:57 | INFO    | ======================================================================
+2026-07-04 03:46:57 | INFO    | PROBLEM prob_019 [logic_puzzle / very_hard]
+2026-07-04 03:48:14 | ERROR   | model=gpt-4 | stage=stage0_assessment | generation error on attempt 1: OpenAI call failed after backoff: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}

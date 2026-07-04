@@ -1,0 +1,27 @@
+2026-07-04 04:41:13 | INFO    | Backend=openai | free_mode=True | provider=openai | seed=42
+2026-07-04 04:41:13 | INFO    | ======================================================================
+2026-07-04 04:41:13 | INFO    | PROBLEM prob_001 [mathematical_reasoning / hard]
+2026-07-04 04:41:18 | INFO    | stage0 | gpt-4 assessed: Judge conf=0.70
+2026-07-04 04:41:21 | INFO    | stage0 | claude assessed: Judge conf=0.70
+2026-07-04 04:41:24 | INFO    | stage0 | gemini assessed: Judge conf=0.70
+2026-07-04 04:41:27 | INFO    | stage0 | grok assessed: Judge conf=0.70
+2026-07-04 04:41:27 | INFO    | stage0.5 | role assignment: {'Solver_1': 'claude', 'Solver_2': 'gemini', 'Solver_3': 'grok', 'Judge': 'gpt-4'}
+2026-07-04 04:41:33 | INFO    | stage1 | solver_1 (claude) -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' conf=0.95
+2026-07-04 04:41:39 | INFO    | stage1 | solver_2 (gemini) -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' conf=0.90
+2026-07-04 04:41:46 | INFO    | stage1 | solver_3 (grok) -> answer='There are 233 ways to tile a 3x8 rectangle completely with 2x1 dominoes.' conf=0.95
+2026-07-04 04:41:52 | WARNING | stage2 | solver_1 -> solver_2 : overridden 'fundamentally_wrong' -> 'promising_but_flawed' (reviewer's own answer agrees with the reviewed answer)
+2026-07-04 04:41:52 | INFO    | stage2 | solver_1 -> solver_2 : promising_but_flawed (2 errors flagged)
+2026-07-04 04:41:58 | INFO    | stage2 | solver_1 -> solver_3 : fundamentally_wrong (2 errors flagged)
+2026-07-04 04:42:04 | INFO    | stage2 | solver_2 -> solver_1 : promising_but_flawed (2 errors flagged)
+2026-07-04 04:42:10 | INFO    | stage2 | solver_2 -> solver_3 : fundamentally_wrong (1 errors flagged)
+2026-07-04 04:42:14 | INFO    | stage2 | solver_3 -> solver_1 : fundamentally_wrong (2 errors flagged)
+2026-07-04 04:42:21 | INFO    | stage2 | solver_3 -> solver_2 : fundamentally_wrong (2 errors flagged)
+2026-07-04 04:42:32 | INFO    | stage3 | solver_1 refined -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' conf=0.85 (was_correct=True now_correct=True)
+2026-07-04 04:42:43 | INFO    | stage3 | solver_2 refined -> answer='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' conf=0.80 (was_correct=True now_correct=True)
+2026-07-04 04:42:58 | INFO    | stage3 | solver_3 refined -> answer='There are 153 ways to tile a 3x8 rectangle completely with 2x1 dominoes.' conf=0.85 (was_correct=False now_correct=True)
+2026-07-04 04:43:24 | INFO    | stage4 | judge=gpt-4 winner=solver_1 conf=0.68
+2026-07-04 04:43:31 | INFO    | DONE prob_001 | final='The number of ways to tile a 3x8 rectangle completely with 2x1 dominoes is 153.' correct=True | single=True voting=True
+2026-07-04 04:43:31 | INFO    | ======================================================================
+2026-07-04 04:43:31 | INFO    | RUN COMPLETE | 1 problem(s) this run | accuracy = 1/1 = 100.0%
+2026-07-04 04:43:31 | INFO    | OVERALL | 25/25 problems recorded | accuracy = 22/25 = 88.0%
+2026-07-04 04:43:31 | INFO    | Results written to data\results\final_answers.json

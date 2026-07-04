@@ -592,6 +592,16 @@ python src/pipeline.py --problems data/problems.json --output data/results/
 python src/pipeline.py --problem-id prob_001 --problems data/problems.json --output data/results/
 ```
 
+### Resume a run from problem X to problem Y (e.g. after hitting an API rate limit)
+
+```bash
+python src/pipeline.py --start-id prob_010 --end-id prob_015 --problems data/problems.json --output data/results/
+```
+
+`--end-id` can be omitted to run through to the last problem. Results are merged into
+the existing `data/results/final_answers.json` (problems outside the range are left
+untouched), so you don't need to rerun problems you've already paid for.
+
 ### Run evaluation and generate all plots
 
 ```bash

@@ -1,14 +1,8 @@
 {
-  "judge_model": "gpt-4",
-  "winner": "solver_1",
-  "confidence": 0.92,
-  "ranking": {
-    "solver_1": 1,
-    "solver_3": 2,
-    "solver_2": 3
-  },
-  "reasoning": "Solver 1 provided a clear and correct solution in both the original and refined versions, addressing critiques effectively and improving clarity in the derivation steps. Solver 3 showed improvement in the refinement but made a critical error in the reaction function leading to an incorrect Nash equilibrium. Solver 2, while initially correct in the reaction functions, ultimately provided an incorrect equilibrium outcome and did not improve sufficiently under critique.",
-  "correct_answer": "Each firm produces 30 units in the Nash equilibrium.",
-  "notes": "Solver 1's refinement significantly improved clarity and correctness, while solver 3's final output diverged from the correct answer. Solver 2's assumptions about equilibrium quantities led to critical errors that were not adequately addressed in their refinement.",
+  "judge_model": "gemini",
+  "winner": "solver_3",
+  "confidence": 0.9,
+  "reasoning": "The correct Cournot solution is obtained from profit π_i = (100 - q1 - q2 - 10)q_i = (90 - q1 - q2)q_i. The first-order conditions are 90 - 2q1 - q2 = 0 and 90 - q1 - 2q2 = 0, yielding q1 = q2 = 30. Solver_3 is the strongest overall: its original answer was correct, and its refined solution clearly improves the algebraic exposition, derives the first-order conditions correctly, solves the system transparently, and remains internally consistent. Solver_2 is also correct and nearly as strong; its refined solution has the right setup and answer, though the algebraic wording in Step 5 is a bit less clean than solver_3's. Solver_1's original solution was correct, but its refinement is internally inconsistent and introduces an erroneous symmetry-based derivative that gives q = 22.5 before later asserting the correct answer of 30. This makes solver_1's refined reasoning substantially weaker despite the correct final answer.",
+  "correct_answer": "Each firm produces 30 units in the Cournot Nash equilibrium.",
   "_fallback": false
 }

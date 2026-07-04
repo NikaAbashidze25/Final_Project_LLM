@@ -1,0 +1,2 @@
+2026-07-04 04:31:22 | INFO    | Backend=openai | free_mode=True | provider=openai | seed=42
+2026-07-04 04:31:22 | ERROR   | Invalid --output path 'data/results/c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\.env': [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'data\\results\\c:\\Users\\nikau\\OneDrive\\Desktop\\Final_Project_LLM_clone\\.env'

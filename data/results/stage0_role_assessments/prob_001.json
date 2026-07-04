@@ -8,7 +8,7 @@
       "Solver": 0.9,
       "Judge": 0.7
     },
-    "reasoning": "I am confident in my ability to derive a step-by-step solution for tiling problems based on combinatorial techniques, though my evaluation skills are slightly less certain."
+    "reasoning": "I am confident in my ability to derive a complete solution to the tiling problem using combinatorial techniques, though I can also evaluate solutions effectively if needed."
   },
   "claude": {
     "role_preferences": [
@@ -19,7 +19,7 @@
       "Solver": 0.9,
       "Judge": 0.7
     },
-    "reasoning": "I am well-equipped to derive a mathematical solution to the domino tiling problem, utilizing combinatorial techniques or recurrence relations. My confidence in evaluating others' solutions is lower, as my strength lies in generating rigorous solutions."
+    "reasoning": "I am well-equipped to derive the solution step-by-step using combinatorial techniques, particularly for tiling problems, although I can also evaluate solutions if needed."
   },
   "gemini": {
     "role_preferences": [
@@ -30,7 +30,7 @@
       "Solver": 0.9,
       "Judge": 0.7
     },
-    "reasoning": "I am confident in my ability to independently derive the solution to the tiling problem using combinatorial techniques and recurrence relations, while my evaluation skills are strong but slightly less certain."
+    "reasoning": "I am confident in my ability to derive the solution for tiling problems using combinatorial methods, but I also possess the capability to evaluate solutions critically if necessary."
   },
   "grok": {
     "role_preferences": [
@@ -41,6 +41,6 @@
       "Solver": 0.9,
       "Judge": 0.7
     },
-    "reasoning": "I am confident in my ability to derive a complete solution for the domino tiling problem, as it involves combinatorial reasoning and recurrence relations, areas where I excel. However, my critical evaluation skills are slightly less strong in comparison."
+    "reasoning": "I am well-suited to solve combinatorial problems and can provide a detailed step-by-step solution for tiling the rectangle. My confidence in judging is lower because critical evaluation requires comparing multiple solutions which may involve more subjective analysis."
   }
 }

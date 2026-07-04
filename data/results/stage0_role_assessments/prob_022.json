@@ -1,0 +1,46 @@
+{
+  "gpt-4": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am well-equipped to analyze the strategic choices in game theory and derive the Nash equilibrium for this Prisoner's Dilemma scenario."
+  },
+  "claude": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in analyzing the strategic interactions in the Prisoner's Dilemma to derive the Nash equilibrium, while my ability to evaluate others' solutions is slightly less strong."
+  },
+  "gemini": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.8
+    },
+    "reasoning": "I am confident in my ability to analyze the game and derive the Nash equilibrium due to my understanding of game theory principles, while also being capable of evaluating solutions critically."
+  },
+  "grok": {
+    "role_preferences": [
+      "Solver",
+      "Judge"
+    ],
+    "confidence_by_role": {
+      "Solver": 0.9,
+      "Judge": 0.7
+    },
+    "reasoning": "I am confident in my ability to rigorously analyze the payoff structure and derive the Nash equilibrium for the given problem, but my evaluation skills are slightly less certain."
+  }
+}

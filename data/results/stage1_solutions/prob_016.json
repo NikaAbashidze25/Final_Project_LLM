@@ -1,0 +1,91 @@
+[
+  {
+    "solver_id": "solver_1",
+    "model": "claude",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Analyze the statement made by person A.",
+        "reasoning": "Person A claims, 'We are both knaves.' If A is telling the truth (thus a knight), then the statement must be true, which contradicts the nature of knights (who cannot be knaves). Therefore, A cannot be a knight."
+      },
+      {
+        "step": 2,
+        "description": "Consider the implications if A is lying (thus a knave).",
+        "reasoning": "If A is a knave, then the statement 'We are both knaves' is false. This means that at least one of A or B is not a knave. Since A is a knave, B must be a knight."
+      },
+      {
+        "step": 3,
+        "description": "Conclude the identities of A and B.",
+        "reasoning": "Since A is a knave and B is a knight, this satisfies the conditions of the problem without contradictions."
+      }
+    ],
+    "final_answer": "A is a knave and B is a knight.",
+    "confidence": 0.95,
+    "assumptions": [
+      "A's statement is the only information available to determine the truth about A and B.",
+      "Knights always tell the truth while knaves always lie."
+    ],
+    "_correct": true
+  },
+  {
+    "solver_id": "solver_2",
+    "model": "gemini",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Analyze the statement made by person A.",
+        "reasoning": "Person A claims, 'We are both knaves.' If A is a knight, the statement must be true, meaning A and B are both knaves, which is a contradiction since knights cannot be knaves. Therefore, A cannot be a knight."
+      },
+      {
+        "step": 2,
+        "description": "Determine the implications if A is a knave.",
+        "reasoning": "If A is a knave, the statement 'We are both knaves' is false. This means at least one of them is not a knave, which implies that B must be a knight."
+      },
+      {
+        "step": 3,
+        "description": "Conclude the identities of A and B.",
+        "reasoning": "Since A is a knave and B must be a knight (because A's statement being false leads to B not being a knave), we establish that A is a knave and B is a knight."
+      }
+    ],
+    "final_answer": "A is a knave and B is a knight.",
+    "confidence": 1.0,
+    "assumptions": [
+      "The statements made by A and B are the only information provided to determine their identities.",
+      "Knights always tell the truth and knaves always lie without exception."
+    ],
+    "_correct": true
+  },
+  {
+    "solver_id": "solver_3",
+    "model": "grok",
+    "solution_steps": [
+      {
+        "step": 1,
+        "description": "Analyze the statement made by person A.",
+        "reasoning": "Person A claims, 'We are both knaves.' We must determine the implications of this statement based on the nature of knights and knaves."
+      },
+      {
+        "step": 2,
+        "description": "Consider the case where A is a knight (truth-teller).",
+        "reasoning": "If A is a knight, then the statement 'We are both knaves' must be true. However, this creates a contradiction because a knight cannot be a knave. Therefore, A cannot be a knight."
+      },
+      {
+        "step": 3,
+        "description": "Consider the case where A is a knave (liar).",
+        "reasoning": "If A is a knave, then the statement 'We are both knaves' is false. If this statement is false, it implies that at least one of them is not a knave. Since A is a knave, B must be a knight."
+      },
+      {
+        "step": 4,
+        "description": "Conclude the identities of A and B.",
+        "reasoning": "Since A is a knave and B is a knight, this scenario fits the rules of the knights and knaves problem. Thus, A is a knave and B is a knight."
+      }
+    ],
+    "final_answer": "A is a knave and B is a knight.",
+    "confidence": 0.95,
+    "assumptions": [
+      "A's statement is the only information provided about A and B.",
+      "Knights always tell the truth and knaves always lie."
+    ],
+    "_correct": true
+  }
+]

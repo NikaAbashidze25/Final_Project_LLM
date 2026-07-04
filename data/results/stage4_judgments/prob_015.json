@@ -1,14 +1,8 @@
 {
   "judge_model": "gpt-4",
   "winner": "solver_1",
-  "confidence": 0.85,
-  "ranking": {
-    "solver_1": 1,
-    "solver_3": 2,
-    "solver_2": 3
-  },
-  "reasoning": "Solver 1 demonstrated the strongest improvement in response to critiques by providing specific references to clues and outlining how they impact the grid setup. Although there were still some weaknesses in justifying the deductions, the level of detail added addressed major concerns raised by reviewers. Solver 3 also improved effectively but lacked some depth in the final connections drawn. Solver 2, while making necessary refinements, still did not fully clarify how the clues interacted, leading to a weaker overall solution.",
+  "confidence": 0.62,
+  "reasoning": "All three solvers give the correct final answer for the classic Einstein/Zebra riddle: the German owns the fish. However, all three original solutions were largely procedural descriptions rather than actual derivations, and the peer reviews correctly identified the main weakness: insufficient step-by-step application of the 15 clues. In the refined solutions, solver_1 improves the most: it adds several concrete clue examples, including the Brit/red house, green/white, green/coffee, German/Prince, Norwegian/blue adjacency, and gives a direct elimination-based final link that the German's house is the remaining one with the fish. This is still not a full proof or completed grid, but it is the strongest justification among the three. Solver_2 also improves by adding examples such as Brit/red, Norwegian/first house, and green-left-of-white, but its final fish deduction remains very generic and does not show the actual elimination path. Solver_3 makes the least substantive refinement, adding only minimal illustrative examples and still relying on an asserted completed grid. Ranking: 1) solver_1, 2) solver_2, 3) solver_3. The winner is therefore solver_1, though confidence is only moderate because all solvers reached the correct answer but none provided a fully transparent derivation.",
   "correct_answer": "The German owns the fish.",
-  "notes": "All solvers provided correct final answers, but the refinement quality varied, impacting their rankings. The confidence level reflects the overall improvement shown in the refined solutions.",
   "_fallback": false
 }
